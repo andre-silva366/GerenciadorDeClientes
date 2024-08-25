@@ -28,75 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonCadastrarCliente = new Button();
-            buttonAtualizarCliente = new Button();
-            buttonBuscarCliente = new Button();
-            buttonExcluirUsuario = new Button();
-            comboBox1 = new ComboBox();
+            buttonCadastrar = new Button();
+            buttonAtualizar = new Button();
+            buttonBuscar = new Button();
+            buttonExcluir = new Button();
+            comboBoxSelectTable = new ComboBox();
             textBoxSelectNome = new TextBox();
+            dataGridViewClientes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             SuspendLayout();
             // 
-            // buttonCadastrarCliente
+            // buttonCadastrar
             // 
-            buttonCadastrarCliente.BackColor = Color.RoyalBlue;
-            buttonCadastrarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonCadastrarCliente.ForeColor = SystemColors.ButtonFace;
-            buttonCadastrarCliente.Location = new Point(450, 43);
-            buttonCadastrarCliente.Name = "buttonCadastrarCliente";
-            buttonCadastrarCliente.Size = new Size(142, 53);
-            buttonCadastrarCliente.TabIndex = 3;
-            buttonCadastrarCliente.Text = "Cadastrar";
-            buttonCadastrarCliente.UseVisualStyleBackColor = false;
+            buttonCadastrar.BackColor = Color.RoyalBlue;
+            buttonCadastrar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCadastrar.ForeColor = SystemColors.ButtonFace;
+            buttonCadastrar.Location = new Point(450, 43);
+            buttonCadastrar.Name = "buttonCadastrar";
+            buttonCadastrar.Size = new Size(142, 53);
+            buttonCadastrar.TabIndex = 3;
+            buttonCadastrar.Text = "Cadastrar";
+            buttonCadastrar.UseVisualStyleBackColor = false;
             // 
-            // buttonAtualizarCliente
+            // buttonAtualizar
             // 
-            buttonAtualizarCliente.BackColor = Color.Goldenrod;
-            buttonAtualizarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAtualizarCliente.ForeColor = SystemColors.ButtonFace;
-            buttonAtualizarCliente.Location = new Point(607, 43);
-            buttonAtualizarCliente.Name = "buttonAtualizarCliente";
-            buttonAtualizarCliente.Size = new Size(142, 53);
-            buttonAtualizarCliente.TabIndex = 4;
-            buttonAtualizarCliente.Text = "Atualizar";
-            buttonAtualizarCliente.UseVisualStyleBackColor = false;
+            buttonAtualizar.BackColor = Color.Goldenrod;
+            buttonAtualizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAtualizar.ForeColor = SystemColors.ButtonFace;
+            buttonAtualizar.Location = new Point(607, 43);
+            buttonAtualizar.Name = "buttonAtualizar";
+            buttonAtualizar.Size = new Size(142, 53);
+            buttonAtualizar.TabIndex = 4;
+            buttonAtualizar.Text = "Atualizar";
+            buttonAtualizar.UseVisualStyleBackColor = false;
             // 
-            // buttonBuscarCliente
+            // buttonBuscar
             // 
-            buttonBuscarCliente.BackColor = Color.Green;
-            buttonBuscarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonBuscarCliente.ForeColor = SystemColors.ButtonFace;
-            buttonBuscarCliente.Location = new Point(289, 43);
-            buttonBuscarCliente.Name = "buttonBuscarCliente";
-            buttonBuscarCliente.Size = new Size(142, 53);
-            buttonBuscarCliente.TabIndex = 2;
-            buttonBuscarCliente.Text = "Buscar";
-            buttonBuscarCliente.UseVisualStyleBackColor = false;
+            buttonBuscar.BackColor = Color.Green;
+            buttonBuscar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonBuscar.ForeColor = SystemColors.ButtonFace;
+            buttonBuscar.Location = new Point(289, 43);
+            buttonBuscar.Name = "buttonBuscar";
+            buttonBuscar.Size = new Size(142, 53);
+            buttonBuscar.TabIndex = 2;
+            buttonBuscar.Text = "Buscar";
+            buttonBuscar.UseVisualStyleBackColor = false;
+            buttonBuscar.Click += buttonBuscarCliente_Click;
             // 
-            // buttonExcluirUsuario
+            // buttonExcluir
             // 
-            buttonExcluirUsuario.BackColor = Color.Red;
-            buttonExcluirUsuario.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonExcluirUsuario.ForeColor = SystemColors.ButtonFace;
-            buttonExcluirUsuario.Location = new Point(762, 43);
-            buttonExcluirUsuario.Name = "buttonExcluirUsuario";
-            buttonExcluirUsuario.Size = new Size(142, 53);
-            buttonExcluirUsuario.TabIndex = 5;
-            buttonExcluirUsuario.Text = "Excluir";
-            buttonExcluirUsuario.UseVisualStyleBackColor = false;
+            buttonExcluir.BackColor = Color.Red;
+            buttonExcluir.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonExcluir.ForeColor = SystemColors.ButtonFace;
+            buttonExcluir.Location = new Point(762, 43);
+            buttonExcluir.Name = "buttonExcluir";
+            buttonExcluir.Size = new Size(142, 53);
+            buttonExcluir.TabIndex = 5;
+            buttonExcluir.Text = "Excluir";
+            buttonExcluir.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // comboBoxSelectTable
             // 
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Aplicativo", "Cliente", "Revendedor", "Servidor" });
-            comboBox1.Location = new Point(12, 12);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(255, 29);
-            comboBox1.Sorted = true;
-            comboBox1.TabIndex = 0;
-            comboBox1.TabStop = false;
-            comboBox1.Text = "Selecione";
+            comboBoxSelectTable.Cursor = Cursors.Hand;
+            comboBoxSelectTable.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            comboBoxSelectTable.FormattingEnabled = true;
+            comboBoxSelectTable.Items.AddRange(new object[] { "Aplicativo", "Cliente", "Revendedor", "Servidor" });
+            comboBoxSelectTable.Location = new Point(12, 12);
+            comboBoxSelectTable.Name = "comboBoxSelectTable";
+            comboBoxSelectTable.Size = new Size(255, 29);
+            comboBoxSelectTable.Sorted = true;
+            comboBoxSelectTable.TabIndex = 0;
+            comboBoxSelectTable.TabStop = false;
+            comboBoxSelectTable.Text = "Selecione";
             // 
             // textBoxSelectNome
             // 
@@ -107,29 +110,41 @@
             textBoxSelectNome.Size = new Size(255, 29);
             textBoxSelectNome.TabIndex = 1;
             // 
+            // dataGridViewClientes
+            // 
+            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.Location = new Point(12, 117);
+            dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.Size = new Size(892, 568);
+            dataGridViewClientes.TabIndex = 6;
+            dataGridViewClientes.Visible = false;
+            // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(916, 710);
+            Controls.Add(dataGridViewClientes);
             Controls.Add(textBoxSelectNome);
-            Controls.Add(comboBox1);
-            Controls.Add(buttonExcluirUsuario);
-            Controls.Add(buttonBuscarCliente);
-            Controls.Add(buttonAtualizarCliente);
-            Controls.Add(buttonCadastrarCliente);
+            Controls.Add(comboBoxSelectTable);
+            Controls.Add(buttonExcluir);
+            Controls.Add(buttonBuscar);
+            Controls.Add(buttonAtualizar);
+            Controls.Add(buttonCadastrar);
             Name = "FormTelaPrincipal";
             Text = "Tela Principal";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        public Button buttonCadastrarCliente;
-        public Button buttonAtualizarCliente;
-        public Button buttonBuscarCliente;
-        private Button buttonExcluirUsuario;
-        public ComboBox comboBox1;
+        public Button buttonCadastrar;
+        public Button buttonAtualizar;
+        public Button buttonBuscar;
+        private Button buttonExcluir;
+        public ComboBox comboBoxSelectTable;
         private TextBox textBoxSelectNome;
+        public DataGridView dataGridViewClientes;
     }
 }

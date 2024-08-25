@@ -60,3 +60,7 @@ Quantidade INT,
 Valor DECIMAL(5,2)
 
 )
+
+ALTER TABLE Plano
+ADD MacOuEmail VARCHAR (100),
+DeviceKeyOuSenha VARCHAR (100)
