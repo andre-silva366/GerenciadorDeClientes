@@ -32,10 +32,17 @@
             buttonAtualizar = new Button();
             buttonBuscar = new Button();
             buttonExcluir = new Button();
-            comboBoxSelectTable = new ComboBox();
             textBoxSelectNome = new TextBox();
-            dataGridViewClientes = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
+            dataGridView = new DataGridView();
+            buttonLimpar = new Button();
+            radioButtonAplicativo = new RadioButton();
+            radioButtonServidor = new RadioButton();
+            radioButtonPlano = new RadioButton();
+            radioButtonRevendedor = new RadioButton();
+            radioButtonCliente = new RadioButton();
+            checkBoxBuscaPorNome = new CheckBox();
+            buttonBuscarPorNome = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // buttonCadastrar
@@ -43,22 +50,23 @@
             buttonCadastrar.BackColor = Color.RoyalBlue;
             buttonCadastrar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCadastrar.ForeColor = SystemColors.ButtonFace;
-            buttonCadastrar.Location = new Point(450, 43);
+            buttonCadastrar.Location = new Point(159, 61);
             buttonCadastrar.Name = "buttonCadastrar";
             buttonCadastrar.Size = new Size(142, 53);
-            buttonCadastrar.TabIndex = 3;
+            buttonCadastrar.TabIndex = 7;
             buttonCadastrar.Text = "Cadastrar";
             buttonCadastrar.UseVisualStyleBackColor = false;
+            buttonCadastrar.Click += buttonCadastrar_Click;
             // 
             // buttonAtualizar
             // 
             buttonAtualizar.BackColor = Color.Goldenrod;
             buttonAtualizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizar.ForeColor = SystemColors.ButtonFace;
-            buttonAtualizar.Location = new Point(607, 43);
+            buttonAtualizar.Location = new Point(307, 61);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(142, 53);
-            buttonAtualizar.TabIndex = 4;
+            buttonAtualizar.TabIndex = 8;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
             // 
@@ -67,73 +75,164 @@
             buttonBuscar.BackColor = Color.Green;
             buttonBuscar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBuscar.ForeColor = SystemColors.ButtonFace;
-            buttonBuscar.Location = new Point(289, 43);
+            buttonBuscar.Location = new Point(11, 61);
             buttonBuscar.Name = "buttonBuscar";
             buttonBuscar.Size = new Size(142, 53);
-            buttonBuscar.TabIndex = 2;
+            buttonBuscar.TabIndex = 6;
             buttonBuscar.Text = "Buscar";
             buttonBuscar.UseVisualStyleBackColor = false;
-            buttonBuscar.Click += buttonBuscarCliente_Click;
+            buttonBuscar.Click += buttonBuscar_Click;
             // 
             // buttonExcluir
             // 
             buttonExcluir.BackColor = Color.Red;
             buttonExcluir.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluir.ForeColor = SystemColors.ButtonFace;
-            buttonExcluir.Location = new Point(762, 43);
+            buttonExcluir.Location = new Point(455, 61);
             buttonExcluir.Name = "buttonExcluir";
             buttonExcluir.Size = new Size(142, 53);
-            buttonExcluir.TabIndex = 5;
+            buttonExcluir.TabIndex = 9;
             buttonExcluir.Text = "Excluir";
             buttonExcluir.UseVisualStyleBackColor = false;
-            // 
-            // comboBoxSelectTable
-            // 
-            comboBoxSelectTable.Cursor = Cursors.Hand;
-            comboBoxSelectTable.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            comboBoxSelectTable.FormattingEnabled = true;
-            comboBoxSelectTable.Items.AddRange(new object[] { "Aplicativo", "Cliente", "Revendedor", "Servidor" });
-            comboBoxSelectTable.Location = new Point(12, 12);
-            comboBoxSelectTable.Name = "comboBoxSelectTable";
-            comboBoxSelectTable.Size = new Size(255, 29);
-            comboBoxSelectTable.Sorted = true;
-            comboBoxSelectTable.TabIndex = 0;
-            comboBoxSelectTable.TabStop = false;
-            comboBoxSelectTable.Text = "Selecione";
             // 
             // textBoxSelectNome
             // 
             textBoxSelectNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxSelectNome.Location = new Point(12, 67);
+            textBoxSelectNome.Location = new Point(669, 18);
             textBoxSelectNome.Name = "textBoxSelectNome";
-            textBoxSelectNome.PlaceholderText = "Ex: Andre";
-            textBoxSelectNome.Size = new Size(255, 29);
-            textBoxSelectNome.TabIndex = 1;
+            textBoxSelectNome.PlaceholderText = "Digite aqui!";
+            textBoxSelectNome.Size = new Size(235, 29);
+            textBoxSelectNome.TabIndex = 5;
             // 
-            // dataGridViewClientes
+            // dataGridView
             // 
-            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewClientes.Location = new Point(12, 117);
-            dataGridViewClientes.Name = "dataGridViewClientes";
-            dataGridViewClientes.Size = new Size(892, 568);
-            dataGridViewClientes.TabIndex = 6;
-            dataGridViewClientes.Visible = false;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(12, 135);
+            dataGridView.Name = "dataGridView";
+            dataGridView.Size = new Size(892, 548);
+            dataGridView.TabIndex = 11;
+            dataGridView.Visible = false;
+            // 
+            // buttonLimpar
+            // 
+            buttonLimpar.BackColor = Color.SeaShell;
+            buttonLimpar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLimpar.ForeColor = SystemColors.ActiveCaptionText;
+            buttonLimpar.Location = new Point(603, 61);
+            buttonLimpar.Name = "buttonLimpar";
+            buttonLimpar.Size = new Size(142, 53);
+            buttonLimpar.TabIndex = 10;
+            buttonLimpar.Text = "Limpar";
+            buttonLimpar.UseVisualStyleBackColor = false;
+            buttonLimpar.Click += buttonLimpar_Click;
+            // 
+            // radioButtonAplicativo
+            // 
+            radioButtonAplicativo.AutoSize = true;
+            radioButtonAplicativo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            radioButtonAplicativo.Location = new Point(318, 19);
+            radioButtonAplicativo.Name = "radioButtonAplicativo";
+            radioButtonAplicativo.Size = new Size(101, 25);
+            radioButtonAplicativo.TabIndex = 3;
+            radioButtonAplicativo.TabStop = true;
+            radioButtonAplicativo.Text = "Aplicativo";
+            radioButtonAplicativo.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonServidor
+            // 
+            radioButtonServidor.AutoSize = true;
+            radioButtonServidor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            radioButtonServidor.Location = new Point(221, 19);
+            radioButtonServidor.Name = "radioButtonServidor";
+            radioButtonServidor.Size = new Size(91, 25);
+            radioButtonServidor.TabIndex = 2;
+            radioButtonServidor.TabStop = true;
+            radioButtonServidor.Text = "Servidor";
+            radioButtonServidor.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPlano
+            // 
+            radioButtonPlano.AutoSize = true;
+            radioButtonPlano.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            radioButtonPlano.Location = new Point(425, 19);
+            radioButtonPlano.Name = "radioButtonPlano";
+            radioButtonPlano.Size = new Size(68, 25);
+            radioButtonPlano.TabIndex = 4;
+            radioButtonPlano.TabStop = true;
+            radioButtonPlano.Text = "Plano";
+            radioButtonPlano.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRevendedor
+            // 
+            radioButtonRevendedor.AutoSize = true;
+            radioButtonRevendedor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            radioButtonRevendedor.Location = new Point(97, 19);
+            radioButtonRevendedor.Name = "radioButtonRevendedor";
+            radioButtonRevendedor.Size = new Size(118, 25);
+            radioButtonRevendedor.TabIndex = 1;
+            radioButtonRevendedor.TabStop = true;
+            radioButtonRevendedor.Text = "Revendedor";
+            radioButtonRevendedor.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCliente
+            // 
+            radioButtonCliente.AutoSize = true;
+            radioButtonCliente.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            radioButtonCliente.Location = new Point(12, 19);
+            radioButtonCliente.Name = "radioButtonCliente";
+            radioButtonCliente.Size = new Size(79, 25);
+            radioButtonCliente.TabIndex = 0;
+            radioButtonCliente.TabStop = true;
+            radioButtonCliente.Text = "Cliente";
+            radioButtonCliente.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBuscaPorNome
+            // 
+            checkBoxBuscaPorNome.AutoSize = true;
+            checkBoxBuscaPorNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxBuscaPorNome.Location = new Point(516, 20);
+            checkBoxBuscaPorNome.Name = "checkBoxBuscaPorNome";
+            checkBoxBuscaPorNome.Size = new Size(147, 25);
+            checkBoxBuscaPorNome.TabIndex = 12;
+            checkBoxBuscaPorNome.Text = "Busca por nome";
+            checkBoxBuscaPorNome.UseVisualStyleBackColor = true;
+            // 
+            // buttonBuscarPorNome
+            // 
+            buttonBuscarPorNome.BackColor = Color.DarkGreen;
+            buttonBuscarPorNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonBuscarPorNome.ForeColor = SystemColors.ButtonFace;
+            buttonBuscarPorNome.Location = new Point(762, 62);
+            buttonBuscarPorNome.Name = "buttonBuscarPorNome";
+            buttonBuscarPorNome.Size = new Size(142, 53);
+            buttonBuscarPorNome.TabIndex = 13;
+            buttonBuscarPorNome.Text = "Buscar por nome";
+            buttonBuscarPorNome.UseVisualStyleBackColor = false;
+            buttonBuscarPorNome.Click += buttonBuscarPorNome_Click;
             // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(916, 710);
-            Controls.Add(dataGridViewClientes);
+            Controls.Add(buttonBuscarPorNome);
+            Controls.Add(checkBoxBuscaPorNome);
+            Controls.Add(radioButtonPlano);
+            Controls.Add(radioButtonRevendedor);
+            Controls.Add(radioButtonAplicativo);
+            Controls.Add(radioButtonServidor);
+            Controls.Add(radioButtonCliente);
+            Controls.Add(buttonLimpar);
+            Controls.Add(dataGridView);
             Controls.Add(textBoxSelectNome);
-            Controls.Add(comboBoxSelectTable);
             Controls.Add(buttonExcluir);
             Controls.Add(buttonBuscar);
             Controls.Add(buttonAtualizar);
             Controls.Add(buttonCadastrar);
             Name = "FormTelaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Principal";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,9 +241,16 @@
         public Button buttonCadastrar;
         public Button buttonAtualizar;
         public Button buttonBuscar;
-        private Button buttonExcluir;
-        public ComboBox comboBoxSelectTable;
         private TextBox textBoxSelectNome;
-        public DataGridView dataGridViewClientes;
+        public DataGridView dataGridView;
+        private RadioButton radioButtonAplicativo;
+        private RadioButton radioButtonServidor;
+        private RadioButton radioButtonPlano;
+        private RadioButton radioButtonRevendedor;
+        private RadioButton radioButtonCliente;
+        public CheckBox checkBoxBuscaPorNome;
+        public Button buttonBuscarPorNome;
+        public Button buttonExcluir;
+        public Button buttonLimpar;
     }
 }

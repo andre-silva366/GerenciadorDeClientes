@@ -3,8 +3,8 @@
 public interface IRepository<T> where T : class
 {
     ICollection<T> GetAll();
-    T GetByName(string name);
-    T Insert(T t);
-    T Update(T t);
+    ICollection<T> GetByName(string name);
+    void Insert(T t);
+    void Update(T t);
     void Delete(T t);
 }

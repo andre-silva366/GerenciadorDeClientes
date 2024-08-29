@@ -1,25 +1,35 @@
 ﻿using GerenciadorDeClientes.Models;
+using System.Data.SqlClient;
+using System.Data;
+using Dapper;
 
 namespace GerenciadorDeClientes.Repositories;
 
 public class PlanoRepository : IRepository<Plano>
 {
+    private readonly IDbConnection _connection;
+
+    public PlanoRepository()
+    {
+        _connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+    }
+
     public ICollection<Plano> GetAll()
     {
-        throw new NotImplementedException();
+        return _connection.Query<Plano>("SELECT * FROM Plano;").ToList();
     }
 
-    public Plano GetByName(string name)
+    public ICollection<Plano> GetByName(string name)
     {
         throw new NotImplementedException();
     }
 
-    public Plano Insert(Plano t)
+    public void Insert(Plano t)
     {
         throw new NotImplementedException();
     }
 
-    public Plano Update(Plano t)
+    public void Update(Plano t)
     {
         throw new NotImplementedException();
     }

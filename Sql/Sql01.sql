@@ -64,3 +64,17 @@ Valor DECIMAL(5,2)
 ALTER TABLE Plano
 ADD MacOuEmail VARCHAR (100),
 DeviceKeyOuSenha VARCHAR (100)
+
+SELECT * FROM Servidor;
+
+SELECT * FROM Revendedor;
+
+INSERT INTO Revendedor (Id,Nome,Telefone,Email,IdServidor,DataUltimaCompra,Quantidade,Valor)
+VALUES (1,'Francisco Almeida','11 5656-5656','fra@gmail.com',1,'2024-08-26',100,1000);
+
+ALTER TABLE Revendedor ALTER COLUMN Valor DECIMAL (10,2);
+
+SELECT * FROM Clientes;
+
+INSERT INTO Clientes(Nome,Telefone,Email,IdPlano) VALUES ('Carlos Lacerda','55 92323-2323','car@gmail.com',2);
+

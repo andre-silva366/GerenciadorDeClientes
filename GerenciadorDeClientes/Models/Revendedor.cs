@@ -6,11 +6,10 @@ public class Revendedor
     public string Nome { get; set; }
     public string Telefone { get; set; }
     public string Email { get; set; }
-    public DateTimeOffset DataUltimaCompra { get; set; }
+    public DateTime DataUltimaCompra { get; set; }
     public int Quantidade { get; set; }
     public decimal Valor { get; set; }
 
     public int IdServidor { get; set; }
 
-    public Servidor Servidor { get; set; }
 }
