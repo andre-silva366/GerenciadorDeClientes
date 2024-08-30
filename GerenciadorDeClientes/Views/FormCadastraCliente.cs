@@ -53,7 +53,7 @@ public partial class FormCadastraCliente : Form
     {
         Cliente cliente = new Cliente();
         cliente.Nome = textBoxNome.Text;
-        cliente.Telefone = textBoxTelefone.Text;
+        cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
         cliente.Email = textBoxEmail.Text;
         cliente.DeviceKeyOuSenha = textBoxDeviceKeySenha.Text;
         cliente.MacOuEmail = textBoxMacEmail.Text;
@@ -64,7 +64,7 @@ public partial class FormCadastraCliente : Form
         {
             MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        if (cliente.Telefone.Length < 10)
+        if (cliente.Telefone.Length < 11)
         {
             MessageBox.Show("Preencha o Telefone", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -81,13 +81,16 @@ public partial class FormCadastraCliente : Form
     private void buttonLimparCadastroCliente_Click(object sender, EventArgs e)
     {
         textBoxNome.Text = "";
-        textBoxTelefone.Text = "";
+        maskedTextBoxTelefoneCliente.Text = "";
         textBoxEmail.Text = "";
         textBoxMacEmail.Text = "";
         textBoxDeviceKeySenha.Text = "";
     }
 
-   
+    public void FecharCadastraCliente()
+    {
+        Close();
+    }
 }
 
 

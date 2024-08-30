@@ -49,10 +49,19 @@ public partial class FormCadastraRevendedor : Form
                 revendedorRepository.Insert(revendedor);
             }
         }
-        catch(Exception)
+        catch (Exception)
         {
-            MessageBox.Show("Preencha os campos corretamente!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show("Preencha os campos corretamente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
+
+    }
+
+    private void buttonLimparCadastroRevendedor_Click(object sender, EventArgs e)
+    {
+        textBoxNomeRev.Text = "";
+        maskedTextBoxTelefoneRev.Text = "";
+        textBoxEmailRev.Text = "";
+        textBoxValorCompraRev.Text = "";
+        numericUpDownQtdeCredRev.Value = 1;
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonLimparCadastroCliente = new Button();
+            buttonLimparCadastroRevendedor = new Button();
             buttonSalvarCliente = new Button();
             dateTimePickerUltimaCompraRev = new DateTimePicker();
             label1 = new Label();
@@ -48,18 +48,19 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownQtdeCredRev).BeginInit();
             SuspendLayout();
             // 
-            // buttonLimparCadastroCliente
+            // buttonLimparCadastroRevendedor
             // 
-            buttonLimparCadastroCliente.BackColor = Color.White;
-            buttonLimparCadastroCliente.Cursor = Cursors.Hand;
-            buttonLimparCadastroCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimparCadastroCliente.ForeColor = Color.Black;
-            buttonLimparCadastroCliente.Location = new Point(13, 402);
-            buttonLimparCadastroCliente.Name = "buttonLimparCadastroCliente";
-            buttonLimparCadastroCliente.Size = new Size(201, 61);
-            buttonLimparCadastroCliente.TabIndex = 77;
-            buttonLimparCadastroCliente.Text = "Limpar";
-            buttonLimparCadastroCliente.UseVisualStyleBackColor = false;
+            buttonLimparCadastroRevendedor.BackColor = Color.White;
+            buttonLimparCadastroRevendedor.Cursor = Cursors.Hand;
+            buttonLimparCadastroRevendedor.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLimparCadastroRevendedor.ForeColor = Color.Black;
+            buttonLimparCadastroRevendedor.Location = new Point(13, 402);
+            buttonLimparCadastroRevendedor.Name = "buttonLimparCadastroRevendedor";
+            buttonLimparCadastroRevendedor.Size = new Size(201, 61);
+            buttonLimparCadastroRevendedor.TabIndex = 8;
+            buttonLimparCadastroRevendedor.Text = "Limpar";
+            buttonLimparCadastroRevendedor.UseVisualStyleBackColor = false;
+            buttonLimparCadastroRevendedor.Click += buttonLimparCadastroRevendedor_Click;
             // 
             // buttonSalvarCliente
             // 
@@ -70,7 +71,7 @@
             buttonSalvarCliente.Location = new Point(263, 402);
             buttonSalvarCliente.Name = "buttonSalvarCliente";
             buttonSalvarCliente.Size = new Size(201, 61);
-            buttonSalvarCliente.TabIndex = 76;
+            buttonSalvarCliente.TabIndex = 7;
             buttonSalvarCliente.Text = "Salvar ";
             buttonSalvarCliente.UseVisualStyleBackColor = false;
             buttonSalvarCliente.Click += buttonSalvarCliente_Click;
@@ -83,7 +84,7 @@
             dateTimePickerUltimaCompraRev.MinDate = new DateTime(1960, 8, 27, 0, 0, 0, 0);
             dateTimePickerUltimaCompraRev.Name = "dateTimePickerUltimaCompraRev";
             dateTimePickerUltimaCompraRev.Size = new Size(245, 23);
-            dateTimePickerUltimaCompraRev.TabIndex = 73;
+            dateTimePickerUltimaCompraRev.TabIndex = 4;
             dateTimePickerUltimaCompraRev.Value = new DateTime(2024, 8, 27, 0, 0, 0, 0);
             // 
             // label1
@@ -132,7 +133,7 @@
             comboBoxServidorRev.Location = new Point(108, 203);
             comboBoxServidorRev.Name = "comboBoxServidorRev";
             comboBoxServidorRev.Size = new Size(308, 29);
-            comboBoxServidorRev.TabIndex = 62;
+            comboBoxServidorRev.TabIndex = 3;
             // 
             // labelTelefone
             // 
@@ -150,7 +151,7 @@
             textBoxEmailRev.Location = new Point(108, 156);
             textBoxEmailRev.Name = "textBoxEmailRev";
             textBoxEmailRev.Size = new Size(308, 29);
-            textBoxEmailRev.TabIndex = 59;
+            textBoxEmailRev.TabIndex = 2;
             // 
             // labelEmail
             // 
@@ -168,7 +169,7 @@
             textBoxNomeRev.Location = new Point(108, 56);
             textBoxNomeRev.Name = "textBoxNomeRev";
             textBoxNomeRev.Size = new Size(308, 29);
-            textBoxNomeRev.TabIndex = 57;
+            textBoxNomeRev.TabIndex = 0;
             // 
             // labelNome
             // 
@@ -189,7 +190,6 @@
             labelDadosClientes.Size = new Size(303, 25);
             labelDadosClientes.TabIndex = 55;
             labelDadosClientes.Text = "Preencha os dados do Revendedor";
-            labelDadosClientes.Visible = false;
             // 
             // numericUpDownQtdeCredRev
             // 
@@ -199,7 +199,7 @@
             numericUpDownQtdeCredRev.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownQtdeCredRev.Name = "numericUpDownQtdeCredRev";
             numericUpDownQtdeCredRev.Size = new Size(244, 29);
-            numericUpDownQtdeCredRev.TabIndex = 78;
+            numericUpDownQtdeCredRev.TabIndex = 5;
             numericUpDownQtdeCredRev.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // textBoxValorCompraRev
@@ -208,7 +208,7 @@
             textBoxValorCompraRev.Location = new Point(172, 346);
             textBoxValorCompraRev.Name = "textBoxValorCompraRev";
             textBoxValorCompraRev.Size = new Size(245, 29);
-            textBoxValorCompraRev.TabIndex = 79;
+            textBoxValorCompraRev.TabIndex = 6;
             // 
             // maskedTextBoxTelefoneRev
             // 
@@ -218,7 +218,7 @@
             maskedTextBoxTelefoneRev.Mask = "(00) 90000 - 0000";
             maskedTextBoxTelefoneRev.Name = "maskedTextBoxTelefoneRev";
             maskedTextBoxTelefoneRev.Size = new Size(308, 29);
-            maskedTextBoxTelefoneRev.TabIndex = 80;
+            maskedTextBoxTelefoneRev.TabIndex = 1;
             // 
             // FormCadastraRevendedor
             // 
@@ -228,7 +228,7 @@
             Controls.Add(maskedTextBoxTelefoneRev);
             Controls.Add(textBoxValorCompraRev);
             Controls.Add(numericUpDownQtdeCredRev);
-            Controls.Add(buttonLimparCadastroCliente);
+            Controls.Add(buttonLimparCadastroRevendedor);
             Controls.Add(buttonSalvarCliente);
             Controls.Add(dateTimePickerUltimaCompraRev);
             Controls.Add(label1);
@@ -256,7 +256,7 @@
 
         #endregion
 
-        private Button buttonLimparCadastroCliente;
+        private Button buttonLimparCadastroRevendedor;
         private Button buttonSalvarCliente;
         public DateTimePicker dateTimePickerUltimaCompraRev;
         private Label label1;

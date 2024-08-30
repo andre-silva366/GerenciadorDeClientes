@@ -19,15 +19,18 @@ public class ClienteRepository : IRepository<Cliente>
 
     public ICollection<Cliente> GetAll()
     {
-        var clientes = _connection.Query<Cliente>("SELECT * FROM Clientes").ToList();
-        return clientes;
+        return  _connection.Query<Cliente>("SELECT * FROM Clientes").ToList();               
     }
 
     public ICollection<Cliente> GetByName(string nome)
     {
-        var query = $"SELECT * FROM Clientes WHERE Nome LIKE '{nome}%';";
-        var clientes = _connection.Query<Cliente>(query).ToList();
-        return clientes;
+        return  _connection.Query<Cliente>($"SELECT * FROM Clientes WHERE Nome LIKE '{nome}%';").ToList();        
+    }
+
+    public Cliente GetById(int id)
+    {
+        return _connection.QuerySingleOrDefault<Cliente>("SELECT * FROM Clientes WHERE Id = @Id;",new {Id = id});
+
     }
 
     public void Insert(Cliente cliente)
@@ -74,7 +77,7 @@ public class ClienteRepository : IRepository<Cliente>
 
             _connection.Execute(queryInsertCliente, parameters);
 
-            DialogResult result = MessageBox.Show("Cliente salvo com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cliente salvo com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
         catch(Exception ex)
@@ -94,4 +97,6 @@ public class ClienteRepository : IRepository<Cliente>
     {
         throw new NotImplementedException();
     }
+
+    
 }

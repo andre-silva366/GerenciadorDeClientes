@@ -16,17 +16,31 @@ public class PlanoRepository : IRepository<Plano>
 
     public ICollection<Plano> GetAll()
     {
-        return _connection.Query<Plano>("SELECT * FROM Plano;").ToList();
+        return _connection.Query<Plano>("SELECT * FROM Plano;").ToList();        
     }
 
-    public ICollection<Plano> GetByName(string name)
+    public ICollection<Plano> GetByName(string nome)
     {
-        throw new NotImplementedException();
+        return _connection.Query<Plano>($"SELECT * FROM Plano WHERE Descricao LIKE '{nome}%'").ToList();        
     }
 
-    public void Insert(Plano t)
+    public Plano GetById(int id)
     {
-        throw new NotImplementedException();
+        return _connection.QuerySingleOrDefault<Plano>("SELECT * FROM Plano WHERE Id = @Id", new { Id = id });
+    }
+
+    public void Insert(Plano plano)
+    {
+        try
+        {
+            _connection.Execute("INSERT INTO Plano (Descricao, Valor) VALUES (@Descricao, @Valor)", new { plano.Descricao, plano.Valor });
+
+            MessageBox.Show("Plano cadastrado com sucesso!","SUCESSO",MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        catch (Exception)
+        {
+            MessageBox.Show("Erro ao cadastrar plano!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 
     public void Update(Plano t)

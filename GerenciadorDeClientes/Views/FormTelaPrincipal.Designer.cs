@@ -53,7 +53,7 @@
             buttonCadastrar.Location = new Point(159, 61);
             buttonCadastrar.Name = "buttonCadastrar";
             buttonCadastrar.Size = new Size(142, 53);
-            buttonCadastrar.TabIndex = 7;
+            buttonCadastrar.TabIndex = 8;
             buttonCadastrar.Text = "Cadastrar";
             buttonCadastrar.UseVisualStyleBackColor = false;
             buttonCadastrar.Click += buttonCadastrar_Click;
@@ -66,9 +66,10 @@
             buttonAtualizar.Location = new Point(307, 61);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(142, 53);
-            buttonAtualizar.TabIndex = 8;
+            buttonAtualizar.TabIndex = 9;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
+            buttonAtualizar.Click += buttonAtualizar_Click;
             // 
             // buttonBuscar
             // 
@@ -78,7 +79,7 @@
             buttonBuscar.Location = new Point(11, 61);
             buttonBuscar.Name = "buttonBuscar";
             buttonBuscar.Size = new Size(142, 53);
-            buttonBuscar.TabIndex = 6;
+            buttonBuscar.TabIndex = 7;
             buttonBuscar.Text = "Buscar";
             buttonBuscar.UseVisualStyleBackColor = false;
             buttonBuscar.Click += buttonBuscar_Click;
@@ -91,7 +92,7 @@
             buttonExcluir.Location = new Point(455, 61);
             buttonExcluir.Name = "buttonExcluir";
             buttonExcluir.Size = new Size(142, 53);
-            buttonExcluir.TabIndex = 9;
+            buttonExcluir.TabIndex = 10;
             buttonExcluir.Text = "Excluir";
             buttonExcluir.UseVisualStyleBackColor = false;
             // 
@@ -102,14 +103,15 @@
             textBoxSelectNome.Name = "textBoxSelectNome";
             textBoxSelectNome.PlaceholderText = "Digite aqui!";
             textBoxSelectNome.Size = new Size(235, 29);
-            textBoxSelectNome.TabIndex = 5;
+            textBoxSelectNome.TabIndex = 6;
             // 
             // dataGridView
             // 
+            dataGridView.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Location = new Point(12, 135);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(892, 548);
+            dataGridView.Size = new Size(892, 531);
             dataGridView.TabIndex = 11;
             dataGridView.Visible = false;
             // 
@@ -121,7 +123,7 @@
             buttonLimpar.Location = new Point(603, 61);
             buttonLimpar.Name = "buttonLimpar";
             buttonLimpar.Size = new Size(142, 53);
-            buttonLimpar.TabIndex = 10;
+            buttonLimpar.TabIndex = 11;
             buttonLimpar.Text = "Limpar";
             buttonLimpar.UseVisualStyleBackColor = false;
             buttonLimpar.Click += buttonLimpar_Click;
@@ -193,7 +195,7 @@
             checkBoxBuscaPorNome.Location = new Point(516, 20);
             checkBoxBuscaPorNome.Name = "checkBoxBuscaPorNome";
             checkBoxBuscaPorNome.Size = new Size(147, 25);
-            checkBoxBuscaPorNome.TabIndex = 12;
+            checkBoxBuscaPorNome.TabIndex = 5;
             checkBoxBuscaPorNome.Text = "Busca por nome";
             checkBoxBuscaPorNome.UseVisualStyleBackColor = true;
             // 
@@ -205,7 +207,7 @@
             buttonBuscarPorNome.Location = new Point(762, 62);
             buttonBuscarPorNome.Name = "buttonBuscarPorNome";
             buttonBuscarPorNome.Size = new Size(142, 53);
-            buttonBuscarPorNome.TabIndex = 13;
+            buttonBuscarPorNome.TabIndex = 12;
             buttonBuscarPorNome.Text = "Buscar por nome";
             buttonBuscarPorNome.UseVisualStyleBackColor = false;
             buttonBuscarPorNome.Click += buttonBuscarPorNome_Click;
@@ -214,7 +216,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(916, 710);
+            ClientSize = new Size(918, 678);
             Controls.Add(buttonBuscarPorNome);
             Controls.Add(checkBoxBuscaPorNome);
             Controls.Add(radioButtonPlano);

@@ -38,7 +38,6 @@
             labelPlano = new Label();
             labelServidor = new Label();
             comboBoxServidor = new ComboBox();
-            textBoxTelefone = new TextBox();
             labelTelefone = new Label();
             textBoxEmail = new TextBox();
             labelEmail = new Label();
@@ -51,6 +50,7 @@
             dateTimePickerProximoPagamento = new DateTimePicker();
             buttonSalvarCliente = new Button();
             buttonLimparCadastroCliente = new Button();
+            maskedTextBoxTelefoneCliente = new MaskedTextBox();
             SuspendLayout();
             // 
             // textBoxDeviceKeySenha
@@ -58,8 +58,8 @@
             textBoxDeviceKeySenha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxDeviceKeySenha.Location = new Point(171, 407);
             textBoxDeviceKeySenha.Name = "textBoxDeviceKeySenha";
-            textBoxDeviceKeySenha.Size = new Size(244, 29);
-            textBoxDeviceKeySenha.TabIndex = 48;
+            textBoxDeviceKeySenha.Size = new Size(292, 29);
+            textBoxDeviceKeySenha.TabIndex = 7;
             // 
             // textBoxMacEmail
             // 
@@ -67,7 +67,7 @@
             textBoxMacEmail.Location = new Point(107, 352);
             textBoxMacEmail.Name = "textBoxMacEmail";
             textBoxMacEmail.Size = new Size(308, 29);
-            textBoxMacEmail.TabIndex = 47;
+            textBoxMacEmail.TabIndex = 6;
             // 
             // label9
             // 
@@ -96,7 +96,7 @@
             comboBoxAplicativo.Location = new Point(107, 300);
             comboBoxAplicativo.Name = "comboBoxAplicativo";
             comboBoxAplicativo.Size = new Size(308, 29);
-            comboBoxAplicativo.TabIndex = 44;
+            comboBoxAplicativo.TabIndex = 5;
             // 
             // label7
             // 
@@ -115,7 +115,7 @@
             comboBoxPlano.Location = new Point(107, 250);
             comboBoxPlano.Name = "comboBoxPlano";
             comboBoxPlano.Size = new Size(308, 29);
-            comboBoxPlano.TabIndex = 42;
+            comboBoxPlano.TabIndex = 4;
             // 
             // labelPlano
             // 
@@ -144,15 +144,7 @@
             comboBoxServidor.Location = new Point(107, 201);
             comboBoxServidor.Name = "comboBoxServidor";
             comboBoxServidor.Size = new Size(308, 29);
-            comboBoxServidor.TabIndex = 39;
-            // 
-            // textBoxTelefone
-            // 
-            textBoxTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxTelefone.Location = new Point(107, 105);
-            textBoxTelefone.Name = "textBoxTelefone";
-            textBoxTelefone.Size = new Size(308, 29);
-            textBoxTelefone.TabIndex = 38;
+            comboBoxServidor.TabIndex = 3;
             // 
             // labelTelefone
             // 
@@ -170,7 +162,7 @@
             textBoxEmail.Location = new Point(107, 154);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(308, 29);
-            textBoxEmail.TabIndex = 36;
+            textBoxEmail.TabIndex = 2;
             // 
             // labelEmail
             // 
@@ -188,7 +180,7 @@
             textBoxNome.Location = new Point(107, 54);
             textBoxNome.Name = "textBoxNome";
             textBoxNome.Size = new Size(308, 29);
-            textBoxNome.TabIndex = 34;
+            textBoxNome.TabIndex = 0;
             // 
             // labelNome
             // 
@@ -209,7 +201,6 @@
             labelDadosClientes.Size = new Size(262, 25);
             labelDadosClientes.TabIndex = 32;
             labelDadosClientes.Text = "Preencha os dados do Cliente";
-            labelDadosClientes.Visible = false;
             // 
             // label1
             // 
@@ -228,7 +219,7 @@
             dateTimePickerUltimoPagamento.MinDate = new DateTime(1960, 8, 27, 0, 0, 0, 0);
             dateTimePickerUltimoPagamento.Name = "dateTimePickerUltimoPagamento";
             dateTimePickerUltimoPagamento.Size = new Size(245, 23);
-            dateTimePickerUltimoPagamento.TabIndex = 50;
+            dateTimePickerUltimoPagamento.TabIndex = 8;
             dateTimePickerUltimoPagamento.Value = new DateTime(2024, 8, 27, 0, 0, 0, 0);
             // 
             // label2
@@ -248,7 +239,7 @@
             dateTimePickerProximoPagamento.MinDate = new DateTime(1900, 8, 27, 0, 0, 0, 0);
             dateTimePickerProximoPagamento.Name = "dateTimePickerProximoPagamento";
             dateTimePickerProximoPagamento.Size = new Size(245, 23);
-            dateTimePickerProximoPagamento.TabIndex = 52;
+            dateTimePickerProximoPagamento.TabIndex = 9;
             dateTimePickerProximoPagamento.Value = new DateTime(2024, 8, 27, 0, 0, 0, 0);
             // 
             // buttonSalvarCliente
@@ -260,7 +251,7 @@
             buttonSalvarCliente.Location = new Point(262, 593);
             buttonSalvarCliente.Name = "buttonSalvarCliente";
             buttonSalvarCliente.Size = new Size(201, 61);
-            buttonSalvarCliente.TabIndex = 53;
+            buttonSalvarCliente.TabIndex = 10;
             buttonSalvarCliente.Text = "Salvar ";
             buttonSalvarCliente.UseVisualStyleBackColor = false;
             buttonSalvarCliente.Click += buttonSalvarCliente_Click;
@@ -274,16 +265,27 @@
             buttonLimparCadastroCliente.Location = new Point(12, 593);
             buttonLimparCadastroCliente.Name = "buttonLimparCadastroCliente";
             buttonLimparCadastroCliente.Size = new Size(201, 61);
-            buttonLimparCadastroCliente.TabIndex = 54;
+            buttonLimparCadastroCliente.TabIndex = 11;
             buttonLimparCadastroCliente.Text = "Limpar";
             buttonLimparCadastroCliente.UseVisualStyleBackColor = false;
             buttonLimparCadastroCliente.Click += buttonLimparCadastroCliente_Click;
+            // 
+            // maskedTextBoxTelefoneCliente
+            // 
+            maskedTextBoxTelefoneCliente.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBoxTelefoneCliente.Location = new Point(107, 107);
+            maskedTextBoxTelefoneCliente.Mask = "(00) 00000 - 0000";
+            maskedTextBoxTelefoneCliente.Name = "maskedTextBoxTelefoneCliente";
+            maskedTextBoxTelefoneCliente.Size = new Size(308, 29);
+            maskedTextBoxTelefoneCliente.TabIndex = 1;
+            maskedTextBoxTelefoneCliente.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // FormCadastraCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(476, 666);
+            Controls.Add(maskedTextBoxTelefoneCliente);
             Controls.Add(buttonLimparCadastroCliente);
             Controls.Add(buttonSalvarCliente);
             Controls.Add(dateTimePickerProximoPagamento);
@@ -300,7 +302,6 @@
             Controls.Add(labelPlano);
             Controls.Add(labelServidor);
             Controls.Add(comboBoxServidor);
-            Controls.Add(textBoxTelefone);
             Controls.Add(labelTelefone);
             Controls.Add(textBoxEmail);
             Controls.Add(labelEmail);
@@ -337,13 +338,13 @@
         public DateTimePicker dateTimePickerProximoPagamento;
         private Button buttonSalvarCliente;
         public ComboBox comboBoxPlano;
-        public TextBox textBoxTelefone;
         public TextBox textBoxNome;
         public TextBox textBoxDeviceKeySenha;
         public TextBox textBoxMacEmail;
         public ComboBox comboBoxAplicativo;
         public ComboBox comboBoxServidor;
         public TextBox textBoxEmail;
-        private Button buttonLimparCadastroCliente;
+        private MaskedTextBox maskedTextBoxTelefoneCliente;
+        public Button buttonLimparCadastroCliente;
     }
 }

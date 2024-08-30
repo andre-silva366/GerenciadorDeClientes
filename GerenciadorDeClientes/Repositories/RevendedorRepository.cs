@@ -19,12 +19,17 @@ public class RevendedorRepository : IRepository<Revendedor>
 
     public ICollection<Revendedor> GetAll()
     {
-        return _connection.Query<Revendedor>("SELECT * FROM Revendedor").ToList();
+        return _connection.Query<Revendedor>("SELECT * FROM Revendedor").ToList();        
     }
 
-    public ICollection<Revendedor> GetByName(string name)
+    public ICollection<Revendedor> GetByName(string nome)
     {
-        throw new NotImplementedException();
+        return _connection.Query<Revendedor>($"SELECT * FROM Revendedor WHERE Nome LIKE '{nome}%';").ToList();        
+    }
+
+    public Revendedor GetById(int id)
+    {
+        return null;
     }
 
     public void Insert(Revendedor revendedor)
@@ -73,6 +78,6 @@ public class RevendedorRepository : IRepository<Revendedor>
     {
         throw new NotImplementedException();
     }
-
+    
 
 }
