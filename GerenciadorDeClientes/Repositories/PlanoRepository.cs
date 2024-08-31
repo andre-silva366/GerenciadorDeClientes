@@ -16,17 +16,38 @@ public class PlanoRepository : IRepository<Plano>
 
     public ICollection<Plano> GetAll()
     {
-        return _connection.Query<Plano>("SELECT * FROM Plano;").ToList();        
+        try
+        {
+            return _connection.Query<Plano>("SELECT * FROM Plano;").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public ICollection<Plano> GetByName(string nome)
     {
-        return _connection.Query<Plano>($"SELECT * FROM Plano WHERE Descricao LIKE '{nome}%'").ToList();        
+        try
+        {
+            return _connection.Query<Plano>($"SELECT * FROM Plano WHERE Descricao LIKE '{nome}%'").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public Plano GetById(int id)
     {
-        return _connection.QuerySingleOrDefault<Plano>("SELECT * FROM Plano WHERE Id = @Id", new { Id = id });
+        try
+        {
+            return _connection.QuerySingleOrDefault<Plano>("SELECT * FROM Plano WHERE Id = @Id", new { Id = id });
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Insert(Plano plano)
@@ -41,14 +62,18 @@ public class PlanoRepository : IRepository<Plano>
         {
             MessageBox.Show("Erro ao cadastrar plano!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public void Update(Plano t)
+    public void Update(Plano t,int id)
     {
         throw new NotImplementedException();
     }
 
-    public void Delete(Plano t)
+    public void Delete(int id)
     {
         throw new NotImplementedException();
     }

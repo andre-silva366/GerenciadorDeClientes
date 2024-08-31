@@ -16,17 +16,38 @@ public class ServidorRepository : IRepository<Servidor>
 
     public ICollection<Servidor> GetAll()
     {
-        return _connection.Query<Servidor>("SELECT * FROM Servidor;").ToList();        
+        try
+        {
+            return _connection.Query<Servidor>("SELECT * FROM Servidor;").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public ICollection<Servidor> GetByName(string nome)
     {
-        return _connection.Query<Servidor>($"SELECT * FROM Servidor WHERE Nome LIKE '{nome}%';").ToList();        
+        try
+        {
+            return _connection.Query<Servidor>($"SELECT * FROM Servidor WHERE Nome LIKE '{nome}%';").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public Servidor GetById(int id)
     {
-        return _connection.QuerySingleOrDefault<Servidor>("SELECT * FROM Servidor WHERE Id = @Id", new { Id = id });
+        try
+        {
+            return _connection.QuerySingleOrDefault<Servidor>("SELECT * FROM Servidor WHERE Id = @Id", new { Id = id });
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Insert(Servidor servidor)
@@ -40,15 +61,19 @@ public class ServidorRepository : IRepository<Servidor>
         {
             MessageBox.Show(ex.Message,"Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
+        finally
+        {
+            _connection.Close();
+        }
         
     }
 
-    public void Update(Servidor t)
+    public void Update(Servidor t, int id)
     {
         throw new NotImplementedException();
     }
 
-    public void Delete(Servidor t)
+    public void Delete(int id)
     {
         throw new NotImplementedException();
     }

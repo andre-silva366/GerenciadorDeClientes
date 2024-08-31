@@ -8,7 +8,6 @@ public partial class FormCadastraCliente : Form
     public FormCadastraCliente()
     {
         InitializeComponent();
-
         dateTimePickerUltimoPagamento.Value = DateTime.Now;
         dateTimePickerProximoPagamento.Value = DateTime.Now.AddMonths(1);
 
@@ -47,9 +46,10 @@ public partial class FormCadastraCliente : Form
 
         comboBoxAplicativo.DataSource = nomeAplicativos;
 
+
     }
 
-    private void buttonSalvarCliente_Click(object sender, EventArgs e)
+    public void buttonSalvarCliente_Click(object sender, EventArgs e)
     {
         Cliente cliente = new Cliente();
         cliente.Nome = textBoxNome.Text;
@@ -77,7 +77,7 @@ public partial class FormCadastraCliente : Form
 
 
     }
-    
+
     private void buttonLimparCadastroCliente_Click(object sender, EventArgs e)
     {
         textBoxNome.Text = "";
@@ -87,10 +87,7 @@ public partial class FormCadastraCliente : Form
         textBoxDeviceKeySenha.Text = "";
     }
 
-    public void FecharCadastraCliente()
-    {
-        Close();
-    }
+
 }
 
 

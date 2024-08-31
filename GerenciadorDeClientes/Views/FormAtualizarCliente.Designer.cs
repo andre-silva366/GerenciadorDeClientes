@@ -121,6 +121,7 @@
             buttonAtualizarCliente.TabIndex = 62;
             buttonAtualizarCliente.Text = "Salvar ";
             buttonAtualizarCliente.UseVisualStyleBackColor = false;
+            buttonAtualizarCliente.Click += buttonAtualizarCliente_Click;
             // 
             // dateTimePickerProximoPagamentoCliAtual
             // 

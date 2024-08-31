@@ -8,23 +8,35 @@ namespace GerenciadorDeClientes.Repositories;
 public class RevendedorRepository : IRepository<Revendedor>
 {
     private readonly IDbConnection _connection;
-    private FormCadastraRevendedor _cadastraRevendedor;
 
     public RevendedorRepository()
     {
         _connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
 
-        _cadastraRevendedor = new FormCadastraRevendedor();
     }
 
     public ICollection<Revendedor> GetAll()
     {
-        return _connection.Query<Revendedor>("SELECT * FROM Revendedor").ToList();        
+        try
+        {
+            return _connection.Query<Revendedor>("SELECT * FROM Revendedor").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public ICollection<Revendedor> GetByName(string nome)
     {
-        return _connection.Query<Revendedor>($"SELECT * FROM Revendedor WHERE Nome LIKE '{nome}%';").ToList();        
+        try
+        {
+            return _connection.Query<Revendedor>($"SELECT * FROM Revendedor WHERE Nome LIKE '{nome}%';").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public Revendedor GetById(int id)
@@ -36,45 +48,52 @@ public class RevendedorRepository : IRepository<Revendedor>
     {
         try
         {
-            var nomeServidor = _cadastraRevendedor.comboBoxServidorRev.Text;
-            var queryIdServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
-            var idServidor = _connection.QuerySingleOrDefault<int>(queryIdServidor,new {NomeServidor = nomeServidor});
-
-            string nome = revendedor.Nome;
-            string telefone = revendedor.Telefone;
-            string email = revendedor.Email;
-            var dataUltimaCompra = revendedor.DataUltimaCompra;
-            int quantidade = revendedor.Quantidade;
-            var valor = revendedor.Valor;
-
-            var queryInsertRevendedor = "INSERT INTO Revendedor (Nome, Telefone, Email, IdServidor, DataUltimaCompra, Quantidade, Valor) VALUES (@Nome, @Telefone, @Email, @IdServidor, @DataUltimaCompra, @Quantidade, @Valor);";
-
-            var parameters = new
+            using(var _cadastraRevendedor = new FormCadastraRevendedor())
             {
-                Nome = nome,
-                Telefone = telefone,
-                Email = email,
-                IdServidor = idServidor,
-                DataUltimaCompra = dataUltimaCompra,
-                Quantidade = quantidade,
-                Valor = valor
-            };
+                var nomeServidor = _cadastraRevendedor.comboBoxServidorRev.Text;
+                var queryIdServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
+                var idServidor = _connection.QuerySingleOrDefault<int>(queryIdServidor, new { NomeServidor = nomeServidor });
 
-            _connection.Execute(queryInsertRevendedor, parameters);
+                string nome = revendedor.Nome;
+                string telefone = revendedor.Telefone;
+                string email = revendedor.Email;
+                var dataUltimaCompra = revendedor.DataUltimaCompra;
+                int quantidade = revendedor.Quantidade;
+                var valor = revendedor.Valor;
+
+                var queryInsertRevendedor = "INSERT INTO Revendedor (Nome, Telefone, Email, IdServidor, DataUltimaCompra, Quantidade, Valor) VALUES (@Nome, @Telefone, @Email, @IdServidor, @DataUltimaCompra, @Quantidade, @Valor);";
+
+                var parameters = new
+                {
+                    Nome = nome,
+                    Telefone = telefone,
+                    Email = email,
+                    IdServidor = idServidor,
+                    DataUltimaCompra = dataUltimaCompra,
+                    Quantidade = quantidade,
+                    Valor = valor
+                };
+
+                _connection.Execute(queryInsertRevendedor, parameters);
+            }
             MessageBox.Show("Revendedor cadastrado com sucesso!","SUCESSO",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
         catch(Exception ex)
         {
             MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public void Update(Revendedor t)
+    public void Update(Revendedor t,int id)
     {
         throw new NotImplementedException();
     }
 
-    public void Delete(Revendedor t)
+    public void Delete(int id)
     {
         throw new NotImplementedException();
     }

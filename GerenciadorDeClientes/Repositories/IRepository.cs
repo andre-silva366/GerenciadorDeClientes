@@ -6,6 +6,6 @@ public interface IRepository<T> where T : class
     ICollection<T> GetByName(string name);
     T GetById(int id);
     void Insert(T t);
-    void Update(T t);
-    void Delete(T t);
+    void Update(T t,int id);
+    void Delete(int id);
 }

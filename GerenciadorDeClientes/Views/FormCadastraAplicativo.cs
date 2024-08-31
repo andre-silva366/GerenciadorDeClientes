@@ -5,22 +5,19 @@ namespace GerenciadorDeClientes;
 
 public partial class FormCadastraAplicativo : Form
 {
-    private AplicativoRepository _appRepository;
-    private Aplicativo _aplicativo;
-
     public FormCadastraAplicativo()
     {
-        InitializeComponent();
-        _appRepository = new AplicativoRepository();
-        _aplicativo = new Aplicativo();
+        InitializeComponent();        
     }
 
     private void buttonSalvarAplicativo_Click(object sender, EventArgs e)
     {
         if (textBoxNomeAplicativo.Text.Length >= 3)
         {
-            _aplicativo.Nome = textBoxNomeAplicativo.Text;
-            _appRepository.Insert(_aplicativo);
+            Aplicativo aplicativo = new Aplicativo();
+            AplicativoRepository appRepository = new AplicativoRepository();
+            aplicativo.Nome = textBoxNomeAplicativo.Text;
+            appRepository.Insert(aplicativo);
         }
         else
         {

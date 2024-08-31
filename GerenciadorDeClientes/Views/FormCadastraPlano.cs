@@ -6,20 +6,18 @@ namespace GerenciadorDeClientes;
 
 public partial class FormCadastraPlano : Form
 {
-    private PlanoRepository _planoRepository;
-    private Plano _plano;
-
     public FormCadastraPlano()
     {
-        InitializeComponent();
-        _planoRepository = new PlanoRepository();
-        _plano = new Plano();
+        InitializeComponent();        
     }
 
     private void buttonSalvarPlano_Click(object sender, EventArgs e)
     {
         string descricao = textBoxDescricaoPlano.Text;
         decimal valor = decimal.Parse(textBoxValorPlano.Text, CultureInfo.InvariantCulture);
+
+        Plano plano = new Plano();
+        PlanoRepository planoRepository = new PlanoRepository();
 
         try
         {
@@ -33,8 +31,8 @@ public partial class FormCadastraPlano : Form
             }
             else
             {
-                _plano.Descricao = descricao;
-                _plano.Valor = valor;
+                plano.Descricao = descricao;
+                plano.Valor = valor;
             }
 
         }
@@ -43,7 +41,7 @@ public partial class FormCadastraPlano : Form
             MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        _planoRepository.Insert(_plano);
+        planoRepository.Insert(plano);
     }
 
     private void buttonLimparPlano_Click(object sender, EventArgs e)

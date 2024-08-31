@@ -16,17 +16,39 @@ public class AplicativoRepository : IRepository<Aplicativo>
 
     public ICollection<Aplicativo> GetAll()
     {
-        return  _connection.Query<Aplicativo>("SELECT * FROM Aplicativo;").ToList();         
+        try
+        {
+            return  _connection.Query<Aplicativo>("SELECT * FROM Aplicativo;").ToList(); 
+        }
+        finally
+        {
+            _connection.Close();
+        }
+                
     }
 
     public ICollection<Aplicativo> GetByName(string nome)
     {
-        return _connection.Query<Aplicativo>($"SELECT * FROM Aplicativo WHERE Nome LIKE '{nome}%'").ToList();               
+        try
+        {
+            return _connection.Query<Aplicativo>($"SELECT * FROM Aplicativo WHERE Nome LIKE '{nome}%'").ToList();
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public Aplicativo GetById(int id)
     {
-        return _connection.QuerySingleOrDefault<Aplicativo>("SELECT * FROM Aplicativo WHERE Id = @Id", new { Id = id });
+        try
+        {
+            return _connection.QuerySingleOrDefault<Aplicativo>("SELECT * FROM Aplicativo WHERE Id = @Id", new { Id = id });
+        }
+        finally
+        {
+            _connection.Close ();
+        }
     }
 
     public void Insert(Aplicativo app)
@@ -40,14 +62,18 @@ public class AplicativoRepository : IRepository<Aplicativo>
         {
             MessageBox.Show("Erro ao cadastrar aplicativo!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public void Update(Aplicativo t)
+    public void Update(Aplicativo t,int id)
     {
         throw new NotImplementedException();
     }
 
-    public void Delete(Aplicativo t)
+    public void Delete(int id)
     {
         throw new NotImplementedException();
     }

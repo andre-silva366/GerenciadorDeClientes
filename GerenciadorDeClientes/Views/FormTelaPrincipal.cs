@@ -1,4 +1,3 @@
-using GerenciadorDeClientes.Models;
 using GerenciadorDeClientes.Repositories;
 using GerenciadorDeClientes.Views;
 
@@ -101,7 +100,6 @@ public partial class FormTelaPrincipal : Form
         textBoxSelectNome.Text = null;
     }
 
-    // Em processo
     private void buttonBuscarPorNome_Click(object sender, EventArgs e)
     {
         var nome = textBoxSelectNome.Text.Trim();
@@ -227,8 +225,10 @@ public partial class FormTelaPrincipal : Form
         if (radioButtonCliente.Checked)
         {
             FormAtualizarCliente formAtualizaCliente = new FormAtualizarCliente();
-            formAtualizaCliente.Show();
+            formAtualizaCliente.Show();            
+            
         }
+        
         //if (radioButtonRevendedor.Checked)
         //{
         //    FormCadastraRevendedor formCadastraRevendedor = new FormCadastraRevendedor();
