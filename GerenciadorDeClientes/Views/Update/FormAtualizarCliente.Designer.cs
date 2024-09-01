@@ -52,8 +52,8 @@
             textBoxEmailClienteAtualizado = new TextBox();
             labelEmail = new Label();
             textBoxNomeClienteAtualizado = new TextBox();
-            labelNome = new Label();
             labelDadosClientes = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -292,16 +292,6 @@
             textBoxNomeClienteAtualizado.Size = new Size(308, 29);
             textBoxNomeClienteAtualizado.TabIndex = 52;
             // 
-            // labelNome
-            // 
-            labelNome.AutoSize = true;
-            labelNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelNome.Location = new Point(22, 128);
-            labelNome.Name = "labelNome";
-            labelNome.Size = new Size(63, 21);
-            labelNome.TabIndex = 65;
-            labelNome.Text = "Nome: ";
-            // 
             // labelDadosClientes
             // 
             labelDadosClientes.AutoSize = true;
@@ -312,11 +302,22 @@
             labelDadosClientes.TabIndex = 64;
             labelDadosClientes.Text = "Altere os dados do Cliente";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(22, 131);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 21);
+            label4.TabIndex = 75;
+            label4.Text = "Nome:   ";
+            // 
             // FormAtualizarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(497, 754);
+            Controls.Add(label4);
             Controls.Add(maskedTextBoxTelefoneClienteAtualizado);
             Controls.Add(buttonLimparCadastroAtualizaCliente);
             Controls.Add(buttonAtualizarCliente);
@@ -338,7 +339,6 @@
             Controls.Add(textBoxEmailClienteAtualizado);
             Controls.Add(labelEmail);
             Controls.Add(textBoxNomeClienteAtualizado);
-            Controls.Add(labelNome);
             Controls.Add(labelDadosClientes);
             Controls.Add(buttonAtualizacaoBuscaClienteId);
             Controls.Add(textBoxAtualizarClienteId);
@@ -376,7 +376,7 @@
         public TextBox textBoxEmailClienteAtualizado;
         private Label labelEmail;
         public TextBox textBoxNomeClienteAtualizado;
-        private Label labelNome;
         private Label labelDadosClientes;
+        private Label label4;
     }
 }
