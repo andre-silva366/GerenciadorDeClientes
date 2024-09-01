@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeClientes.Views
 {
-    partial class FormAtualizarRevendedor
+    partial class FormAtualizarCliente
     {
         /// <summary>
         /// Required designer variable.

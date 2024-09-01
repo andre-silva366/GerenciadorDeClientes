@@ -3,10 +3,10 @@ using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views
 {
-    public partial class FormAtualizarRevendedor : Form
+    public partial class FormAtualizarCliente : Form
     {        
 
-        public FormAtualizarRevendedor()
+        public FormAtualizarCliente()
         {
             InitializeComponent();
 

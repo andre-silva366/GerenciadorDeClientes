@@ -1,6 +1,7 @@
 using GerenciadorDeClientes.Repositories;
-using GerenciadorDeClientes.Views;
 using GerenciadorDeClientes.Views.Update;
+using GerenciadorDeClientes.Views;
+
 
 namespace GerenciadorDeClientes;
 
@@ -225,21 +226,21 @@ public partial class FormTelaPrincipal : Form
     {
         if (radioButtonCliente.Checked)
         {
-            Views.FormAtualizarRevendedor formAtualizaCliente = new Views.FormAtualizarRevendedor();
+            FormAtualizarCliente formAtualizaCliente = new FormAtualizarCliente();
             formAtualizaCliente.Show();            
             
         }
 
         if (radioButtonRevendedor.Checked)
         {
-            Views.Update.FormAtualizarRevendedor formAtualizarRevendedor = new();
+            FormAtualizarRevendedor formAtualizarRevendedor = new();
             formAtualizarRevendedor.Show();
         }
-        //if (radioButtonServidor.Checked)
-        //{
-        //    FormCadastraServidor formCadastraServidor = new FormCadastraServidor();
-        //    formCadastraServidor.Show();
-        //}
+        if (radioButtonServidor.Checked)
+        {
+            FormAtualizarServidor formAtualizarServidor = new FormAtualizarServidor();
+            formAtualizarServidor.Show();
+        }
         //if (radioButtonAplicativo.Checked)
         //{
         //    FormCadastraAplicativo formCadastraAplicativo = new FormCadastraAplicativo();

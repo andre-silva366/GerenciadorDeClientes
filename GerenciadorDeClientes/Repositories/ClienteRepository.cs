@@ -115,7 +115,7 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            using (var _formAtualizaCliente = new FormAtualizarRevendedor())
+            using (var _formAtualizaCliente = new FormAtualizarCliente())
             {
                 var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdPlano = @IdPlano, DeviceKeyOuSenha = @DeviceKeyOuSenha, MacOuEmail = @MacOuEmail, IdAplicativo = @IdAplicativo, IdServidor = @IdServidor, DataUltimoPagamento = @DataUltimoPagamento, DataProximoPagamento = @DataProximoPagamento WHERE Id = {id};";
 

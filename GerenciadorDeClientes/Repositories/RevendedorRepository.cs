@@ -100,21 +100,16 @@ public class RevendedorRepository : IRepository<Revendedor>
     {
         try
         {
-            using (var _formAtualizarRevendedor = new FormAtualizarRevendedor())
+            using (var _formAtualizarRevendedor = new FormAtualizarCliente())
             {
-                var query = $"UPDATE Revendedor SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdServidor = @IdServidor, DataUltimaCompra = @DataUltimaCompra, Quantidade = @Quantidade, Valor = @Valor WHERE Id = {id};";
-
-                string nomeServidor = _formAtualizarRevendedor.comboBoxServidorRevendaAtualizado.Text;
-                
-                var queryIdServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
-                var idServidor = _connection.QuerySingleOrDefault<int>(queryIdServidor, new { NomeServidor = nomeServidor });
+                var query = $"UPDATE Revendedor SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdServidor = @IdServidor, DataUltimaCompra = @DataUltimaCompra, Quantidade = @Quantidade, Valor = @Valor WHERE Id = {id};";                               
 
                 var parameters = new
                 {
                     revendedor.Nome,
                     revendedor.Telefone,
                     revendedor.Email,
-                    IdServidor = idServidor,
+                    revendedor.IdServidor,
                     revendedor.DataUltimaCompra,
                     revendedor.Quantidade,
                     revendedor.Valor
@@ -122,7 +117,7 @@ public class RevendedorRepository : IRepository<Revendedor>
 
                 _connection.Execute(query, parameters);
             }
-            MessageBox.Show("Revendedor atualizado com sucesso !", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Revendedor atualizado com sucesso !", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch (Exception ex)
         {

@@ -43,6 +43,7 @@ public partial class FormAtualizarRevendedor : Form
 
                     ServidorRepository servidorRepository = new ServidorRepository();
                     var servidor = servidorRepository.GetById(revendedor.IdServidor);
+                    comboBoxServidorRevendaAtualizado.Text = servidor.Nome;
                     dateTimePickerUltimaCompraRevAtual.Value = revendedor.DataUltimaCompra;
                     numericUpDownQtdeRevAtual.Value = revendedor.Quantidade;
                     textBoxValorAtualRev.Text = revendedor.Valor.ToString();
@@ -73,13 +74,19 @@ public partial class FormAtualizarRevendedor : Form
             Revendedor revendedor = new Revendedor();
             RevendedorRepository revendedorRepository = new RevendedorRepository();
 
-            revendedor.Id = int.Parse(textBoxAtualizarRevendedorId.Text);
+            int idRevendedor = int.Parse(textBoxAtualizarRevendedorId.Text);
+            revendedor = revendedorRepository.GetById(idRevendedor);
             revendedor.Nome = textBoxNomeRevendaAtualizado.Text;
             revendedor.Telefone = maskedTextBoxTelefoneRevendaAtualizado.Text;
             revendedor.Email = textBoxEmailRevendaAtualizado.Text;
             revendedor.DataUltimaCompra = dateTimePickerUltimaCompraRevAtual.Value;
-            revendedor.Quantidade = numericUpDownQtdeRevAtual.Value.GetHashCode();
+            revendedor.Quantidade = (int)numericUpDownQtdeRevAtual.Value;
             revendedor.Valor = decimal.Parse(textBoxValorAtualRev.Text);
+
+            ServidorRepository servidorRepository = new ServidorRepository();
+            var servidor = servidorRepository.GetByName(comboBoxServidorRevendaAtualizado.Text).SingleOrDefault();
+
+            revendedor.IdServidor = servidor.Id ;
 
             if (revendedor.Nome.Length < 3)
             {
@@ -91,7 +98,6 @@ public partial class FormAtualizarRevendedor : Form
             }
             else
             {
-
                 revendedorRepository.Update(revendedor, revendedor.Id);
             }
         }

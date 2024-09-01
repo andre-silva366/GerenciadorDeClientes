@@ -68,9 +68,25 @@ public class ServidorRepository : IRepository<Servidor>
         
     }
 
-    public void Update(Servidor t, int id)
+    public void Update(Servidor servidor, int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = $"UPDATE Servidor SET Nome = @Nome WHERE Id = @Id;";
+            var parameters = new { Id = id ,servidor.Nome};
+            _connection.Execute(query, parameters);
+
+            MessageBox.Show("Sucesso ao atualizar servidor", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao atualizar servidor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Delete(int id)
