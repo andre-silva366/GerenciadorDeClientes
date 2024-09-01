@@ -1,20 +1,105 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GerenciadorDeClientes.Models;
+using GerenciadorDeClientes.Repositories;
 
-namespace GerenciadorDeClientes.Views.Update
+namespace GerenciadorDeClientes.Views.Update;
+
+public partial class FormAtualizarRevendedor : Form
 {
-    public partial class FormAtualizarRevendedor : Form
+    public FormAtualizarRevendedor()
     {
-        public FormAtualizarRevendedor()
+        InitializeComponent();
+
+        ServidorRepository servidorRepository = new ServidorRepository();
+        var servidores = servidorRepository.GetAll().ToList();
+        List<string> nomeServidores = new List<string>();
+
+        foreach (var item in servidores)
         {
-            InitializeComponent();
+            nomeServidores.Add(item.Nome);
         }
+
+        comboBoxServidorRevendaAtualizado.DataSource = nomeServidores;
+
+    }
+
+    private void buttonAtualizacaoBuscaRevendedorId_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Revendedor revendedor = new();
+            RevendedorRepository revendedorRepository = new();
+
+            int idRevendedor = int.Parse(textBoxAtualizarRevendedorId.Text);
+
+            if (idRevendedor > 0)
+            {
+                revendedor = revendedorRepository.GetById(idRevendedor);
+
+                if (revendedor != null)
+                {
+                    textBoxNomeRevendaAtualizado.Text = revendedor.Nome;
+                    maskedTextBoxTelefoneRevendaAtualizado.Text = revendedor.Telefone;
+                    textBoxEmailRevendaAtualizado.Text = revendedor.Email;
+
+                    ServidorRepository servidorRepository = new ServidorRepository();
+                    var servidor = servidorRepository.GetById(revendedor.IdServidor);
+                    dateTimePickerUltimaCompraRevAtual.Value = revendedor.DataUltimaCompra;
+                    numericUpDownQtdeRevAtual.Value = revendedor.Quantidade;
+                    textBoxValorAtualRev.Text = revendedor.Valor.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show($"Não encontrado revendedor com id: {idRevendedor}", "NÃO ENCONTRADO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Digite um id válido!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro: \n" + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void buttonSalvarRevAtual_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Revendedor revendedor = new Revendedor();
+            RevendedorRepository revendedorRepository = new RevendedorRepository();
+
+            revendedor.Id = int.Parse(textBoxAtualizarRevendedorId.Text);
+            revendedor.Nome = textBoxNomeRevendaAtualizado.Text;
+            revendedor.Telefone = maskedTextBoxTelefoneRevendaAtualizado.Text;
+            revendedor.Email = textBoxEmailRevendaAtualizado.Text;
+            revendedor.DataUltimaCompra = dateTimePickerUltimaCompraRevAtual.Value;
+            revendedor.Quantidade = numericUpDownQtdeRevAtual.Value.GetHashCode();
+            revendedor.Valor = decimal.Parse(textBoxValorAtualRev.Text);
+
+            if (revendedor.Nome.Length < 3)
+            {
+                MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (revendedor.Telefone.Length < 11)
+            {
+                MessageBox.Show("Preencha o Telefone", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                revendedorRepository.Update(revendedor, revendedor.Id);
+            }
+        }
+        catch(Exception)
+        {
+            MessageBox.Show("Ocorreu um erro verifique os campos", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeClientes.Views
 {
-    partial class FormAtualizarCliente
+    partial class FormAtualizarRevendedor
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             comboBoxPlanoClienteAtualizado = new ComboBox();
             labelPlano = new Label();
             labelServidor = new Label();
-            comboBoxServidorClienteAtualizado = new ComboBox();
+            comboBoxServidorRevendaAtualizado = new ComboBox();
             labelTelefone = new Label();
             textBoxEmailClienteAtualizado = new TextBox();
             labelEmail = new Label();
@@ -249,12 +249,12 @@
             // 
             // comboBoxServidorClienteAtualizado
             // 
-            comboBoxServidorClienteAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxServidorClienteAtualizado.FormattingEnabled = true;
-            comboBoxServidorClienteAtualizado.Location = new Point(117, 275);
-            comboBoxServidorClienteAtualizado.Name = "comboBoxServidorClienteAtualizado";
-            comboBoxServidorClienteAtualizado.Size = new Size(308, 29);
-            comboBoxServidorClienteAtualizado.TabIndex = 55;
+            comboBoxServidorRevendaAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBoxServidorRevendaAtualizado.FormattingEnabled = true;
+            comboBoxServidorRevendaAtualizado.Location = new Point(117, 275);
+            comboBoxServidorRevendaAtualizado.Name = "comboBoxServidorClienteAtualizado";
+            comboBoxServidorRevendaAtualizado.Size = new Size(308, 29);
+            comboBoxServidorRevendaAtualizado.TabIndex = 55;
             // 
             // labelTelefone
             // 
@@ -334,7 +334,7 @@
             Controls.Add(comboBoxPlanoClienteAtualizado);
             Controls.Add(labelPlano);
             Controls.Add(labelServidor);
-            Controls.Add(comboBoxServidorClienteAtualizado);
+            Controls.Add(comboBoxServidorRevendaAtualizado);
             Controls.Add(labelTelefone);
             Controls.Add(textBoxEmailClienteAtualizado);
             Controls.Add(labelEmail);
@@ -371,7 +371,7 @@
         public ComboBox comboBoxPlanoClienteAtualizado;
         private Label labelPlano;
         private Label labelServidor;
-        public ComboBox comboBoxServidorClienteAtualizado;
+        public ComboBox comboBoxServidorRevendaAtualizado;
         private Label labelTelefone;
         public TextBox textBoxEmailClienteAtualizado;
         private Label labelEmail;

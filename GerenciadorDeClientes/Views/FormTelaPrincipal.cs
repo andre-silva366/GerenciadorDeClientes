@@ -225,14 +225,14 @@ public partial class FormTelaPrincipal : Form
     {
         if (radioButtonCliente.Checked)
         {
-            FormAtualizarCliente formAtualizaCliente = new FormAtualizarCliente();
+            Views.FormAtualizarRevendedor formAtualizaCliente = new Views.FormAtualizarRevendedor();
             formAtualizaCliente.Show();            
             
         }
 
         if (radioButtonRevendedor.Checked)
         {
-            FormAtualizarRevendedor formAtualizarRevendedor = new();
+            Views.Update.FormAtualizarRevendedor formAtualizarRevendedor = new();
             formAtualizarRevendedor.Show();
         }
         //if (radioButtonServidor.Checked)

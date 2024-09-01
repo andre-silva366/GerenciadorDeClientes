@@ -115,12 +115,12 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            using (var _formAtualizaCliente = new FormAtualizarCliente())
+            using (var _formAtualizaCliente = new FormAtualizarRevendedor())
             {
                 var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdPlano = @IdPlano, DeviceKeyOuSenha = @DeviceKeyOuSenha, MacOuEmail = @MacOuEmail, IdAplicativo = @IdAplicativo, IdServidor = @IdServidor, DataUltimoPagamento = @DataUltimoPagamento, DataProximoPagamento = @DataProximoPagamento WHERE Id = {id};";
 
                 string nomeAplicativo = _formAtualizaCliente.comboBoxAplicativoClienteAtualizado.Text;
-                string nomeServidor = _formAtualizaCliente.comboBoxServidorClienteAtualizado.Text;
+                string nomeServidor = _formAtualizaCliente.comboBoxServidorRevendaAtualizado.Text;
                 string descricaoPlano = _formAtualizaCliente.comboBoxPlanoClienteAtualizado.Text;
 
                 var queryIdAplicativo = "SELECT Id FROM Aplicativo WHERE Nome = @NomeAplicativo;";

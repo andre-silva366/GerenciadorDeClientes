@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using Dapper;
+using GerenciadorDeClientes.Views;
 
 namespace GerenciadorDeClientes.Repositories;
 
@@ -41,7 +42,14 @@ public class RevendedorRepository : IRepository<Revendedor>
 
     public Revendedor GetById(int id)
     {
-        return null;
+        try
+        {
+            return _connection.QuerySingleOrDefault<Revendedor>("SELECT * FROM Revendedor WHERE Id = @Id;", new { Id = id });
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Insert(Revendedor revendedor)
@@ -88,9 +96,38 @@ public class RevendedorRepository : IRepository<Revendedor>
         }
     }
 
-    public void Update(Revendedor t,int id)
+    public void Update(Revendedor revendedor,int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var _formAtualizarRevendedor = new FormAtualizarRevendedor())
+            {
+                var query = $"UPDATE Revendedor SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdServidor = @IdServidor, DataUltimaCompra = @DataUltimaCompra, Quantidade = @Quantidade, Valor = @Valor WHERE Id = {id};";
+
+                string nomeServidor = _formAtualizarRevendedor.comboBoxServidorRevendaAtualizado.Text;
+                
+                var queryIdServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
+                var idServidor = _connection.QuerySingleOrDefault<int>(queryIdServidor, new { NomeServidor = nomeServidor });
+
+                var parameters = new
+                {
+                    revendedor.Nome,
+                    revendedor.Telefone,
+                    revendedor.Email,
+                    IdServidor = idServidor,
+                    revendedor.DataUltimaCompra,
+                    revendedor.Quantidade,
+                    revendedor.Valor
+                };
+
+                _connection.Execute(query, parameters);
+            }
+            MessageBox.Show("Revendedor atualizado com sucesso !", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao atualizar o revendedor!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     public void Delete(int id)

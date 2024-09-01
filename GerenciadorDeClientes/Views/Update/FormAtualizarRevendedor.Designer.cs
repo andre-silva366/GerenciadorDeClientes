@@ -79,6 +79,7 @@
             buttonAtualizacaoBuscaRevendedorId.TabIndex = 3;
             buttonAtualizacaoBuscaRevendedorId.Text = "Buscar";
             buttonAtualizacaoBuscaRevendedorId.UseVisualStyleBackColor = false;
+            buttonAtualizacaoBuscaRevendedorId.Click += buttonAtualizacaoBuscaRevendedorId_Click;
             // 
             // labelDadosClientes
             // 
@@ -249,8 +250,9 @@
             buttonSalvarRevAtual.Name = "buttonSalvarRevAtual";
             buttonSalvarRevAtual.Size = new Size(145, 48);
             buttonSalvarRevAtual.TabIndex = 91;
-            buttonSalvarRevAtual.Text = "Limpar";
+            buttonSalvarRevAtual.Text = "Salvar";
             buttonSalvarRevAtual.UseVisualStyleBackColor = false;
+            buttonSalvarRevAtual.Click += buttonSalvarRevAtual_Click;
             // 
             // FormAtualizarRevendedor
             // 

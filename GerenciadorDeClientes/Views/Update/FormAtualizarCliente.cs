@@ -3,10 +3,10 @@ using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views
 {
-    public partial class FormAtualizarCliente : Form
+    public partial class FormAtualizarRevendedor : Form
     {        
 
-        public FormAtualizarCliente()
+        public FormAtualizarRevendedor()
         {
             InitializeComponent();
 
@@ -19,7 +19,7 @@ namespace GerenciadorDeClientes.Views
                 nomeServidores.Add(item.Nome);
             }
 
-            comboBoxServidorClienteAtualizado.DataSource = nomeServidores;
+            comboBoxServidorRevendaAtualizado.DataSource = nomeServidores;
 
             PlanoRepository planoRepository = new PlanoRepository();
             var planos = planoRepository.GetAll().ToList();
@@ -72,7 +72,7 @@ namespace GerenciadorDeClientes.Views
                         comboBoxAplicativoClienteAtualizado.Text = aplicativo.Nome;
 
                         var servidor = servidorRepository.GetById(cliente.IdServidor);
-                        comboBoxServidorClienteAtualizado.Text = servidor.Nome;
+                        comboBoxServidorRevendaAtualizado.Text = servidor.Nome;
 
                         var plano = planoRepository.GetById(cliente.IdPlano);
                         comboBoxPlanoClienteAtualizado.Text = plano.Descricao;
