@@ -198,27 +198,27 @@ public partial class FormTelaPrincipal : Form
         if (radioButtonCliente.Checked)
         {
             FormCadastraCliente formCadastraCliente = new FormCadastraCliente();
-            formCadastraCliente.Show();
+            formCadastraCliente.ShowDialog();
         }
         if (radioButtonRevendedor.Checked)
         {
             FormCadastraRevendedor formCadastraRevendedor = new FormCadastraRevendedor();
-            formCadastraRevendedor.Show();
+            formCadastraRevendedor.ShowDialog();
         }
         if (radioButtonServidor.Checked)
         {
             FormCadastraServidor formCadastraServidor = new FormCadastraServidor();
-            formCadastraServidor.Show();
+            formCadastraServidor.ShowDialog();
         }
         if (radioButtonAplicativo.Checked)
         {
             FormCadastraAplicativo formCadastraAplicativo = new FormCadastraAplicativo();
-            formCadastraAplicativo.Show();
+            formCadastraAplicativo.ShowDialog();
         }
         if (radioButtonPlano.Checked)
         {
             FormCadastraPlano formCadastraPlano = new FormCadastraPlano();
-            formCadastraPlano.Show();
+            formCadastraPlano.ShowDialog();
         }
     }
 
@@ -226,30 +226,74 @@ public partial class FormTelaPrincipal : Form
     {
         if (radioButtonCliente.Checked)
         {
-            FormAtualizarCliente formAtualizaCliente = new FormAtualizarCliente();
-            formAtualizaCliente.Show();            
-            
+            FormAtualizarDeletarCliente formAtualizaCliente = new FormAtualizarDeletarCliente();
+            formAtualizaCliente.ShowDialog();
         }
 
         if (radioButtonRevendedor.Checked)
         {
-            FormAtualizarRevendedor formAtualizarRevendedor = new();
-            formAtualizarRevendedor.Show();
+            FormAtualizarDeletarRevendedor formAtualizarRevendedor = new();
+            formAtualizarRevendedor.ShowDialog();
         }
         if (radioButtonServidor.Checked)
         {
-            FormAtualizarServidor formAtualizarServidor = new FormAtualizarServidor();
-            formAtualizarServidor.Show();
+            FormAtualizarDeletarServidor formAtualizarServidor = new FormAtualizarDeletarServidor();
+            formAtualizarServidor.ShowDialog();
         }
         if (radioButtonAplicativo.Checked)
         {
-            FormAtualizarAplicativo formAtualizarAplicativo = new FormAtualizarAplicativo();
-            formAtualizarAplicativo.Show();
+            FormAtualizarDeletarAplicativo formAtualizarAplicativo = new FormAtualizarDeletarAplicativo();
+            formAtualizarAplicativo.ShowDialog();
         }
         if (radioButtonPlano.Checked)
         {
-            FormAtualizarPlano formAtualizarPlano = new FormAtualizarPlano();
-            formAtualizarPlano.Show();
+            FormAtualizarDeletarPlano formAtualizarPlano = new FormAtualizarDeletarPlano();
+            formAtualizarPlano.ShowDialog();
+        }
+    }
+
+    private void buttonExcluir_Click(object sender, EventArgs e)
+    {
+        if (radioButtonCliente.Checked)
+        {
+            FormAtualizarDeletarCliente formAtualizarDeletarCliente = new ();
+            formAtualizarDeletarCliente.Text = "Excluir cliente";
+            formAtualizarDeletarCliente.buttonAtualizarCliente.Visible = false;
+            formAtualizarDeletarCliente.buttonDeletarCliente.Visible = true;
+            formAtualizarDeletarCliente.ShowDialog();
+        }
+
+        if (radioButtonRevendedor.Checked)
+        {
+            FormAtualizarDeletarRevendedor formAtualizarDeletarRevendedor = new();
+            formAtualizarDeletarRevendedor.Text = "Excluir revendedor";
+            formAtualizarDeletarRevendedor.buttonSalvarRevAtual.Visible = false;
+            formAtualizarDeletarRevendedor.buttonDeletarRevendedor.Visible = true;
+            formAtualizarDeletarRevendedor.ShowDialog();
+        }
+        if (radioButtonServidor.Checked)
+        {
+            FormAtualizarDeletarServidor formAtualizarDeletarServidor = new ();
+            formAtualizarDeletarServidor.Text = "Excuir servidor";
+            formAtualizarDeletarServidor.buttonSalvarServAtualizado.Visible = false;
+            formAtualizarDeletarServidor.buttonExcluirServidor.Visible = true;
+            formAtualizarDeletarServidor.ShowDialog();
+        }
+        if (radioButtonAplicativo.Checked)
+        {
+            FormAtualizarDeletarAplicativo formAtualizarDeletarAplicativo = new ();
+            formAtualizarDeletarAplicativo.Text = "Excluir aplicativo";
+            formAtualizarDeletarAplicativo.buttonSalvarAppAtualizado.Visible = false;
+            formAtualizarDeletarAplicativo.buttonExcluirApp.Visible = true;
+            formAtualizarDeletarAplicativo.ShowDialog();
+        }
+        if (radioButtonPlano.Checked)
+        {
+            FormAtualizarDeletarPlano formAtualizarDeletarPlano = new ();
+            formAtualizarDeletarPlano.Text = "Excluir plano";
+            formAtualizarDeletarPlano.buttonSalvarPlanoAtualizado.Visible = false;
+            formAtualizarDeletarPlano.buttonExcluirPlano.Visible = true;
+            formAtualizarDeletarPlano.ShowDialog();
         }
     }
 }

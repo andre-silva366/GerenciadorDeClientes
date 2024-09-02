@@ -2,9 +2,9 @@
 
 namespace GerenciadorDeClientes.Views.Update;
 
-public partial class FormAtualizarPlano : Form
+public partial class FormAtualizarDeletarPlano : Form
 {
-    public FormAtualizarPlano()
+    public FormAtualizarDeletarPlano()
     {
         InitializeComponent();
     }
@@ -74,6 +74,32 @@ public partial class FormAtualizarPlano : Form
         catch
         {
             MessageBox.Show("Ocorreu um erro, verifque os campos !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void buttonExcluirPlano_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int idPlano = int.Parse(textBoxIdPlanoAtual.Text);
+            if (idPlano > 0)
+            {
+                PlanoRepository planoRepository = new ();
+                var plano = planoRepository.GetById(idPlano);
+
+                if (plano == null)
+                {
+                    MessageBox.Show($"Não encontrado plano com id: {idPlano}");
+                }
+                else
+                {
+                    planoRepository.Delete(idPlano);
+                }
+            }
+        }
+        catch
+        {
+            MessageBox.Show("Ocorreu um erro ao deletar o plano", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

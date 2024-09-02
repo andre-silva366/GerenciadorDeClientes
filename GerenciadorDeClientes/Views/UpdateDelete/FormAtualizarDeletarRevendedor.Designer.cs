@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeClientes.Views.Update
 {
-    partial class FormAtualizarRevendedor
+    partial class FormAtualizarDeletarRevendedor
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             label1 = new Label();
             textBoxAtualizarRevendedorId = new TextBox();
             buttonAtualizacaoBuscaRevendedorId = new Button();
-            labelDadosClientes = new Label();
+            labelRevendedor = new Label();
             label4rev = new Label();
             textBoxNomeRevendaAtualizado = new TextBox();
             labelTelefonerev = new Label();
@@ -48,6 +48,7 @@
             dateTimePickerUltimaCompraRevAtual = new DateTimePicker();
             buttonLimparCadastroAtualizaRev = new Button();
             buttonSalvarRevAtual = new Button();
+            buttonDeletarRevendedor = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDownQtdeRevAtual).BeginInit();
             SuspendLayout();
             // 
@@ -81,15 +82,15 @@
             buttonAtualizacaoBuscaRevendedorId.UseVisualStyleBackColor = false;
             buttonAtualizacaoBuscaRevendedorId.Click += buttonAtualizacaoBuscaRevendedorId_Click;
             // 
-            // labelDadosClientes
+            // labelRevendedor
             // 
-            labelDadosClientes.AutoSize = true;
-            labelDadosClientes.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelDadosClientes.Location = new Point(11, 107);
-            labelDadosClientes.Name = "labelDadosClientes";
-            labelDadosClientes.Size = new Size(233, 25);
-            labelDadosClientes.TabIndex = 65;
-            labelDadosClientes.Text = "Altere os dados do Cliente";
+            labelRevendedor.AutoSize = true;
+            labelRevendedor.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelRevendedor.Location = new Point(11, 107);
+            labelRevendedor.Name = "labelRevendedor";
+            labelRevendedor.Size = new Size(194, 25);
+            labelRevendedor.TabIndex = 65;
+            labelRevendedor.Text = "Dados do revendedor";
             // 
             // label4rev
             // 
@@ -233,9 +234,9 @@
             buttonLimparCadastroAtualizaRev.Cursor = Cursors.Hand;
             buttonLimparCadastroAtualizaRev.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparCadastroAtualizaRev.ForeColor = Color.Black;
-            buttonLimparCadastroAtualizaRev.Location = new Point(11, 548);
+            buttonLimparCadastroAtualizaRev.Location = new Point(13, 550);
             buttonLimparCadastroAtualizaRev.Name = "buttonLimparCadastroAtualizaRev";
-            buttonLimparCadastroAtualizaRev.Size = new Size(145, 48);
+            buttonLimparCadastroAtualizaRev.Size = new Size(150, 48);
             buttonLimparCadastroAtualizaRev.TabIndex = 90;
             buttonLimparCadastroAtualizaRev.Text = "Limpar";
             buttonLimparCadastroAtualizaRev.UseVisualStyleBackColor = false;
@@ -246,19 +247,35 @@
             buttonSalvarRevAtual.Cursor = Cursors.Hand;
             buttonSalvarRevAtual.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarRevAtual.ForeColor = Color.Transparent;
-            buttonSalvarRevAtual.Location = new Point(225, 548);
+            buttonSalvarRevAtual.Location = new Point(220, 550);
             buttonSalvarRevAtual.Name = "buttonSalvarRevAtual";
-            buttonSalvarRevAtual.Size = new Size(145, 48);
+            buttonSalvarRevAtual.Size = new Size(151, 48);
             buttonSalvarRevAtual.TabIndex = 91;
             buttonSalvarRevAtual.Text = "Salvar";
             buttonSalvarRevAtual.UseVisualStyleBackColor = false;
             buttonSalvarRevAtual.Click += buttonSalvarRevAtual_Click;
             // 
-            // FormAtualizarRevendedor
+            // buttonDeletarRevendedor
+            // 
+            buttonDeletarRevendedor.BackColor = Color.Red;
+            buttonDeletarRevendedor.Cursor = Cursors.Hand;
+            buttonDeletarRevendedor.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeletarRevendedor.ForeColor = Color.Transparent;
+            buttonDeletarRevendedor.Location = new Point(221, 550);
+            buttonDeletarRevendedor.Name = "buttonDeletarRevendedor";
+            buttonDeletarRevendedor.Size = new Size(150, 48);
+            buttonDeletarRevendedor.TabIndex = 92;
+            buttonDeletarRevendedor.Text = "Excluir";
+            buttonDeletarRevendedor.UseVisualStyleBackColor = false;
+            buttonDeletarRevendedor.Visible = false;
+            buttonDeletarRevendedor.Click += buttonDeletarRevendedor_Click;
+            // 
+            // FormAtualizarDeletarRevendedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(395, 628);
+            Controls.Add(buttonDeletarRevendedor);
             Controls.Add(buttonSalvarRevAtual);
             Controls.Add(buttonLimparCadastroAtualizaRev);
             Controls.Add(dateTimePickerUltimaCompraRevAtual);
@@ -275,17 +292,18 @@
             Controls.Add(labelTelefonerev);
             Controls.Add(textBoxNomeRevendaAtualizado);
             Controls.Add(label4rev);
-            Controls.Add(labelDadosClientes);
+            Controls.Add(labelRevendedor);
             Controls.Add(buttonAtualizacaoBuscaRevendedorId);
             Controls.Add(textBoxAtualizarRevendedorId);
             Controls.Add(label1);
             MaximizeBox = false;
-            MaximumSize = new Size(411, 667);
+            MaximumSize = new Size(445, 667);
             MinimizeBox = false;
             MinimumSize = new Size(411, 667);
-            Name = "FormAtualizarRevendedor";
+            Name = "FormAtualizarDeletarRevendedor";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Atualização de Revendedor";
+            Text = "Atualizar revendedor";
             ((System.ComponentModel.ISupportInitialize)numericUpDownQtdeRevAtual).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -296,7 +314,6 @@
         private Label label1;
         private TextBox textBoxAtualizarRevendedorId;
         private Button buttonAtualizacaoBuscaRevendedorId;
-        private Label labelDadosClientes;
         private Label label4rev;
         public TextBox textBoxNomeRevendaAtualizado;
         private Label labelTelefonerev;
@@ -313,5 +330,7 @@
         public DateTimePicker dateTimePickerUltimaCompraRevAtual;
         public Button buttonLimparCadastroAtualizaRev;
         public Button buttonSalvarRevAtual;
+        public Button buttonDeletarRevendedor;
+        public Label labelRevendedor;
     }
 }

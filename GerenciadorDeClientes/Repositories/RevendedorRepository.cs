@@ -100,7 +100,7 @@ public class RevendedorRepository : IRepository<Revendedor>
     {
         try
         {
-            using (var _formAtualizarRevendedor = new FormAtualizarCliente())
+            using (var _formAtualizarRevendedor = new FormAtualizarDeletarCliente())
             {
                 var query = $"UPDATE Revendedor SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdServidor = @IdServidor, DataUltimaCompra = @DataUltimaCompra, Quantidade = @Quantidade, Valor = @Valor WHERE Id = {id};";                               
 
@@ -127,7 +127,20 @@ public class RevendedorRepository : IRepository<Revendedor>
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Revendedor WHERE Id = @Id";
+            _connection.Execute(query, new { Id = id });
+            MessageBox.Show("Revendedor deletado com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao deletar revendedor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
     
 

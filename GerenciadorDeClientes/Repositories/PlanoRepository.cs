@@ -97,7 +97,20 @@ public class PlanoRepository : IRepository<Plano>
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Plano WHERE Id = @Id";
+            _connection.Execute(query, new { Id = id });
+            MessageBox.Show("Plano deletado com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao deletar plano", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
 

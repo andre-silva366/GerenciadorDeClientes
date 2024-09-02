@@ -115,7 +115,7 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            using (var _formAtualizaCliente = new FormAtualizarCliente())
+            using (var _formAtualizaCliente = new FormAtualizarDeletarCliente())
             {
                 var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdPlano = @IdPlano, DeviceKeyOuSenha = @DeviceKeyOuSenha, MacOuEmail = @MacOuEmail, IdAplicativo = @IdAplicativo, IdServidor = @IdServidor, DataUltimoPagamento = @DataUltimoPagamento, DataProximoPagamento = @DataProximoPagamento WHERE Id = {id};";
 
@@ -160,7 +160,20 @@ public class ClienteRepository : IRepository<Cliente>
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Clientes WHERE Id = @Id";
+            _connection.Execute(query, new {Id=id});
+            MessageBox.Show("Cliente deletado com sucesso!","SUCESSO",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao deletar cliente","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
 

@@ -3,9 +3,9 @@ using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views.Update;
 
-public partial class FormAtualizarRevendedor : Form
+public partial class FormAtualizarDeletarRevendedor : Form
 {
-    public FormAtualizarRevendedor()
+    public FormAtualizarDeletarRevendedor()
     {
         InitializeComponent();
 
@@ -86,7 +86,7 @@ public partial class FormAtualizarRevendedor : Form
             ServidorRepository servidorRepository = new ServidorRepository();
             var servidor = servidorRepository.GetByName(comboBoxServidorRevendaAtualizado.Text).SingleOrDefault();
 
-            revendedor.IdServidor = servidor.Id ;
+            revendedor.IdServidor = servidor.Id;
 
             if (revendedor.Nome.Length < 3)
             {
@@ -101,11 +101,37 @@ public partial class FormAtualizarRevendedor : Form
                 revendedorRepository.Update(revendedor, revendedor.Id);
             }
         }
-        catch(Exception)
+        catch (Exception)
         {
             MessageBox.Show("Ocorreu um erro verifique os campos", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        
+
+    }
+
+    private void buttonDeletarRevendedor_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int idRev = int.Parse(textBoxAtualizarRevendedorId.Text);
+            if (idRev > 0)
+            {
+                RevendedorRepository revendedorRepository = new();
+                var revendedor = revendedorRepository.GetById(idRev);
+
+                if (revendedor == null)
+                {
+                    MessageBox.Show($"Não encontrado revendedor com id: {idRev}");
+                }
+                else
+                {
+                    revendedorRepository.Delete(idRev);
+                }
+            }
+        }
+        catch
+        {
+            MessageBox.Show("Ocorreu um erro ao deletar o revendedor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

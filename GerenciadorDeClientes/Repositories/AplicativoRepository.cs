@@ -89,7 +89,20 @@ public class AplicativoRepository : IRepository<Aplicativo>
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Aplicativo WHERE Id = @Id";
+            _connection.Execute(query, new { Id = id });
+            MessageBox.Show("Aplicativo deletado com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao deletar aplicativo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
 

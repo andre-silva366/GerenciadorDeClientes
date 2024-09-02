@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeClientes.Views
 {
-    partial class FormAtualizarCliente
+    partial class FormAtualizarDeletarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -52,8 +52,9 @@
             textBoxEmailClienteAtualizado = new TextBox();
             labelEmail = new Label();
             textBoxNomeClienteAtualizado = new TextBox();
-            labelDadosClientes = new Label();
+            labelCliente = new Label();
             label4 = new Label();
+            buttonDeletarCliente = new Button();
             SuspendLayout();
             // 
             // label1
@@ -102,9 +103,9 @@
             buttonLimparCadastroAtualizaCliente.Cursor = Cursors.Hand;
             buttonLimparCadastroAtualizaCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparCadastroAtualizaCliente.ForeColor = Color.Black;
-            buttonLimparCadastroAtualizaCliente.Location = new Point(22, 667);
+            buttonLimparCadastroAtualizaCliente.Location = new Point(22, 646);
             buttonLimparCadastroAtualizaCliente.Name = "buttonLimparCadastroAtualizaCliente";
-            buttonLimparCadastroAtualizaCliente.Size = new Size(201, 61);
+            buttonLimparCadastroAtualizaCliente.Size = new Size(163, 49);
             buttonLimparCadastroAtualizaCliente.TabIndex = 63;
             buttonLimparCadastroAtualizaCliente.Text = "Limpar";
             buttonLimparCadastroAtualizaCliente.UseVisualStyleBackColor = false;
@@ -115,9 +116,9 @@
             buttonAtualizarCliente.Cursor = Cursors.Hand;
             buttonAtualizarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizarCliente.ForeColor = SystemColors.ButtonHighlight;
-            buttonAtualizarCliente.Location = new Point(272, 667);
+            buttonAtualizarCliente.Location = new Point(310, 646);
             buttonAtualizarCliente.Name = "buttonAtualizarCliente";
-            buttonAtualizarCliente.Size = new Size(201, 61);
+            buttonAtualizarCliente.Size = new Size(163, 49);
             buttonAtualizarCliente.TabIndex = 62;
             buttonAtualizarCliente.Text = "Salvar ";
             buttonAtualizarCliente.UseVisualStyleBackColor = false;
@@ -247,12 +248,12 @@
             labelServidor.TabIndex = 68;
             labelServidor.Text = "Servidor: ";
             // 
-            // comboBoxServidorClienteAtualizado
+            // comboBoxServidorRevendaAtualizado
             // 
             comboBoxServidorRevendaAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxServidorRevendaAtualizado.FormattingEnabled = true;
             comboBoxServidorRevendaAtualizado.Location = new Point(117, 275);
-            comboBoxServidorRevendaAtualizado.Name = "comboBoxServidorClienteAtualizado";
+            comboBoxServidorRevendaAtualizado.Name = "comboBoxServidorRevendaAtualizado";
             comboBoxServidorRevendaAtualizado.Size = new Size(308, 29);
             comboBoxServidorRevendaAtualizado.TabIndex = 55;
             // 
@@ -292,15 +293,15 @@
             textBoxNomeClienteAtualizado.Size = new Size(308, 29);
             textBoxNomeClienteAtualizado.TabIndex = 52;
             // 
-            // labelDadosClientes
+            // labelCliente
             // 
-            labelDadosClientes.AutoSize = true;
-            labelDadosClientes.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelDadosClientes.Location = new Point(21, 83);
-            labelDadosClientes.Name = "labelDadosClientes";
-            labelDadosClientes.Size = new Size(233, 25);
-            labelDadosClientes.TabIndex = 64;
-            labelDadosClientes.Text = "Altere os dados do Cliente";
+            labelCliente.AutoSize = true;
+            labelCliente.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelCliente.Location = new Point(21, 83);
+            labelCliente.Name = "labelCliente";
+            labelCliente.Size = new Size(153, 25);
+            labelCliente.TabIndex = 64;
+            labelCliente.Text = "Dados do cliente";
             // 
             // label4
             // 
@@ -312,11 +313,27 @@
             label4.TabIndex = 75;
             label4.Text = "Nome:   ";
             // 
-            // FormAtualizarCliente
+            // buttonDeletarCliente
+            // 
+            buttonDeletarCliente.BackColor = Color.Red;
+            buttonDeletarCliente.Cursor = Cursors.Hand;
+            buttonDeletarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeletarCliente.ForeColor = SystemColors.ButtonHighlight;
+            buttonDeletarCliente.Location = new Point(310, 646);
+            buttonDeletarCliente.Name = "buttonDeletarCliente";
+            buttonDeletarCliente.Size = new Size(163, 49);
+            buttonDeletarCliente.TabIndex = 76;
+            buttonDeletarCliente.Text = "Excluir";
+            buttonDeletarCliente.UseVisualStyleBackColor = false;
+            buttonDeletarCliente.Visible = false;
+            buttonDeletarCliente.Click += buttonDeletarCliente_Click;
+            // 
+            // FormAtualizarDeletarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(497, 754);
+            ClientSize = new Size(504, 728);
+            Controls.Add(buttonDeletarCliente);
             Controls.Add(label4);
             Controls.Add(maskedTextBoxTelefoneClienteAtualizado);
             Controls.Add(buttonLimparCadastroAtualizaCliente);
@@ -339,13 +356,19 @@
             Controls.Add(textBoxEmailClienteAtualizado);
             Controls.Add(labelEmail);
             Controls.Add(textBoxNomeClienteAtualizado);
-            Controls.Add(labelDadosClientes);
+            Controls.Add(labelCliente);
             Controls.Add(buttonAtualizacaoBuscaClienteId);
             Controls.Add(textBoxAtualizarClienteId);
             Controls.Add(label1);
-            Name = "FormAtualizarCliente";
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MaximizeBox = false;
+            MaximumSize = new Size(520, 767);
+            MinimizeBox = false;
+            MinimumSize = new Size(520, 767);
+            Name = "FormAtualizarDeletarCliente";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Atualização de Cliente";
+            Text = "Atualizar cliente";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -357,7 +380,6 @@
         private Button buttonAtualizacaoBuscaClienteId;
         private MaskedTextBox maskedTextBoxTelefoneClienteAtualizado;
         public Button buttonLimparCadastroAtualizaCliente;
-        private Button buttonAtualizarCliente;
         public DateTimePicker dateTimePickerProximoPagamentoCliAtual;
         private Label label2;
         public DateTimePicker dateTimePickerUltimoPagamentoCliAtual;
@@ -376,7 +398,9 @@
         public TextBox textBoxEmailClienteAtualizado;
         private Label labelEmail;
         public TextBox textBoxNomeClienteAtualizado;
-        private Label labelDadosClientes;
         private Label label4;
+        public Button buttonDeletarCliente;
+        public Button buttonAtualizarCliente;
+        public Label labelCliente;
     }
 }

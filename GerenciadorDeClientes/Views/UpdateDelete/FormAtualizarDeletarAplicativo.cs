@@ -2,9 +2,9 @@
 
 namespace GerenciadorDeClientes.Views.Update;
 
-public partial class FormAtualizarAplicativo : Form
+public partial class FormAtualizarDeletarAplicativo : Form
 {
-    public FormAtualizarAplicativo()
+    public FormAtualizarDeletarAplicativo()
     {
         InitializeComponent();
     }
@@ -54,7 +54,7 @@ public partial class FormAtualizarAplicativo : Form
                 if (app != null)
                 {
                     app.Nome = textBoxNomeAppAtual.Text;
-                    appRepository.Update(app,idApp);
+                    appRepository.Update(app, idApp);
                 }
                 else
                 {
@@ -71,6 +71,32 @@ public partial class FormAtualizarAplicativo : Form
         catch
         {
             MessageBox.Show("Ocorreu um erro, verifque os campos !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void buttonExcluirApp_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int idApp = int.Parse(textBoxIdAplicativoAtual.Text);
+            if (idApp > 0)
+            {
+                AplicativoRepository aplicativoRepository = new AplicativoRepository();
+                var aplicativo = aplicativoRepository.GetById(idApp);
+
+                if (aplicativo == null)
+                {
+                    MessageBox.Show($"Não encontrado aplicativo com id: {idApp}");
+                }
+                else
+                {
+                    aplicativoRepository.Delete(idApp);
+                }
+            }
+        }
+        catch
+        {
+            MessageBox.Show("Ocorreu um erro ao deletar o aplicativo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

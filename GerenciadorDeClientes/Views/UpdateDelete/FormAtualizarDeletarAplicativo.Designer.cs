@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeClientes.Views.Update
 {
-    partial class FormAtualizarAplicativo
+    partial class FormAtualizarDeletarAplicativo
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,8 @@
             buttonLimparCadAtuaApp = new Button();
             textBoxNomeAppAtual = new TextBox();
             label3 = new Label();
-            label2 = new Label();
+            labelAplicativo = new Label();
+            buttonExcluirApp = new Button();
             SuspendLayout();
             // 
             // label1
@@ -74,9 +75,9 @@
             buttonSalvarAppAtualizado.BackColor = Color.FromArgb(0, 192, 0);
             buttonSalvarAppAtualizado.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarAppAtualizado.ForeColor = SystemColors.ButtonFace;
-            buttonSalvarAppAtualizado.Location = new Point(181, 206);
+            buttonSalvarAppAtualizado.Location = new Point(187, 219);
             buttonSalvarAppAtualizado.Name = "buttonSalvarAppAtualizado";
-            buttonSalvarAppAtualizado.Size = new Size(108, 49);
+            buttonSalvarAppAtualizado.Size = new Size(108, 36);
             buttonSalvarAppAtualizado.TabIndex = 13;
             buttonSalvarAppAtualizado.Text = "Salvar";
             buttonSalvarAppAtualizado.UseVisualStyleBackColor = false;
@@ -85,9 +86,9 @@
             // buttonLimparCadAtuaApp
             // 
             buttonLimparCadAtuaApp.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimparCadAtuaApp.Location = new Point(12, 206);
+            buttonLimparCadAtuaApp.Location = new Point(12, 219);
             buttonLimparCadAtuaApp.Name = "buttonLimparCadAtuaApp";
-            buttonLimparCadAtuaApp.Size = new Size(108, 49);
+            buttonLimparCadAtuaApp.Size = new Size(108, 36);
             buttonLimparCadAtuaApp.TabIndex = 12;
             buttonLimparCadAtuaApp.Text = "Limpar";
             buttonLimparCadAtuaApp.UseVisualStyleBackColor = true;
@@ -110,37 +111,51 @@
             label3.TabIndex = 10;
             label3.Text = "Nome: ";
             // 
-            // label2
+            // labelAplicativo
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 95);
-            label2.Name = "label2";
-            label2.Size = new Size(252, 21);
-            label2.TabIndex = 9;
-            label2.Text = "Altere as informações do aplicativo";
+            labelAplicativo.AutoSize = true;
+            labelAplicativo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelAplicativo.Location = new Point(12, 95);
+            labelAplicativo.Name = "labelAplicativo";
+            labelAplicativo.Size = new Size(146, 21);
+            labelAplicativo.TabIndex = 9;
+            labelAplicativo.Text = "Dados do aplicativo";
             // 
-            // FormAtualizarAplicativo
+            // buttonExcluirApp
+            // 
+            buttonExcluirApp.BackColor = Color.Red;
+            buttonExcluirApp.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonExcluirApp.ForeColor = SystemColors.ButtonFace;
+            buttonExcluirApp.Location = new Point(187, 219);
+            buttonExcluirApp.Name = "buttonExcluirApp";
+            buttonExcluirApp.Size = new Size(108, 36);
+            buttonExcluirApp.TabIndex = 14;
+            buttonExcluirApp.Text = "Excluir";
+            buttonExcluirApp.UseVisualStyleBackColor = false;
+            buttonExcluirApp.Visible = false;
+            buttonExcluirApp.Click += buttonExcluirApp_Click;
+            // 
+            // FormAtualizarDeletarAplicativo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(305, 273);
+            ClientSize = new Size(307, 273);
+            Controls.Add(buttonExcluirApp);
             Controls.Add(buttonSalvarAppAtualizado);
             Controls.Add(buttonLimparCadAtuaApp);
             Controls.Add(textBoxNomeAppAtual);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(labelAplicativo);
             Controls.Add(buttonBuscarAppIdAtua);
             Controls.Add(textBoxIdAplicativoAtual);
             Controls.Add(label1);
             MaximizeBox = false;
-            MaximumSize = new Size(321, 312);
+            MaximumSize = new Size(369, 312);
             MinimizeBox = false;
-            MinimumSize = new Size(321, 312);
-            Name = "FormAtualizarAplicativo";
+            Name = "FormAtualizarDeletarAplicativo";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Atualização de aplicativo";
+            Text = "Atualizar aplicativo";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -150,10 +165,11 @@
         private Label label1;
         private TextBox textBoxIdAplicativoAtual;
         private Button buttonBuscarAppIdAtua;
-        private Button buttonSalvarAppAtualizado;
         private Button buttonLimparCadAtuaApp;
         private TextBox textBoxNomeAppAtual;
         private Label label3;
-        private Label label2;
+        public Button buttonExcluirApp;
+        public Button buttonSalvarAppAtualizado;
+        public Label labelAplicativo;
     }
 }

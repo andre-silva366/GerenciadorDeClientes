@@ -95,6 +95,7 @@
             buttonExcluir.TabIndex = 10;
             buttonExcluir.Text = "Excluir";
             buttonExcluir.UseVisualStyleBackColor = false;
+            buttonExcluir.Click += buttonExcluir_Click;
             // 
             // textBoxSelectNome
             // 

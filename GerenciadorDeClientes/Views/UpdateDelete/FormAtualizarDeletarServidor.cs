@@ -3,9 +3,9 @@ using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views.Update;
 
-public partial class FormAtualizarServidor : Form
+public partial class FormAtualizarDeletarServidor : Form
 {
-    public FormAtualizarServidor()
+    public FormAtualizarDeletarServidor()
     {
         InitializeComponent();
     }
@@ -14,12 +14,13 @@ public partial class FormAtualizarServidor : Form
     {
         label1 = new Label();
         textBoxIdServidorAtual = new TextBox();
-        label2 = new Label();
+        labelServidor = new Label();
         label3 = new Label();
         textBoxNomeServidorAtual = new TextBox();
         buttonLimparCadAtuaServ = new Button();
         buttonSalvarServAtualizado = new Button();
         buttonBuscarServIdAtua = new Button();
+        buttonExcluirServidor = new Button();
         SuspendLayout();
         // 
         // label1
@@ -40,15 +41,15 @@ public partial class FormAtualizarServidor : Form
         textBoxIdServidorAtual.Size = new Size(100, 29);
         textBoxIdServidorAtual.TabIndex = 1;
         // 
-        // label2
+        // labelServidor
         // 
-        label2.AutoSize = true;
-        label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        label2.Location = new Point(12, 101);
-        label2.Name = "label2";
-        label2.Size = new Size(243, 21);
-        label2.TabIndex = 2;
-        label2.Text = "Altere as informações do servidor";
+        labelServidor.AutoSize = true;
+        labelServidor.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        labelServidor.Location = new Point(12, 101);
+        labelServidor.Name = "labelServidor";
+        labelServidor.Size = new Size(137, 21);
+        labelServidor.TabIndex = 2;
+        labelServidor.Text = "Dados do servidor";
         // 
         // label3
         // 
@@ -71,25 +72,25 @@ public partial class FormAtualizarServidor : Form
         // buttonLimparCadAtuaServ
         // 
         buttonLimparCadAtuaServ.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        buttonLimparCadAtuaServ.Location = new Point(12, 212);
+        buttonLimparCadAtuaServ.Location = new Point(12, 201);
         buttonLimparCadAtuaServ.Name = "buttonLimparCadAtuaServ";
-        buttonLimparCadAtuaServ.Size = new Size(108, 49);
+        buttonLimparCadAtuaServ.Size = new Size(95, 49);
         buttonLimparCadAtuaServ.TabIndex = 5;
         buttonLimparCadAtuaServ.Text = "Limpar";
         buttonLimparCadAtuaServ.UseVisualStyleBackColor = true;
         // 
-        // buttonSalvarRevAtualizado
+        // buttonSalvarServAtualizado
         // 
         buttonSalvarServAtualizado.BackColor = Color.FromArgb(0, 192, 0);
         buttonSalvarServAtualizado.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         buttonSalvarServAtualizado.ForeColor = SystemColors.ButtonFace;
-        buttonSalvarServAtualizado.Location = new Point(181, 212);
-        buttonSalvarServAtualizado.Name = "buttonSalvarRevAtualizado";
-        buttonSalvarServAtualizado.Size = new Size(108, 49);
+        buttonSalvarServAtualizado.Location = new Point(194, 201);
+        buttonSalvarServAtualizado.Name = "buttonSalvarServAtualizado";
+        buttonSalvarServAtualizado.Size = new Size(95, 49);
         buttonSalvarServAtualizado.TabIndex = 6;
         buttonSalvarServAtualizado.Text = "Salvar";
         buttonSalvarServAtualizado.UseVisualStyleBackColor = false;
-        buttonSalvarServAtualizado.Click += this.buttonSalvarServAtualizado_Click;
+        buttonSalvarServAtualizado.Click += buttonSalvarServAtualizado_Click;
         // 
         // buttonBuscarServIdAtua
         // 
@@ -104,36 +105,51 @@ public partial class FormAtualizarServidor : Form
         buttonBuscarServIdAtua.UseVisualStyleBackColor = false;
         buttonBuscarServIdAtua.Click += buttonBuscarServIdAtua_Click;
         // 
-        // FormAtualizarServidor
+        // buttonExcluirServidor
         // 
-        ClientSize = new Size(306, 273);
+        buttonExcluirServidor.BackColor = Color.Red;
+        buttonExcluirServidor.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        buttonExcluirServidor.ForeColor = SystemColors.ButtonFace;
+        buttonExcluirServidor.Location = new Point(194, 201);
+        buttonExcluirServidor.Name = "buttonExcluirServidor";
+        buttonExcluirServidor.Size = new Size(95, 49);
+        buttonExcluirServidor.TabIndex = 8;
+        buttonExcluirServidor.Text = "Excluir";
+        buttonExcluirServidor.UseVisualStyleBackColor = false;
+        buttonExcluirServidor.Visible = false;
+        buttonExcluirServidor.Click += buttonExcluirServidor_Click;
+        // 
+        // FormAtualizarDeletarServidor
+        // 
+        ClientSize = new Size(304, 270);
+        Controls.Add(buttonExcluirServidor);
         Controls.Add(buttonBuscarServIdAtua);
         Controls.Add(buttonSalvarServAtualizado);
         Controls.Add(buttonLimparCadAtuaServ);
         Controls.Add(textBoxNomeServidorAtual);
         Controls.Add(label3);
-        Controls.Add(label2);
+        Controls.Add(labelServidor);
         Controls.Add(textBoxIdServidorAtual);
         Controls.Add(label1);
         MaximizeBox = false;
-        MaximumSize = new Size(322, 312);
+        MaximumSize = new Size(375, 312);
         MinimizeBox = false;
-        MinimumSize = new Size(322, 312);
-        Name = "FormAtualizarServidor";
+        Name = "FormAtualizarDeletarServidor";
         ShowIcon = false;
         StartPosition = FormStartPosition.CenterScreen;
-        Text = "Atualização de Servidor";
+        Text = "Atualizar servidor";
         ResumeLayout(false);
         PerformLayout();
     }
-    
+
     private Label label1;
-    private Label label2;
+    public Label labelServidor;
     private Label label3;
     private TextBox textBoxNomeServidorAtual;
     private Button buttonLimparCadAtuaServ;
-    private Button buttonSalvarServAtualizado;
+    public Button buttonSalvarServAtualizado;
     private Button buttonBuscarServIdAtua;
+    public Button buttonExcluirServidor;
     private TextBox textBoxIdServidorAtual;
 
     private void buttonBuscarServIdAtua_Click(object? sender, EventArgs e)
@@ -142,12 +158,12 @@ public partial class FormAtualizarServidor : Form
         {
             int idServidor = int.Parse(textBoxIdServidorAtual.Text);
 
-            if(idServidor > 0)
+            if (idServidor > 0)
             {
                 ServidorRepository servidorRepository = new ServidorRepository();
                 var servidor = servidorRepository.GetById(idServidor);
 
-                if(servidor == null)
+                if (servidor == null)
                 {
                     textBoxNomeServidorAtual.Text = "";
                     MessageBox.Show($"Não encontrado servidor com id: {idServidor}!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -161,13 +177,13 @@ public partial class FormAtualizarServidor : Form
             {
                 MessageBox.Show("Id inválido!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         catch (Exception)
         {
-            MessageBox.Show("Ocorreu um erro, verifique os campos!","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show("Ocorreu um erro, verifique os campos!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
+
     }
 
     private void buttonSalvarServAtualizado_Click(object? sender, EventArgs e)
@@ -196,11 +212,37 @@ public partial class FormAtualizarServidor : Form
                 MessageBox.Show("Id inválido !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             MessageBox.Show("Ocorreu um erro verifique os campos !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
-        
+
+
+    }
+
+    private void buttonExcluirServidor_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int idServ = int.Parse(textBoxIdServidorAtual.Text);
+            if (idServ> 0)
+            {
+                ServidorRepository servidorRepository = new ();
+                var servidor = servidorRepository.GetById(idServ);
+
+                if (servidor == null)
+                {
+                    MessageBox.Show($"Não encontrado servidor com id: {idServ}");
+                }
+                else
+                {
+                    servidorRepository.Delete(idServ);
+                }
+            }
+        }
+        catch
+        {
+            MessageBox.Show("Ocorreu um erro ao deletar o servidor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

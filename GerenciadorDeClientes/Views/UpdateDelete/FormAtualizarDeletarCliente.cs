@@ -3,10 +3,10 @@ using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views
 {
-    public partial class FormAtualizarCliente : Form
-    {        
+    public partial class FormAtualizarDeletarCliente : Form
+    {
 
-        public FormAtualizarCliente()
+        public FormAtualizarDeletarCliente()
         {
             InitializeComponent();
 
@@ -92,37 +92,67 @@ namespace GerenciadorDeClientes.Views
 
         private void buttonAtualizarCliente_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            ClienteRepository clienteRepository = new ClienteRepository();
-
-            int idCliente = int.Parse(textBoxAtualizarClienteId.Text);
-            cliente = clienteRepository.GetById(idCliente);
-            cliente.Nome = textBoxNomeClienteAtualizado.Text;
-            cliente.Telefone = maskedTextBoxTelefoneClienteAtualizado.Text;
-            cliente.Email = textBoxEmailClienteAtualizado.Text;
-            cliente.DeviceKeyOuSenha = textBoxDeviceKeySenhaClienteAtualizado.Text;
-            cliente.MacOuEmail = textBoxMacEmailClienteAtualizado.Text;
-            cliente.DataUltimoPagamento = dateTimePickerUltimoPagamentoCliAtual.Value;
-            cliente.DataProximoPagamento = dateTimePickerProximoPagamentoCliAtual.Value;
-
-            if (cliente.Nome.Length < 3)
+            try
             {
-                MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (cliente.Telefone.Length < 11)
-            {
-                MessageBox.Show("Preencha o Telefone", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                Cliente cliente = new Cliente();
+                ClienteRepository clienteRepository = new ClienteRepository();
 
-            else
-            {
-                
-                clienteRepository.Update(cliente,idCliente);
+                int idCliente = int.Parse(textBoxAtualizarClienteId.Text);
+                cliente = clienteRepository.GetById(idCliente);
+                cliente.Nome = textBoxNomeClienteAtualizado.Text;
+                cliente.Telefone = maskedTextBoxTelefoneClienteAtualizado.Text;
+                cliente.Email = textBoxEmailClienteAtualizado.Text;
+                cliente.DeviceKeyOuSenha = textBoxDeviceKeySenhaClienteAtualizado.Text;
+                cliente.MacOuEmail = textBoxMacEmailClienteAtualizado.Text;
+                cliente.DataUltimoPagamento = dateTimePickerUltimoPagamentoCliAtual.Value;
+                cliente.DataProximoPagamento = dateTimePickerProximoPagamentoCliAtual.Value;
+
+                if (cliente.Nome.Length < 3)
+                {
+                    MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (cliente.Telefone.Length < 11)
+                {
+                    MessageBox.Show("Preencha o Telefone", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                else
+                {
+
+                    clienteRepository.Update(cliente, idCliente);
+                }
             }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro ao atualizar o cliente\nVerifique os campos", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
-        
+        private void buttonDeletarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idCliente = int.Parse(textBoxAtualizarClienteId.Text);
+                if(idCliente > 0)
+                {
+                    ClienteRepository clienteRepository = new ClienteRepository();
+                    var cliente = clienteRepository.GetById(idCliente);
 
-       
+                    if(cliente == null)
+                    {
+                        MessageBox.Show($"Não encontrado cliente com id: {idCliente}");
+                    }
+                    else
+                    {
+                        clienteRepository.Delete(idCliente);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro ao deletar o cliente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

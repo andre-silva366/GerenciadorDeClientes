@@ -91,7 +91,20 @@ public class ServidorRepository : IRepository<Servidor>
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Servidor WHERE Id = @Id";
+            _connection.Execute(query, new { Id = id });
+            MessageBox.Show("Servidor deletado com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao deletar servidor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
 

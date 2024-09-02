@@ -1,6 +1,6 @@
 ﻿namespace GerenciadorDeClientes.Views.Update
 {
-    partial class FormAtualizarPlano
+    partial class FormAtualizarDeletarPlano
     {
         /// <summary>
         /// Required designer variable.
@@ -33,11 +33,12 @@
             buttonLimparCadAtuaPlan = new Button();
             textBoxDescrPlanoAtual = new TextBox();
             label3 = new Label();
-            label2 = new Label();
+            labelPlano = new Label();
             textBoxIdPlanoAtual = new TextBox();
             label1 = new Label();
             label4 = new Label();
             textBoxValorPlanoAtua = new TextBox();
+            buttonExcluirPlano = new Button();
             SuspendLayout();
             // 
             // buttonBuscarPlanoIdAtua
@@ -81,7 +82,7 @@
             textBoxDescrPlanoAtual.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxDescrPlanoAtual.Location = new Point(102, 135);
             textBoxDescrPlanoAtual.Name = "textBoxDescrPlanoAtual";
-            textBoxDescrPlanoAtual.Size = new Size(270, 29);
+            textBoxDescrPlanoAtual.Size = new Size(275, 29);
             textBoxDescrPlanoAtual.TabIndex = 12;
             // 
             // label3
@@ -94,15 +95,15 @@
             label3.TabIndex = 11;
             label3.Text = "Descriçao: ";
             // 
-            // label2
+            // labelPlano
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 91);
-            label2.Name = "label2";
-            label2.Size = new Size(225, 21);
-            label2.TabIndex = 10;
-            label2.Text = "Altere as informações do plano";
+            labelPlano.AutoSize = true;
+            labelPlano.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelPlano.Location = new Point(12, 91);
+            labelPlano.Name = "labelPlano";
+            labelPlano.Size = new Size(119, 21);
+            labelPlano.TabIndex = 10;
+            labelPlano.Text = "Dados do plano";
             // 
             // textBoxIdPlanoAtual
             // 
@@ -140,11 +141,26 @@
             textBoxValorPlanoAtua.Size = new Size(135, 29);
             textBoxValorPlanoAtua.TabIndex = 17;
             // 
-            // FormAtualizarPlano
+            // buttonExcluirPlano
+            // 
+            buttonExcluirPlano.BackColor = Color.Red;
+            buttonExcluirPlano.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonExcluirPlano.ForeColor = SystemColors.ButtonFace;
+            buttonExcluirPlano.Location = new Point(269, 257);
+            buttonExcluirPlano.Name = "buttonExcluirPlano";
+            buttonExcluirPlano.Size = new Size(108, 49);
+            buttonExcluirPlano.TabIndex = 18;
+            buttonExcluirPlano.Text = "Excluir";
+            buttonExcluirPlano.UseVisualStyleBackColor = false;
+            buttonExcluirPlano.Visible = false;
+            buttonExcluirPlano.Click += buttonExcluirPlano_Click;
+            // 
+            // FormAtualizarDeletarPlano
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(392, 343);
+            ClientSize = new Size(392, 327);
+            Controls.Add(buttonExcluirPlano);
             Controls.Add(textBoxValorPlanoAtua);
             Controls.Add(label4);
             Controls.Add(buttonBuscarPlanoIdAtua);
@@ -152,15 +168,16 @@
             Controls.Add(buttonLimparCadAtuaPlan);
             Controls.Add(textBoxDescrPlanoAtual);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(labelPlano);
             Controls.Add(textBoxIdPlanoAtual);
             Controls.Add(label1);
             MaximizeBox = false;
             MinimizeBox = false;
             MinimumSize = new Size(408, 307);
-            Name = "FormAtualizarPlano";
+            Name = "FormAtualizarDeletarPlano";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Atualização de plano";
+            Text = "Alterar plano";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -168,14 +185,15 @@
         #endregion
 
         private Button buttonBuscarPlanoIdAtua;
-        private Button buttonSalvarPlanoAtualizado;
         private Button buttonLimparCadAtuaPlan;
         private TextBox textBoxDescrPlanoAtual;
         private Label label3;
-        private Label label2;
         private TextBox textBoxIdPlanoAtual;
         private Label label1;
         private Label label4;
         private TextBox textBoxValorPlanoAtua;
+        public Button buttonExcluirPlano;
+        public Button buttonSalvarPlanoAtualizado;
+        public Label labelPlano;
     }
 }
