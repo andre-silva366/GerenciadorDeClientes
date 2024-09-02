@@ -109,6 +109,7 @@
             buttonLimparCadastroAtualizaCliente.TabIndex = 63;
             buttonLimparCadastroAtualizaCliente.Text = "Limpar";
             buttonLimparCadastroAtualizaCliente.UseVisualStyleBackColor = false;
+            buttonLimparCadastroAtualizaCliente.Click += buttonLimparCadastroAtualizaCliente_Click;
             // 
             // buttonAtualizarCliente
             // 

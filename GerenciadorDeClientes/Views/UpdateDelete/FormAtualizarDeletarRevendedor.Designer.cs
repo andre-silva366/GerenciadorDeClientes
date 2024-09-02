@@ -240,6 +240,7 @@
             buttonLimparCadastroAtualizaRev.TabIndex = 90;
             buttonLimparCadastroAtualizaRev.Text = "Limpar";
             buttonLimparCadastroAtualizaRev.UseVisualStyleBackColor = false;
+            buttonLimparCadastroAtualizaRev.Click += buttonLimparCadastroAtualizaRev_Click;
             // 
             // buttonSalvarRevAtual
             // 

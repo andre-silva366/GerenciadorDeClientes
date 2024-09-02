@@ -84,7 +84,7 @@ public partial class FormAtualizarDeletarPlano : Form
             int idPlano = int.Parse(textBoxIdPlanoAtual.Text);
             if (idPlano > 0)
             {
-                PlanoRepository planoRepository = new ();
+                PlanoRepository planoRepository = new();
                 var plano = planoRepository.GetById(idPlano);
 
                 if (plano == null)
@@ -99,7 +99,14 @@ public partial class FormAtualizarDeletarPlano : Form
         }
         catch
         {
-            MessageBox.Show("Ocorreu um erro ao deletar o plano", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Ocorreu um erro, verifque os campos !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    private void buttonLimparCadAtuaPlan_Click(object sender, EventArgs e)
+    {
+        textBoxIdPlanoAtual.Text = "";
+        textBoxDescrPlanoAtual.Text = "";
+        textBoxValorPlanoAtua.Text = "";
     }
 }

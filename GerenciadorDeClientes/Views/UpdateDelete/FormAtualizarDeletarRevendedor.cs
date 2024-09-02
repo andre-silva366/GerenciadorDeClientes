@@ -131,7 +131,19 @@ public partial class FormAtualizarDeletarRevendedor : Form
         }
         catch
         {
-            MessageBox.Show("Ocorreu um erro ao deletar o revendedor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Ocorreu um erro verifique os campos", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    private void buttonLimparCadastroAtualizaRev_Click(object sender, EventArgs e)
+    {
+        textBoxAtualizarRevendedorId.Text = "";
+        textBoxNomeRevendaAtualizado.Text = "";
+        maskedTextBoxTelefoneRevendaAtualizado.Text = "";
+        textBoxEmailRevendaAtualizado.Text = "";
+        comboBoxServidorRevendaAtualizado.Text = "";
+        dateTimePickerUltimaCompraRevAtual.Value = DateTime.Now;
+        numericUpDownQtdeRevAtual.Value = 5;
+        textBoxValorAtualRev.Text = "";
     }
 }

@@ -99,4 +99,9 @@ public partial class FormAtualizarDeletarAplicativo : Form
             MessageBox.Show("Ocorreu um erro ao deletar o aplicativo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
+    private void buttonLimparCadAtuaApp_Click(object sender, EventArgs e)
+    {
+        textBoxIdAplicativoAtual.Text = "";
+    }
 }

@@ -33,7 +33,7 @@ public partial class FormCadastraCliente : Form
         }
 
         comboBoxPlano.DataSource = nomePlanos;
-
+        
         AplicativoRepository aplicativoRepository = new AplicativoRepository();
         var aplicativos = aplicativoRepository.GetAll().ToList();
 
@@ -45,36 +45,40 @@ public partial class FormCadastraCliente : Form
         }
 
         comboBoxAplicativo.DataSource = nomeAplicativos;
-
-
+        
     }
 
     public void buttonSalvarCliente_Click(object sender, EventArgs e)
     {
-        Cliente cliente = new Cliente();
-        cliente.Nome = textBoxNome.Text;
-        cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
-        cliente.Email = textBoxEmail.Text;
-        cliente.DeviceKeyOuSenha = textBoxDeviceKeySenha.Text;
-        cliente.MacOuEmail = textBoxMacEmail.Text;
-        cliente.DataUltimoPagamento = dateTimePickerUltimoPagamento.Value;
-        cliente.DataProximoPagamento = dateTimePickerProximoPagamento.Value;
-
-        if (cliente.Nome.Length < 3)
+        try
         {
-            MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        if (cliente.Telefone.Length < 11)
-        {
-            MessageBox.Show("Preencha o Telefone", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            Cliente cliente = new Cliente();
+            cliente.Nome = textBoxNome.Text;
+            cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
+            cliente.Email = textBoxEmail.Text;
+            cliente.DeviceKeyOuSenha = textBoxDeviceKeySenha.Text;
+            cliente.MacOuEmail = textBoxMacEmail.Text;
+            cliente.DataUltimoPagamento = dateTimePickerUltimoPagamento.Value;
+            cliente.DataProximoPagamento = dateTimePickerProximoPagamento.Value;
 
-        else
-        {
-            ClienteRepository clienteRepository = new ClienteRepository();
-            clienteRepository.Insert(cliente);
+            if (cliente.Nome.Length < 3)
+            {
+                throw new Exception("Preencha o Nome com no mínimo 3 caracteres!");             
+            }
+            if (cliente.Telefone.Length < 11)
+            {
+                throw new Exception("Preencha o Telefone com no mínimo 11 digitos!");           
+            }
+            else
+            {
+                ClienteRepository clienteRepository = new ClienteRepository();
+                clienteRepository.Insert(cliente);
+            }
         }
-
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
     }
 

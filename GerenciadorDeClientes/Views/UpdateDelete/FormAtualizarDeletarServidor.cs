@@ -78,6 +78,7 @@ public partial class FormAtualizarDeletarServidor : Form
         buttonLimparCadAtuaServ.TabIndex = 5;
         buttonLimparCadAtuaServ.Text = "Limpar";
         buttonLimparCadAtuaServ.UseVisualStyleBackColor = true;
+        buttonLimparCadAtuaServ.Click += buttonLimparCadAtuaServ_Click;
         // 
         // buttonSalvarServAtualizado
         // 
@@ -225,9 +226,9 @@ public partial class FormAtualizarDeletarServidor : Form
         try
         {
             int idServ = int.Parse(textBoxIdServidorAtual.Text);
-            if (idServ> 0)
+            if (idServ > 0)
             {
-                ServidorRepository servidorRepository = new ();
+                ServidorRepository servidorRepository = new();
                 var servidor = servidorRepository.GetById(idServ);
 
                 if (servidor == null)
@@ -242,7 +243,13 @@ public partial class FormAtualizarDeletarServidor : Form
         }
         catch
         {
-            MessageBox.Show("Ocorreu um erro ao deletar o servidor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Ocorreu um erro verifique os campos !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    private void buttonLimparCadAtuaServ_Click(object sender, EventArgs e)
+    {
+        textBoxIdServidorAtual.Text = "";
+        textBoxNomeServidorAtual.Text = "";
     }
 }

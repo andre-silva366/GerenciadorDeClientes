@@ -76,6 +76,7 @@
             buttonLimparCadAtuaPlan.TabIndex = 13;
             buttonLimparCadAtuaPlan.Text = "Limpar";
             buttonLimparCadAtuaPlan.UseVisualStyleBackColor = true;
+            buttonLimparCadAtuaPlan.Click += buttonLimparCadAtuaPlan_Click;
             // 
             // textBoxDescrPlanoAtual
             // 

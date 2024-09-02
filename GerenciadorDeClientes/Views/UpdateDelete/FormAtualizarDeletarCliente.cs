@@ -124,9 +124,9 @@ namespace GerenciadorDeClientes.Views
             }
             catch
             {
-                MessageBox.Show("Ocorreu um erro ao atualizar o cliente\nVerifique os campos", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um erro ao atualizar o cliente\nVerifique os campos!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void buttonDeletarCliente_Click(object sender, EventArgs e)
@@ -134,12 +134,12 @@ namespace GerenciadorDeClientes.Views
             try
             {
                 int idCliente = int.Parse(textBoxAtualizarClienteId.Text);
-                if(idCliente > 0)
+                if (idCliente > 0)
                 {
                     ClienteRepository clienteRepository = new ClienteRepository();
                     var cliente = clienteRepository.GetById(idCliente);
 
-                    if(cliente == null)
+                    if (cliente == null)
                     {
                         MessageBox.Show($"Não encontrado cliente com id: {idCliente}");
                     }
@@ -151,8 +151,24 @@ namespace GerenciadorDeClientes.Views
             }
             catch
             {
-                MessageBox.Show("Ocorreu um erro ao deletar o cliente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um erro ao atualizar o cliente\nVerifique os campos!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonLimparCadastroAtualizaCliente_Click(object sender, EventArgs e)
+        {
+            textBoxAtualizarClienteId.Text = "";
+            textBoxNomeClienteAtualizado.Text = "";
+            maskedTextBoxTelefoneClienteAtualizado.Text = "";
+            textBoxEmailClienteAtualizado.Text = "";
+            comboBoxServidorRevendaAtualizado.Text = "";
+            comboBoxPlanoClienteAtualizado.Text = "";
+            comboBoxAplicativoClienteAtualizado.Text = "";
+            textBoxMacEmailClienteAtualizado.Text = "";
+            textBoxDeviceKeySenhaClienteAtualizado.Text = "";
+            dateTimePickerUltimoPagamentoCliAtual.Value = DateTime.Now;
+            dateTimePickerProximoPagamentoCliAtual.Value = DateTime.Now.AddMonths(1);
+            
         }
     }
 }

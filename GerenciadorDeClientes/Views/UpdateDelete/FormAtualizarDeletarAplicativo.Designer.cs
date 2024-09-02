@@ -92,6 +92,7 @@
             buttonLimparCadAtuaApp.TabIndex = 12;
             buttonLimparCadAtuaApp.Text = "Limpar";
             buttonLimparCadAtuaApp.UseVisualStyleBackColor = true;
+            buttonLimparCadAtuaApp.Click += buttonLimparCadAtuaApp_Click;
             // 
             // textBoxNomeAppAtual
             // 

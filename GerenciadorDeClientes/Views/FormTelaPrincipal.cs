@@ -1,6 +1,7 @@
 using GerenciadorDeClientes.Repositories;
 using GerenciadorDeClientes.Views.Update;
 using GerenciadorDeClientes.Views;
+using System.Windows.Forms;
 
 
 namespace GerenciadorDeClientes;
@@ -16,8 +17,6 @@ public partial class FormTelaPrincipal : Form
     // Botão buscar (Get All)
     private void buttonBuscar_Click(object sender, EventArgs e)
     {
-        dataGridView.Visible = true;
-
         if (radioButtonCliente.Checked)
         {
             ClienteRepository cliente = new ClienteRepository();
@@ -28,6 +27,7 @@ public partial class FormTelaPrincipal : Form
             }
             else
             {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = clientes;
             }
@@ -43,6 +43,7 @@ public partial class FormTelaPrincipal : Form
             }
             else
             {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = planos;
             }
@@ -58,6 +59,7 @@ public partial class FormTelaPrincipal : Form
             }
             else
             {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = revendedores;
             }
@@ -73,6 +75,7 @@ public partial class FormTelaPrincipal : Form
             }
             else
             {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = servidores;
             }
@@ -88,6 +91,7 @@ public partial class FormTelaPrincipal : Form
             }
             else
             {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = aplicativos;
             }
