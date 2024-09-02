@@ -68,9 +68,31 @@ public class PlanoRepository : IRepository<Plano>
         }
     }
 
-    public void Update(Plano t,int id)
+    public void Update(Plano plano,int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "UPDATE Plano SET Descricao = @Descricao, Valor = @Valor WHERE Id = @Id;";
+
+            var parameters = new
+            {
+                id,
+                plano.Descricao,
+                plano.Valor
+            };
+
+            _connection.Execute(query,parameters);
+
+            MessageBox.Show("Plano atualizado com sucesso !", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao atualizar o plano !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Delete(int id)

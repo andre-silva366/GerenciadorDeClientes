@@ -241,15 +241,15 @@ public partial class FormTelaPrincipal : Form
             FormAtualizarServidor formAtualizarServidor = new FormAtualizarServidor();
             formAtualizarServidor.Show();
         }
-        //if (radioButtonAplicativo.Checked)
-        //{
-        //    FormCadastraAplicativo formCadastraAplicativo = new FormCadastraAplicativo();
-        //    formCadastraAplicativo.Show();
-        //}
-        //if (radioButtonPlano.Checked)
-        //{
-        //    FormCadastraPlano formCadastraPlano = new FormCadastraPlano();
-        //    formCadastraPlano.Show();
-        //}
+        if (radioButtonAplicativo.Checked)
+        {
+            FormAtualizarAplicativo formAtualizarAplicativo = new FormAtualizarAplicativo();
+            formAtualizarAplicativo.Show();
+        }
+        if (radioButtonPlano.Checked)
+        {
+            FormAtualizarPlano formAtualizarPlano = new FormAtualizarPlano();
+            formAtualizarPlano.Show();
+        }
     }
 }

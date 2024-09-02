@@ -68,9 +68,23 @@ public class AplicativoRepository : IRepository<Aplicativo>
         }
     }
 
-    public void Update(Aplicativo t,int id)
+    public void Update(Aplicativo app,int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "UPDATE Aplicativo SET Nome = @Nome WHERE Id = @Id;";
+            _connection.Execute(query, new {app.Nome, id});
+
+            MessageBox.Show("Aplicativo atualizado com sucesso !","SUCESSO",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+        }
+        catch
+        {
+            MessageBox.Show("Erro ao atualizar o aplicativo !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Delete(int id)
