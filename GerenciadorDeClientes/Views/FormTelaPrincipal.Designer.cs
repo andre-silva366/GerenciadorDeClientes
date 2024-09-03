@@ -50,7 +50,7 @@
             buttonCadastrar.BackColor = Color.RoyalBlue;
             buttonCadastrar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCadastrar.ForeColor = SystemColors.ButtonFace;
-            buttonCadastrar.Location = new Point(159, 61);
+            buttonCadastrar.Location = new Point(169, 61);
             buttonCadastrar.Name = "buttonCadastrar";
             buttonCadastrar.Size = new Size(142, 53);
             buttonCadastrar.TabIndex = 8;
@@ -63,7 +63,7 @@
             buttonAtualizar.BackColor = Color.Goldenrod;
             buttonAtualizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizar.ForeColor = SystemColors.ButtonFace;
-            buttonAtualizar.Location = new Point(307, 61);
+            buttonAtualizar.Location = new Point(328, 61);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(142, 53);
             buttonAtualizar.TabIndex = 9;
@@ -89,7 +89,7 @@
             buttonExcluir.BackColor = Color.Red;
             buttonExcluir.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluir.ForeColor = SystemColors.ButtonFace;
-            buttonExcluir.Location = new Point(455, 61);
+            buttonExcluir.Location = new Point(490, 61);
             buttonExcluir.Name = "buttonExcluir";
             buttonExcluir.Size = new Size(142, 53);
             buttonExcluir.TabIndex = 10;
@@ -121,7 +121,7 @@
             buttonLimpar.BackColor = Color.SeaShell;
             buttonLimpar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimpar.ForeColor = SystemColors.ActiveCaptionText;
-            buttonLimpar.Location = new Point(603, 61);
+            buttonLimpar.Location = new Point(663, 61);
             buttonLimpar.Name = "buttonLimpar";
             buttonLimpar.Size = new Size(142, 53);
             buttonLimpar.TabIndex = 11;
