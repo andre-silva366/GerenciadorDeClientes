@@ -20,7 +20,7 @@ public class RevendedorRepository : IRepository<Revendedor>
     {
         try
         {
-            return _connection.Query<Revendedor>("SELECT * FROM Revendedor").ToList();
+            return _connection.Query<Revendedor>("SELECT Id,Nome,Telefone,Email,DataUltimaCompra,Quantidade,Valor FROM Revendedor").ToList();
         }
         finally
         {
