@@ -30,6 +30,9 @@ public partial class FormTelaPrincipal : Form
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = clientes;
+                dataGridView.Columns["IdServidor"].Visible = false;
+                dataGridView.Columns["IdPlano"].Visible = false;
+                dataGridView.Columns["IdAplicativo"].Visible = false;
             }
 
         }

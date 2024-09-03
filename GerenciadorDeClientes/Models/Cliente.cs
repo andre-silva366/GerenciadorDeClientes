@@ -14,5 +14,4 @@ public class Cliente
     public int IdAplicativo { get; set; }
     public int IdPlano { get; set; }
     public int IdServidor { get; set; }
-
 }

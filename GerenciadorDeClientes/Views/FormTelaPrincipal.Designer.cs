@@ -100,7 +100,7 @@
             // textBoxSelectNome
             // 
             textBoxSelectNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxSelectNome.Location = new Point(669, 18);
+            textBoxSelectNome.Location = new Point(805, 17);
             textBoxSelectNome.Name = "textBoxSelectNome";
             textBoxSelectNome.PlaceholderText = "Digite aqui!";
             textBoxSelectNome.Size = new Size(235, 29);
@@ -112,7 +112,7 @@
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Location = new Point(12, 135);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(892, 531);
+            dataGridView.Size = new Size(1028, 531);
             dataGridView.TabIndex = 11;
             dataGridView.Visible = false;
             // 
@@ -133,7 +133,7 @@
             // 
             radioButtonAplicativo.AutoSize = true;
             radioButtonAplicativo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonAplicativo.Location = new Point(318, 19);
+            radioButtonAplicativo.Location = new Point(369, 18);
             radioButtonAplicativo.Name = "radioButtonAplicativo";
             radioButtonAplicativo.Size = new Size(101, 25);
             radioButtonAplicativo.TabIndex = 3;
@@ -145,7 +145,7 @@
             // 
             radioButtonServidor.AutoSize = true;
             radioButtonServidor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonServidor.Location = new Point(221, 19);
+            radioButtonServidor.Location = new Point(244, 19);
             radioButtonServidor.Name = "radioButtonServidor";
             radioButtonServidor.Size = new Size(91, 25);
             radioButtonServidor.TabIndex = 2;
@@ -157,7 +157,7 @@
             // 
             radioButtonPlano.AutoSize = true;
             radioButtonPlano.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonPlano.Location = new Point(425, 19);
+            radioButtonPlano.Location = new Point(511, 18);
             radioButtonPlano.Name = "radioButtonPlano";
             radioButtonPlano.Size = new Size(68, 25);
             radioButtonPlano.TabIndex = 4;
@@ -169,7 +169,7 @@
             // 
             radioButtonRevendedor.AutoSize = true;
             radioButtonRevendedor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButtonRevendedor.Location = new Point(97, 19);
+            radioButtonRevendedor.Location = new Point(107, 18);
             radioButtonRevendedor.Name = "radioButtonRevendedor";
             radioButtonRevendedor.Size = new Size(118, 25);
             radioButtonRevendedor.TabIndex = 1;
@@ -193,7 +193,7 @@
             // 
             checkBoxBuscaPorNome.AutoSize = true;
             checkBoxBuscaPorNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBoxBuscaPorNome.Location = new Point(516, 20);
+            checkBoxBuscaPorNome.Location = new Point(629, 19);
             checkBoxBuscaPorNome.Name = "checkBoxBuscaPorNome";
             checkBoxBuscaPorNome.Size = new Size(147, 25);
             checkBoxBuscaPorNome.TabIndex = 5;
@@ -205,7 +205,7 @@
             buttonBuscarPorNome.BackColor = Color.DarkGreen;
             buttonBuscarPorNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBuscarPorNome.ForeColor = SystemColors.ButtonFace;
-            buttonBuscarPorNome.Location = new Point(762, 62);
+            buttonBuscarPorNome.Location = new Point(898, 62);
             buttonBuscarPorNome.Name = "buttonBuscarPorNome";
             buttonBuscarPorNome.Size = new Size(142, 53);
             buttonBuscarPorNome.TabIndex = 12;
@@ -217,7 +217,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(918, 678);
+            ClientSize = new Size(1054, 678);
             Controls.Add(buttonBuscarPorNome);
             Controls.Add(checkBoxBuscaPorNome);
             Controls.Add(radioButtonPlano);
@@ -232,6 +232,8 @@
             Controls.Add(buttonBuscar);
             Controls.Add(buttonAtualizar);
             Controls.Add(buttonCadastrar);
+            MaximumSize = new Size(1070, 717);
+            MinimumSize = new Size(1070, 717);
             Name = "FormTelaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Principal";

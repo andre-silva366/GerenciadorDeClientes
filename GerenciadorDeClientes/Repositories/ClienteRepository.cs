@@ -20,7 +20,8 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            return _connection.Query<Cliente>("SELECT * FROM Clientes").ToList();
+            return _connection.Query<Cliente>("SELECT Id, Nome, Telefone, Email, DeviceKeyOuSenha, MacOuEmail, DataUltimoPagamento , DataProximoPagamento FROM Clientes").ToList();
+            
         }
         finally
         {
