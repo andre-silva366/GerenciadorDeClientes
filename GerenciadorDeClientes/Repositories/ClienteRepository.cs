@@ -20,7 +20,7 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            return _connection.Query<Cliente>("SELECT Id, Nome, Telefone, Email, DeviceKeyOuSenha, MacOuEmail, DataUltimoPagamento , DataProximoPagamento FROM Clientes").ToList();
+            return _connection.Query<Cliente>("SELECT Id, Nome, Telefone, Email, DeviceKeyOuSenha, MacOuEmail, DataUltimoPagamento , DataProximoPagamento FROM Clientes ORDER BY DataUltimoPagamento").ToList();
             
         }
         finally
@@ -151,7 +151,7 @@ public class ClienteRepository : IRepository<Cliente>
 
                 _connection.Execute(query, parameters);
             }
-            MessageBox.Show("Cliente atualizado com sucesso !", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Cliente atualizado com sucesso !", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch (Exception ex)
         {
