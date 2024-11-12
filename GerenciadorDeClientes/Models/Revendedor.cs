@@ -10,6 +10,4 @@ public class Revendedor
     public int Quantidade { get; set; }
     public decimal Valor { get; set; }
 
-    public int IdServidor { get; set; }
-
 }

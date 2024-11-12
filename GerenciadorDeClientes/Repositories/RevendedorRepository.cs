@@ -12,7 +12,7 @@ public class RevendedorRepository : IRepository<Revendedor>
 
     public RevendedorRepository()
     {
-        _connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
 
     }
 
@@ -109,7 +109,7 @@ public class RevendedorRepository : IRepository<Revendedor>
                     revendedor.Nome,
                     revendedor.Telefone,
                     revendedor.Email,
-                    revendedor.IdServidor,
+                    //revendedor.IdServidor,
                     revendedor.DataUltimaCompra,
                     revendedor.Quantidade,
                     revendedor.Valor

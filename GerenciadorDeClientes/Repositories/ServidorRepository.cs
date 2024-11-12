@@ -11,7 +11,7 @@ public class ServidorRepository : IRepository<Servidor>
 
     public ServidorRepository()
     {
-        _connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
     }
 
     public ICollection<Servidor> GetAll()

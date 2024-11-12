@@ -42,8 +42,8 @@ public partial class FormAtualizarDeletarRevendedor : Form
                     textBoxEmailRevendaAtualizado.Text = revendedor.Email;
 
                     ServidorRepository servidorRepository = new ServidorRepository();
-                    var servidor = servidorRepository.GetById(revendedor.IdServidor);
-                    comboBoxServidorRevendaAtualizado.Text = servidor.Nome;
+                    //var servidor = servidorRepository.GetById(revendedor.IdServidor);
+                    //comboBoxServidorRevendaAtualizado.Text = servidor.Nome;
                     dateTimePickerUltimaCompraRevAtual.Value = revendedor.DataUltimaCompra;
                     numericUpDownQtdeRevAtual.Value = revendedor.Quantidade;
                     textBoxValorAtualRev.Text = revendedor.Valor.ToString();
@@ -86,7 +86,7 @@ public partial class FormAtualizarDeletarRevendedor : Form
             ServidorRepository servidorRepository = new ServidorRepository();
             var servidor = servidorRepository.GetByName(comboBoxServidorRevendaAtualizado.Text).SingleOrDefault();
 
-            revendedor.IdServidor = servidor.Id;
+            //revendedor.IdServidor = servidor.Id;
 
             if (revendedor.Nome.Length < 3)
             {

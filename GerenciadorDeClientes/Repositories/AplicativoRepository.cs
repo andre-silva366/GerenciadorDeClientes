@@ -11,7 +11,7 @@ public class AplicativoRepository : IRepository<Aplicativo>
 
     public AplicativoRepository()
     {
-        _connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
     }
 
     public ICollection<Aplicativo> GetAll()
@@ -55,7 +55,7 @@ public class AplicativoRepository : IRepository<Aplicativo>
     {
         try
         {
-            _connection.Execute("INSERT INTO Aplicativo (Nome) VALUES (@Nome);", new {app.Nome});
+            _connection.Execute("INSERT INTO Aplicativo (Nome,Site) VALUES (@Nome,@Site);", new {app.Nome});
             MessageBox.Show("Aplicativo cadastrado com sucesso!","SUCESSO",MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch(Exception)
@@ -72,8 +72,8 @@ public class AplicativoRepository : IRepository<Aplicativo>
     {
         try
         {
-            var query = "UPDATE Aplicativo SET Nome = @Nome WHERE Id = @Id;";
-            _connection.Execute(query, new {app.Nome, id});
+            var query = "UPDATE Aplicativo SET Nome = @Nome, Site=@Site WHERE Id = @Id;";
+            _connection.Execute(query, new {app.Nome,app.Site,id});
 
             MessageBox.Show("Aplicativo atualizado com sucesso !","SUCESSO",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
         }

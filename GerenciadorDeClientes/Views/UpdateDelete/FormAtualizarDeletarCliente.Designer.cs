@@ -34,20 +34,8 @@
             maskedTextBoxTelefoneClienteAtualizado = new MaskedTextBox();
             buttonLimparCadastroAtualizaCliente = new Button();
             buttonAtualizarCliente = new Button();
-            dateTimePickerProximoPagamentoCliAtual = new DateTimePicker();
-            label2 = new Label();
-            dateTimePickerUltimoPagamentoCliAtual = new DateTimePicker();
-            label3 = new Label();
-            textBoxDeviceKeySenhaClienteAtualizado = new TextBox();
-            textBoxMacEmailClienteAtualizado = new TextBox();
-            label9 = new Label();
-            label8 = new Label();
-            comboBoxAplicativoClienteAtualizado = new ComboBox();
-            label7 = new Label();
             comboBoxPlanoClienteAtualizado = new ComboBox();
             labelPlano = new Label();
-            labelServidor = new Label();
-            comboBoxServidorRevendaAtualizado = new ComboBox();
             labelTelefone = new Label();
             textBoxEmailClienteAtualizado = new TextBox();
             labelEmail = new Label();
@@ -103,7 +91,7 @@
             buttonLimparCadastroAtualizaCliente.Cursor = Cursors.Hand;
             buttonLimparCadastroAtualizaCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparCadastroAtualizaCliente.ForeColor = Color.Black;
-            buttonLimparCadastroAtualizaCliente.Location = new Point(22, 646);
+            buttonLimparCadastroAtualizaCliente.Location = new Point(22, 324);
             buttonLimparCadastroAtualizaCliente.Name = "buttonLimparCadastroAtualizaCliente";
             buttonLimparCadastroAtualizaCliente.Size = new Size(163, 49);
             buttonLimparCadastroAtualizaCliente.TabIndex = 63;
@@ -117,7 +105,7 @@
             buttonAtualizarCliente.Cursor = Cursors.Hand;
             buttonAtualizarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizarCliente.ForeColor = SystemColors.ButtonHighlight;
-            buttonAtualizarCliente.Location = new Point(310, 646);
+            buttonAtualizarCliente.Location = new Point(262, 324);
             buttonAtualizarCliente.Name = "buttonAtualizarCliente";
             buttonAtualizarCliente.Size = new Size(163, 49);
             buttonAtualizarCliente.TabIndex = 62;
@@ -125,106 +113,11 @@
             buttonAtualizarCliente.UseVisualStyleBackColor = false;
             buttonAtualizarCliente.Click += buttonAtualizarCliente_Click;
             // 
-            // dateTimePickerProximoPagamentoCliAtual
-            // 
-            dateTimePickerProximoPagamentoCliAtual.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerProximoPagamentoCliAtual.Location = new Point(228, 585);
-            dateTimePickerProximoPagamentoCliAtual.MaxDate = new DateTime(2100, 8, 27, 0, 0, 0, 0);
-            dateTimePickerProximoPagamentoCliAtual.MinDate = new DateTime(1900, 8, 27, 0, 0, 0, 0);
-            dateTimePickerProximoPagamentoCliAtual.Name = "dateTimePickerProximoPagamentoCliAtual";
-            dateTimePickerProximoPagamentoCliAtual.Size = new Size(245, 23);
-            dateTimePickerProximoPagamentoCliAtual.TabIndex = 61;
-            dateTimePickerProximoPagamentoCliAtual.Value = new DateTime(2024, 8, 27, 0, 0, 0, 0);
-            // 
-            // label2
-            // 
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(21, 586);
-            label2.Name = "label2";
-            label2.Size = new Size(213, 28);
-            label2.TabIndex = 74;
-            label2.Text = "Data (próximo pagamento)";
-            // 
-            // dateTimePickerUltimoPagamentoCliAtual
-            // 
-            dateTimePickerUltimoPagamentoCliAtual.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerUltimoPagamentoCliAtual.Location = new Point(228, 537);
-            dateTimePickerUltimoPagamentoCliAtual.MaxDate = new DateTime(2100, 8, 27, 0, 0, 0, 0);
-            dateTimePickerUltimoPagamentoCliAtual.MinDate = new DateTime(1960, 8, 27, 0, 0, 0, 0);
-            dateTimePickerUltimoPagamentoCliAtual.Name = "dateTimePickerUltimoPagamentoCliAtual";
-            dateTimePickerUltimoPagamentoCliAtual.Size = new Size(245, 23);
-            dateTimePickerUltimoPagamentoCliAtual.TabIndex = 60;
-            dateTimePickerUltimoPagamentoCliAtual.Value = new DateTime(2024, 8, 27, 0, 0, 0, 0);
-            // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(21, 532);
-            label3.Name = "label3";
-            label3.Size = new Size(192, 28);
-            label3.TabIndex = 73;
-            label3.Text = "Data (ultimo pagamento)";
-            // 
-            // textBoxDeviceKeySenhaClienteAtualizado
-            // 
-            textBoxDeviceKeySenhaClienteAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxDeviceKeySenhaClienteAtualizado.Location = new Point(181, 481);
-            textBoxDeviceKeySenhaClienteAtualizado.Name = "textBoxDeviceKeySenhaClienteAtualizado";
-            textBoxDeviceKeySenhaClienteAtualizado.Size = new Size(292, 29);
-            textBoxDeviceKeySenhaClienteAtualizado.TabIndex = 59;
-            // 
-            // textBoxMacEmailClienteAtualizado
-            // 
-            textBoxMacEmailClienteAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxMacEmailClienteAtualizado.Location = new Point(117, 426);
-            textBoxMacEmailClienteAtualizado.Name = "textBoxMacEmailClienteAtualizado";
-            textBoxMacEmailClienteAtualizado.Size = new Size(308, 29);
-            textBoxMacEmailClienteAtualizado.TabIndex = 58;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(21, 484);
-            label9.Name = "label9";
-            label9.Size = new Size(153, 21);
-            label9.TabIndex = 72;
-            label9.Text = "Device Key/Senha:  ";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(21, 429);
-            label8.Name = "label8";
-            label8.Size = new Size(98, 21);
-            label8.TabIndex = 71;
-            label8.Text = "Mac/Email:  ";
-            // 
-            // comboBoxAplicativoClienteAtualizado
-            // 
-            comboBoxAplicativoClienteAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxAplicativoClienteAtualizado.FormattingEnabled = true;
-            comboBoxAplicativoClienteAtualizado.Location = new Point(117, 374);
-            comboBoxAplicativoClienteAtualizado.Name = "comboBoxAplicativoClienteAtualizado";
-            comboBoxAplicativoClienteAtualizado.Size = new Size(308, 29);
-            comboBoxAplicativoClienteAtualizado.TabIndex = 57;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(22, 382);
-            label7.Name = "label7";
-            label7.Size = new Size(95, 21);
-            label7.TabIndex = 70;
-            label7.Text = "Aplicativo:  ";
-            // 
             // comboBoxPlanoClienteAtualizado
             // 
             comboBoxPlanoClienteAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxPlanoClienteAtualizado.FormattingEnabled = true;
-            comboBoxPlanoClienteAtualizado.Location = new Point(117, 324);
+            comboBoxPlanoClienteAtualizado.Location = new Point(117, 276);
             comboBoxPlanoClienteAtualizado.Name = "comboBoxPlanoClienteAtualizado";
             comboBoxPlanoClienteAtualizado.Size = new Size(308, 29);
             comboBoxPlanoClienteAtualizado.TabIndex = 56;
@@ -233,30 +126,11 @@
             // 
             labelPlano.AutoSize = true;
             labelPlano.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPlano.Location = new Point(22, 332);
+            labelPlano.Location = new Point(22, 284);
             labelPlano.Name = "labelPlano";
             labelPlano.Size = new Size(62, 21);
             labelPlano.TabIndex = 69;
             labelPlano.Text = "Plano:  ";
-            // 
-            // labelServidor
-            // 
-            labelServidor.AutoSize = true;
-            labelServidor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelServidor.Location = new Point(22, 278);
-            labelServidor.Name = "labelServidor";
-            labelServidor.Size = new Size(82, 21);
-            labelServidor.TabIndex = 68;
-            labelServidor.Text = "Servidor: ";
-            // 
-            // comboBoxServidorRevendaAtualizado
-            // 
-            comboBoxServidorRevendaAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxServidorRevendaAtualizado.FormattingEnabled = true;
-            comboBoxServidorRevendaAtualizado.Location = new Point(117, 275);
-            comboBoxServidorRevendaAtualizado.Name = "comboBoxServidorRevendaAtualizado";
-            comboBoxServidorRevendaAtualizado.Size = new Size(308, 29);
-            comboBoxServidorRevendaAtualizado.TabIndex = 55;
             // 
             // labelTelefone
             // 
@@ -320,7 +194,7 @@
             buttonDeletarCliente.Cursor = Cursors.Hand;
             buttonDeletarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDeletarCliente.ForeColor = SystemColors.ButtonHighlight;
-            buttonDeletarCliente.Location = new Point(310, 646);
+            buttonDeletarCliente.Location = new Point(262, 388);
             buttonDeletarCliente.Name = "buttonDeletarCliente";
             buttonDeletarCliente.Size = new Size(163, 49);
             buttonDeletarCliente.TabIndex = 76;
@@ -333,26 +207,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(504, 728);
+            ClientSize = new Size(486, 464);
             Controls.Add(buttonDeletarCliente);
             Controls.Add(label4);
             Controls.Add(maskedTextBoxTelefoneClienteAtualizado);
             Controls.Add(buttonLimparCadastroAtualizaCliente);
             Controls.Add(buttonAtualizarCliente);
-            Controls.Add(dateTimePickerProximoPagamentoCliAtual);
-            Controls.Add(label2);
-            Controls.Add(dateTimePickerUltimoPagamentoCliAtual);
-            Controls.Add(label3);
-            Controls.Add(textBoxDeviceKeySenhaClienteAtualizado);
-            Controls.Add(textBoxMacEmailClienteAtualizado);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(comboBoxAplicativoClienteAtualizado);
-            Controls.Add(label7);
             Controls.Add(comboBoxPlanoClienteAtualizado);
             Controls.Add(labelPlano);
-            Controls.Add(labelServidor);
-            Controls.Add(comboBoxServidorRevendaAtualizado);
             Controls.Add(labelTelefone);
             Controls.Add(textBoxEmailClienteAtualizado);
             Controls.Add(labelEmail);
@@ -363,13 +225,13 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MaximizeBox = false;
-            MaximumSize = new Size(520, 767);
+            MaximumSize = new Size(502, 503);
             MinimizeBox = false;
-            MinimumSize = new Size(520, 767);
+            MinimumSize = new Size(502, 503);
             Name = "FormAtualizarDeletarCliente";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Atualizar cliente";
+            Text = "Atualizar/Deletar cliente";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -381,20 +243,8 @@
         private Button buttonAtualizacaoBuscaClienteId;
         private MaskedTextBox maskedTextBoxTelefoneClienteAtualizado;
         public Button buttonLimparCadastroAtualizaCliente;
-        public DateTimePicker dateTimePickerProximoPagamentoCliAtual;
-        private Label label2;
-        public DateTimePicker dateTimePickerUltimoPagamentoCliAtual;
-        private Label label3;
-        public TextBox textBoxDeviceKeySenhaClienteAtualizado;
-        public TextBox textBoxMacEmailClienteAtualizado;
-        private Label label9;
-        private Label label8;
-        public ComboBox comboBoxAplicativoClienteAtualizado;
-        private Label label7;
         public ComboBox comboBoxPlanoClienteAtualizado;
         private Label labelPlano;
-        private Label labelServidor;
-        public ComboBox comboBoxServidorRevendaAtualizado;
         private Label labelTelefone;
         public TextBox textBoxEmailClienteAtualizado;
         private Label labelEmail;

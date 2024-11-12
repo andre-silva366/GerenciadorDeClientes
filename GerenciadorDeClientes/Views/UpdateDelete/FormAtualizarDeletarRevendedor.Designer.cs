@@ -186,6 +186,7 @@
             numericUpDownQtdeRevAtual.Name = "numericUpDownQtdeRevAtual";
             numericUpDownQtdeRevAtual.Size = new Size(242, 29);
             numericUpDownQtdeRevAtual.TabIndex = 85;
+            numericUpDownQtdeRevAtual.TextAlign = HorizontalAlignment.Center;
             numericUpDownQtdeRevAtual.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // label2

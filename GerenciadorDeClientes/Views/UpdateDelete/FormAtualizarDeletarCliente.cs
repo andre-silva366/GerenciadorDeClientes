@@ -19,8 +19,6 @@ namespace GerenciadorDeClientes.Views
                 nomeServidores.Add(item.Nome);
             }
 
-            comboBoxServidorRevendaAtualizado.DataSource = nomeServidores;
-
             PlanoRepository planoRepository = new PlanoRepository();
             var planos = planoRepository.GetAll().ToList();
 
@@ -32,18 +30,7 @@ namespace GerenciadorDeClientes.Views
             }
 
             comboBoxPlanoClienteAtualizado.DataSource = nomePlanos;
-
-            AplicativoRepository aplicativoRepository = new AplicativoRepository();
-            var aplicativos = aplicativoRepository.GetAll().ToList();
-
-            List<string> nomeAplicativos = new List<string>();
-
-            foreach (var item in aplicativos)
-            {
-                nomeAplicativos.Add(item.Nome);
-            }
-
-            comboBoxAplicativoClienteAtualizado.DataSource = nomeAplicativos;
+                        
         }
 
         private void buttonAtualizacaoBuscaClienteId_Click(object sender, EventArgs e)
@@ -67,20 +54,9 @@ namespace GerenciadorDeClientes.Views
                         textBoxNomeClienteAtualizado.Text = cliente.Nome;
                         maskedTextBoxTelefoneClienteAtualizado.Text = cliente.Telefone;
                         textBoxEmailClienteAtualizado.Text = cliente.Email;
-
-                        var aplicativo = aplicativoRepository.GetById(cliente.IdAplicativo);
-                        comboBoxAplicativoClienteAtualizado.Text = aplicativo.Nome;
-
-                        var servidor = servidorRepository.GetById(cliente.IdServidor);
-                        comboBoxServidorRevendaAtualizado.Text = servidor.Nome;
-
+                        
                         var plano = planoRepository.GetById(cliente.IdPlano);
                         comboBoxPlanoClienteAtualizado.Text = plano.Descricao;
-
-                        textBoxMacEmailClienteAtualizado.Text = cliente.MacOuEmail;
-                        textBoxDeviceKeySenhaClienteAtualizado.Text = cliente.DeviceKeyOuSenha;
-                        dateTimePickerUltimoPagamentoCliAtual.Value = cliente.DataUltimoPagamento;
-                        dateTimePickerProximoPagamentoCliAtual.Value = cliente.DataProximoPagamento;
                     }
                 }
             }
@@ -102,10 +78,6 @@ namespace GerenciadorDeClientes.Views
                 cliente.Nome = textBoxNomeClienteAtualizado.Text;
                 cliente.Telefone = maskedTextBoxTelefoneClienteAtualizado.Text;
                 cliente.Email = textBoxEmailClienteAtualizado.Text;
-                cliente.DeviceKeyOuSenha = textBoxDeviceKeySenhaClienteAtualizado.Text;
-                cliente.MacOuEmail = textBoxMacEmailClienteAtualizado.Text;
-                cliente.DataUltimoPagamento = dateTimePickerUltimoPagamentoCliAtual.Value;
-                cliente.DataProximoPagamento = dateTimePickerProximoPagamentoCliAtual.Value;
 
                 if (cliente.Nome.Length < 3)
                 {
@@ -161,13 +133,7 @@ namespace GerenciadorDeClientes.Views
             textBoxNomeClienteAtualizado.Text = "";
             maskedTextBoxTelefoneClienteAtualizado.Text = "";
             textBoxEmailClienteAtualizado.Text = "";
-            comboBoxServidorRevendaAtualizado.Text = "";
             comboBoxPlanoClienteAtualizado.Text = "";
-            comboBoxAplicativoClienteAtualizado.Text = "";
-            textBoxMacEmailClienteAtualizado.Text = "";
-            textBoxDeviceKeySenhaClienteAtualizado.Text = "";
-            dateTimePickerUltimoPagamentoCliAtual.Value = DateTime.Now;
-            dateTimePickerProximoPagamentoCliAtual.Value = DateTime.Now.AddMonths(1);
             
         }
     }

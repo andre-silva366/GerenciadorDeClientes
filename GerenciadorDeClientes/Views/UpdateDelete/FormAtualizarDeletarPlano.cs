@@ -109,4 +109,9 @@ public partial class FormAtualizarDeletarPlano : Form
         textBoxDescrPlanoAtual.Text = "";
         textBoxValorPlanoAtua.Text = "";
     }
+
+    private void FormAtualizarDeletarPlano_Load(object sender, EventArgs e)
+    {
+
+    }
 }

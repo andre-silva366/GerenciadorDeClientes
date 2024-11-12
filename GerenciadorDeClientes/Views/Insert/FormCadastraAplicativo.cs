@@ -17,6 +17,7 @@ public partial class FormCadastraAplicativo : Form
             Aplicativo aplicativo = new Aplicativo();
             AplicativoRepository appRepository = new AplicativoRepository();
             aplicativo.Nome = textBoxNomeAplicativo.Text;
+            aplicativo.Site = textBoxCadastraSiteApp.Text;
             appRepository.Insert(aplicativo);
         }
         else
@@ -29,5 +30,6 @@ public partial class FormCadastraAplicativo : Form
     private void buttonLimparCadastroAplicativo_Click(object sender, EventArgs e)
     {
         textBoxNomeAplicativo.Text = "";
+        textBoxCadastraSiteApp.Text = "";        
     }
 }

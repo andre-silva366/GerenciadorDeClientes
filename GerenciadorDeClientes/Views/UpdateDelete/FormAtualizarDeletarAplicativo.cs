@@ -22,6 +22,7 @@ public partial class FormAtualizarDeletarAplicativo : Form
                 if (app != null)
                 {
                     textBoxNomeAppAtual.Text = app.Nome;
+                    textBoxAtuaDelSiteApp.Text = app.Site;
                 }
                 else
                 {
@@ -54,6 +55,7 @@ public partial class FormAtualizarDeletarAplicativo : Form
                 if (app != null)
                 {
                     app.Nome = textBoxNomeAppAtual.Text;
+                    app.Site = textBoxAtuaDelSiteApp.Text;
                     appRepository.Update(app, idApp);
                 }
                 else

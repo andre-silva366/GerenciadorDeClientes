@@ -37,6 +37,8 @@
             label3 = new Label();
             labelAplicativo = new Label();
             buttonExcluirApp = new Button();
+            textBoxAtuaDelSiteApp = new TextBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -75,7 +77,7 @@
             buttonSalvarAppAtualizado.BackColor = Color.FromArgb(0, 192, 0);
             buttonSalvarAppAtualizado.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarAppAtualizado.ForeColor = SystemColors.ButtonFace;
-            buttonSalvarAppAtualizado.Location = new Point(187, 219);
+            buttonSalvarAppAtualizado.Location = new Point(181, 234);
             buttonSalvarAppAtualizado.Name = "buttonSalvarAppAtualizado";
             buttonSalvarAppAtualizado.Size = new Size(108, 36);
             buttonSalvarAppAtualizado.TabIndex = 13;
@@ -86,7 +88,7 @@
             // buttonLimparCadAtuaApp
             // 
             buttonLimparCadAtuaApp.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimparCadAtuaApp.Location = new Point(12, 219);
+            buttonLimparCadAtuaApp.Location = new Point(12, 234);
             buttonLimparCadAtuaApp.Name = "buttonLimparCadAtuaApp";
             buttonLimparCadAtuaApp.Size = new Size(108, 36);
             buttonLimparCadAtuaApp.TabIndex = 12;
@@ -127,7 +129,7 @@
             buttonExcluirApp.BackColor = Color.Red;
             buttonExcluirApp.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluirApp.ForeColor = SystemColors.ButtonFace;
-            buttonExcluirApp.Location = new Point(187, 219);
+            buttonExcluirApp.Location = new Point(181, 291);
             buttonExcluirApp.Name = "buttonExcluirApp";
             buttonExcluirApp.Size = new Size(108, 36);
             buttonExcluirApp.TabIndex = 14;
@@ -136,11 +138,31 @@
             buttonExcluirApp.Visible = false;
             buttonExcluirApp.Click += buttonExcluirApp_Click;
             // 
+            // textBoxAtuaDelSiteApp
+            // 
+            textBoxAtuaDelSiteApp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxAtuaDelSiteApp.Location = new Point(78, 184);
+            textBoxAtuaDelSiteApp.Name = "textBoxAtuaDelSiteApp";
+            textBoxAtuaDelSiteApp.Size = new Size(211, 29);
+            textBoxAtuaDelSiteApp.TabIndex = 16;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 187);
+            label2.Name = "label2";
+            label2.Size = new Size(43, 21);
+            label2.TabIndex = 15;
+            label2.Text = "Site: ";
+            // 
             // FormAtualizarDeletarAplicativo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(307, 273);
+            ClientSize = new Size(307, 339);
+            Controls.Add(textBoxAtuaDelSiteApp);
+            Controls.Add(label2);
             Controls.Add(buttonExcluirApp);
             Controls.Add(buttonSalvarAppAtualizado);
             Controls.Add(buttonLimparCadAtuaApp);
@@ -151,7 +173,6 @@
             Controls.Add(textBoxIdAplicativoAtual);
             Controls.Add(label1);
             MaximizeBox = false;
-            MaximumSize = new Size(369, 312);
             MinimizeBox = false;
             Name = "FormAtualizarDeletarAplicativo";
             ShowIcon = false;
@@ -172,5 +193,7 @@
         public Button buttonExcluirApp;
         public Button buttonSalvarAppAtualizado;
         public Label labelAplicativo;
+        private TextBox textBoxAtuaDelSiteApp;
+        private Label label2;
     }
 }

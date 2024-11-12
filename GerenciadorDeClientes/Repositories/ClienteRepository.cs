@@ -12,7 +12,7 @@ public class ClienteRepository : IRepository<Cliente>
 
     public ClienteRepository()
     {
-        _connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
 
     }
 
@@ -20,7 +20,7 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            return _connection.Query<Cliente>("SELECT Id, Nome, Telefone, Email, DeviceKeyOuSenha, MacOuEmail, DataUltimoPagamento , DataProximoPagamento FROM Clientes ORDER BY DataUltimoPagamento").ToList();
+            return _connection.Query<Cliente>("SELECT Id, Nome, Telefone, Email FROM Clientes ORDER BY Nome").ToList();
             
         }
         finally
@@ -68,22 +68,14 @@ public class ClienteRepository : IRepository<Cliente>
                 string nome = cliente.Nome;
                 string telefone = cliente.Telefone;
                 string email = cliente.Email;
-                string deviceKeySenha = cliente.DeviceKeyOuSenha;
-                string macEmail = cliente.MacOuEmail;
-                var dataUltimo = cliente.DataUltimoPagamento.ToString("yyyy-MM-dd HH:mm:ss");
-                var dataProximo = cliente.DataProximoPagamento.ToString("yyyy-MM-dd HH:mm:ss");
+                //string deviceKeySenha = cliente.DeviceKeyOuSenha;
+                //string macEmail = cliente.MacOuEmail;
+                //var dataUltimo = cliente.DataUltimoPagamento.ToString("yyyy-MM-dd HH:mm:ss");
+                //var dataProximo = cliente.DataProximoPagamento.ToString("yyyy-MM-dd HH:mm:ss");
 
                 var idPlano = _connection.QuerySingleOrDefault<int>(queryPlano, new { Descricao = descricaoPlano });
 
-                var nomeAplicativo = _formCadastraCliente.comboBoxAplicativo.Text;
-                var queryAplicativo = "SELECT Id FROM Aplicativo WHERE Nome = @Nome;";
-                var idAplicativo = _connection.QuerySingleOrDefault<int>(queryAplicativo, new { Nome = nomeAplicativo });
-
-                var nomeServidor = _formCadastraCliente.comboBoxServidor.Text;
-                var queryServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
-                var idServidor = _connection.QuerySingleOrDefault<int>(queryServidor, new { NomeServidor = nomeServidor });
-
-                var queryInsertCliente = "INSERT INTO Clientes (Nome, Telefone, Email, IdPlano, DeviceKeyOuSenha, MacOuEmail, IdAplicativo, IdServidor, DataUltimoPagamento, DataProximoPagamento) VALUES (@Nome, @Telefone, @Email, @IdPlano, @DeviceKeyOuSenha, @MacOuEmail, @IdAplicativo, @IdServidor, @DataUltimoPagamento, @DataProximoPagamento);";
+                var queryInsertCliente = "INSERT INTO Clientes (Nome, Telefone, Email, IdPlano) VALUES (@Nome, @Telefone, @Email, @IdPlano);";
 
                 var parameters = new
                 {
@@ -91,13 +83,7 @@ public class ClienteRepository : IRepository<Cliente>
                     Nome = nome,
                     Telefone = telefone,
                     Email = email,
-                    IdPlano = idPlano,
-                    DeviceKeyOuSenha = deviceKeySenha,
-                    MacOuEmail = macEmail,
-                    IdAplicativo = idAplicativo,
-                    IdServidor = idServidor,
-                    DataUltimoPagamento = dataUltimo,
-                    DataProximoPagamento = dataProximo,
+                    IdPlano = idPlano
 
                 };
 
@@ -120,15 +106,7 @@ public class ClienteRepository : IRepository<Cliente>
             {
                 var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdPlano = @IdPlano, DeviceKeyOuSenha = @DeviceKeyOuSenha, MacOuEmail = @MacOuEmail, IdAplicativo = @IdAplicativo, IdServidor = @IdServidor, DataUltimoPagamento = @DataUltimoPagamento, DataProximoPagamento = @DataProximoPagamento WHERE Id = {id};";
 
-                string nomeAplicativo = _formAtualizaCliente.comboBoxAplicativoClienteAtualizado.Text;
-                string nomeServidor = _formAtualizaCliente.comboBoxServidorRevendaAtualizado.Text;
                 string descricaoPlano = _formAtualizaCliente.comboBoxPlanoClienteAtualizado.Text;
-
-                var queryIdAplicativo = "SELECT Id FROM Aplicativo WHERE Nome = @NomeAplicativo;";
-                var idAplicativo = _connection.QuerySingleOrDefault<int>(queryIdAplicativo, new { NomeAplicativo = nomeAplicativo });
-
-                var queryIdServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
-                var idServidor = _connection.QuerySingleOrDefault<int>(queryIdServidor, new { NomeServidor = nomeServidor });
 
                 var queryIdPlano = "SELECT Id FROM Plano WHERE Descricao = @DescricaoPlano;";
                 var idPlano = _connection.QuerySingleOrDefault<int>(queryIdPlano, new { DescricaoPlano = descricaoPlano });
@@ -139,14 +117,7 @@ public class ClienteRepository : IRepository<Cliente>
                     cliente.Nome,
                     cliente.Telefone,
                     cliente.Email,
-                    IdPlano = idPlano,
-                    cliente.DeviceKeyOuSenha,
-                    cliente.MacOuEmail,
-                    IdAplicativo = idAplicativo,
-                    IdServidor = idServidor,
-                    cliente.DataUltimoPagamento,
-                    cliente.DataProximoPagamento
-
+                    IdPlano = idPlano
                 };
 
                 _connection.Execute(query, parameters);

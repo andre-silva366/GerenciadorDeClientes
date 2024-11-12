@@ -196,11 +196,12 @@
             numericUpDownQtdeCredRev.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             numericUpDownQtdeCredRev.Location = new Point(172, 300);
             numericUpDownQtdeCredRev.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericUpDownQtdeCredRev.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownQtdeCredRev.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
             numericUpDownQtdeCredRev.Name = "numericUpDownQtdeCredRev";
             numericUpDownQtdeCredRev.Size = new Size(244, 29);
             numericUpDownQtdeCredRev.TabIndex = 5;
-            numericUpDownQtdeCredRev.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownQtdeCredRev.TextAlign = HorizontalAlignment.Center;
+            numericUpDownQtdeCredRev.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // textBoxValorCompraRev
             // 
