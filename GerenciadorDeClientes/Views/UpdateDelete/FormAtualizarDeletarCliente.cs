@@ -54,9 +54,6 @@ namespace GerenciadorDeClientes.Views
                         textBoxNomeClienteAtualizado.Text = cliente.Nome;
                         maskedTextBoxTelefoneClienteAtualizado.Text = cliente.Telefone;
                         textBoxEmailClienteAtualizado.Text = cliente.Email;
-                        
-                        var plano = planoRepository.GetById(cliente.IdPlano);
-                        comboBoxPlanoClienteAtualizado.Text = plano.Descricao;
                     }
                 }
             }
@@ -78,7 +75,7 @@ namespace GerenciadorDeClientes.Views
                 cliente.Nome = textBoxNomeClienteAtualizado.Text;
                 cliente.Telefone = maskedTextBoxTelefoneClienteAtualizado.Text;
                 cliente.Email = textBoxEmailClienteAtualizado.Text;
-
+                
                 if (cliente.Nome.Length < 3)
                 {
                     MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,10 +84,11 @@ namespace GerenciadorDeClientes.Views
                 {
                     MessageBox.Show("Preencha o Telefone", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
                 else
                 {
-
+                    textBoxAtualizarClienteId.Text = "";
+                    textBoxNomeClienteAtualizado.Text = "";
+                    textBoxEmailClienteAtualizado.Text = "";
                     clienteRepository.Update(cliente, idCliente);
                 }
             }

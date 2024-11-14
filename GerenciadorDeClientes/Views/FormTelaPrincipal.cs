@@ -21,6 +21,7 @@ public partial class FormTelaPrincipal : Form
             var clientes = cliente.GetAll().ToList();
             if (clientes.Count == 0 || clientes == null)
             {
+                dataGridView.Visible = false;
                 MessageBox.Show("Não existe nenhum cliente cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -28,9 +29,7 @@ public partial class FormTelaPrincipal : Form
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = clientes;
-                dataGridView.Columns["IdServidor"].Visible = false;
                 dataGridView.Columns["IdPlano"].Visible = false;
-                dataGridView.Columns["IdAplicativo"].Visible = false;
             }
 
         }
@@ -40,6 +39,7 @@ public partial class FormTelaPrincipal : Form
             var planos = plano.GetAll().ToList();
             if (planos.Count == 0 || planos == null)
             {
+                dataGridView.Visible = false;
                 MessageBox.Show("Não existe nenhum plano cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -55,7 +55,8 @@ public partial class FormTelaPrincipal : Form
             RevendedorRepository revendedor = new RevendedorRepository();
             var revendedores = revendedor.GetAll().ToList();
             if (revendedores.Count == 0 || revendedores == null)
-            {
+            {   
+                dataGridView.Visible = false;
                 MessageBox.Show("Não existe nenhum revendedor cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -63,7 +64,6 @@ public partial class FormTelaPrincipal : Form
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = revendedores;
-                dataGridView.Columns["IdServidor"].Visible = false;
             }
 
         }
@@ -73,6 +73,7 @@ public partial class FormTelaPrincipal : Form
             var servidores = servidor.GetAll().ToList();
             if (servidores.Count == 0 || servidores == null)
             {
+                dataGridView.Visible = false;
                 MessageBox.Show("Não existe nenhum servidor cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -89,6 +90,7 @@ public partial class FormTelaPrincipal : Form
             var aplicativos = aplicativo.GetAll().ToList();
             if (aplicativos.Count == 0 || aplicativos == null)
             {
+                dataGridView.Visible = false;
                 MessageBox.Show("Não existe nenhum aplicativo cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -122,7 +124,8 @@ public partial class FormTelaPrincipal : Form
                     var clientes = cliente.GetByName(nome).ToList();
                     if (clientes.Count == 0 || clientes == null)
                     {
-                        MessageBox.Show($"Não encontrado nenhum aplicativo que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dataGridView.Visible = false;
+                        MessageBox.Show($"Não encontrado nenhum Cliente que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -136,7 +139,8 @@ public partial class FormTelaPrincipal : Form
                     var planos = plano.GetByName(nome).ToList();
                     if (planos.Count == 0 || planos == null)
                     {
-                        MessageBox.Show($"Não encontrado nenhum plano que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dataGridView.Visible = false;
+                        MessageBox.Show($"Não encontrado nenhum Plano que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -150,7 +154,8 @@ public partial class FormTelaPrincipal : Form
                     var revendedores = revendedor.GetByName(nome).ToList();
                     if (revendedores.Count == 0 || revendedores == null)
                     {
-                        MessageBox.Show($"Não encontrado nenhum revendedor que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dataGridView.Visible = false;
+                        MessageBox.Show($"Não encontrado nenhum Revendedor que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -164,7 +169,8 @@ public partial class FormTelaPrincipal : Form
                     var servidores = servidor.GetByName(nome).ToList();
                     if (servidores.Count == 0 || servidores == null)
                     {
-                        MessageBox.Show($"Não encontrado nenhum servidor que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dataGridView.Visible = false;
+                        MessageBox.Show($"Não encontrado nenhum Servidor que comece com {nome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -178,7 +184,8 @@ public partial class FormTelaPrincipal : Form
                     var aplicativos = aplicativo.GetByName(nome).ToList();
                     if (aplicativos.Count == 0 || aplicativos == null)
                     {
-                        MessageBox.Show($"Não encontrado nenhum aplicativo que comece com {nome}!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        dataGridView.Visible = false;
+                        MessageBox.Show($"Não encontrado nenhum Aplicativo que comece com {nome}!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {

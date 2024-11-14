@@ -349,7 +349,7 @@
             Name = "FormAtualizarDeletarPlano";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Alterar/Deletar plano";
+            Text = "Atualizar plano";
             Load += FormAtualizarDeletarPlano_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownDeletaPlanoValidadeEmMeses).EndInit();
             ResumeLayout(false);

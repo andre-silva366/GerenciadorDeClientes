@@ -7,19 +7,7 @@ public partial class FormCadastraRevendedor : Form
 {
     public FormCadastraRevendedor()
     {
-        InitializeComponent();
-
-        ServidorRepository servidorRepository = new ServidorRepository();
-
-        var servidoresRepo = servidorRepository.GetAll().ToList();
-        List<string> servidores = [];
-
-        foreach (var item in servidoresRepo)
-        {
-            servidores.Add(item.Nome);
-        }
-
-        comboBoxServidorRev.DataSource = servidores;
+        InitializeComponent();        
     }
 
     private void buttonSalvarCliente_Click(object sender, EventArgs e)
@@ -42,11 +30,12 @@ public partial class FormCadastraRevendedor : Form
                 revendedor.Nome = textBoxNomeRev.Text;
                 revendedor.Telefone = maskedTextBoxTelefoneRev.Text;
                 revendedor.Email = textBoxEmailRev.Text;
-                revendedor.DataUltimaCompra = dateTimePickerUltimaCompraRev.Value;
-                revendedor.Quantidade = (int)numericUpDownQtdeCredRev.Value;
-                revendedor.Valor = decimal.Parse(textBoxValorCompraRev.Text);
 
                 revendedorRepository.Insert(revendedor);
+
+                textBoxNomeRev.Text = "";
+                maskedTextBoxTelefoneRev.Text = "";
+                textBoxEmailRev.Text = "";
             }
         }
         catch (Exception)
@@ -61,7 +50,6 @@ public partial class FormCadastraRevendedor : Form
         textBoxNomeRev.Text = "";
         maskedTextBoxTelefoneRev.Text = "";
         textBoxEmailRev.Text = "";
-        textBoxValorCompraRev.Text = "";
-        numericUpDownQtdeCredRev.Value = 1;
     }
+
 }

@@ -1,4 +1,5 @@
-﻿using GerenciadorDeClientes.Repositories;
+﻿using GerenciadorDeClientes.Models;
+using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views.Update;
 
@@ -23,6 +24,22 @@ public partial class FormAtualizarDeletarPlano : Form
                 {
                     textBoxDescrPlanoAtual.Text = plano.Descricao;
                     textBoxValorPlanoAtua.Text = plano.Valor.ToString();
+                    numericUpDownDeletaPlanoValidadeEmMeses.Value = plano.Valor;
+                    dateTimePickerDeletaPlanoUltimoPagamento.Value = plano.DataUltimoPagamento;
+                    dateTimePickerDelPlanoProximoPagamento.Value = plano.DataUltimoPagamento.AddMonths((int)numericUpDownDeletaPlanoValidadeEmMeses.Value);
+
+                    AplicativoRepository aplicativoRepository = new AplicativoRepository();
+                    Aplicativo aplicativo;
+                    aplicativo = aplicativoRepository.GetById(plano.IdAplicativo);
+                    comboBoxAlterPlanoAplicativo.Text = aplicativo.Nome;
+
+                    ClienteRepository clienteRepository = new ClienteRepository();
+                    Cliente cliente;
+                    cliente = clienteRepository.GetById(plano.IdCliente);
+                    comboBoxAlterPlanoCliente.Text = cliente.Nome;
+
+                    textBoxAlterPlanMacEmail.Text = plano.MacOuEmail;
+                    textBoxAlterPlanKeySenha.Text = plano.DeviceKeyOuSenha;
                 }
                 else
                 {
@@ -57,7 +74,34 @@ public partial class FormAtualizarDeletarPlano : Form
                 {
                     plano.Descricao = textBoxDescrPlanoAtual.Text;
                     plano.Valor = decimal.Parse(textBoxValorPlanoAtua.Text);
+                    plano.ValidadeEmMeses = (int) numericUpDownDeletaPlanoValidadeEmMeses.Value;
+                    plano.DataUltimoPagamento = dateTimePickerDeletaPlanoUltimoPagamento.Value;
+                    plano.DataProximoPagamento = dateTimePickerDeletaPlanoUltimoPagamento.Value.AddMonths((int)numericUpDownDeletaPlanoValidadeEmMeses.Value);
+
+                    AplicativoRepository aplicativoRepository = new AplicativoRepository();
+                    Aplicativo aplicativo;
+                    aplicativo = aplicativoRepository.GetByName(comboBoxAlterPlanoAplicativo.Text).Single();
+                    plano.IdAplicativo = aplicativo.Id;
+
+                    ClienteRepository clienteRepository = new ClienteRepository();
+                    Cliente cliente;
+                    cliente = clienteRepository.GetByName(comboBoxAlterPlanoCliente.Text).Single();
+                    plano.IdCliente = cliente.Id;
+
+                    plano.MacOuEmail = textBoxAlterPlanMacEmail.Text;
+                    plano.DeviceKeyOuSenha = textBoxAlterPlanKeySenha.Text;
+
                     planoRepository.Update(plano, idPlano);
+
+                    textBoxDescrPlanoAtual.Text = "";
+                    textBoxValorPlanoAtua.Text = "";
+                    numericUpDownDeletaPlanoValidadeEmMeses.Value = 0;
+                    dateTimePickerDeletaPlanoUltimoPagamento.Value = DateTime.Now;
+                    dateTimePickerDeletaPlanoUltimoPagamento.Value = DateTime.Now.AddMonths(1);
+                    comboBoxAlterPlanoAplicativo.Text = "";
+                    comboBoxAlterPlanoCliente.Text = "";
+                    textBoxAlterPlanMacEmail.Text = "";
+                    textBoxAlterPlanKeySenha.Text = "";
                 }
                 else
                 {

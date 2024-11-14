@@ -55,7 +55,7 @@ public class ServidorRepository : IRepository<Servidor>
         try
         {
             _connection.Execute("INSERT INTO Servidor (Nome) VALUES (@Nome);", new { servidor.Nome });
-            MessageBox.Show("Servidor cadastrado com sucesso", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Servidor cadastrado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         catch(Exception ex)
         {

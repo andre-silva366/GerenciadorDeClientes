@@ -57,6 +57,9 @@ public partial class FormAtualizarDeletarAplicativo : Form
                     app.Nome = textBoxNomeAppAtual.Text;
                     app.Site = textBoxAtuaDelSiteApp.Text;
                     appRepository.Update(app, idApp);
+
+                    textBoxNomeAppAtual.Text = "";
+                    textBoxAtuaDelSiteApp.Text = "";
                 }
                 else
                 {

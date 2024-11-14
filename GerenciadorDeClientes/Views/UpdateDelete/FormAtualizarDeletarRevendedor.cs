@@ -8,18 +8,6 @@ public partial class FormAtualizarDeletarRevendedor : Form
     public FormAtualizarDeletarRevendedor()
     {
         InitializeComponent();
-
-        ServidorRepository servidorRepository = new ServidorRepository();
-        var servidores = servidorRepository.GetAll().ToList();
-        List<string> nomeServidores = new List<string>();
-
-        foreach (var item in servidores)
-        {
-            nomeServidores.Add(item.Nome);
-        }
-
-        comboBoxServidorRevendaAtualizado.DataSource = nomeServidores;
-
     }
 
     private void buttonAtualizacaoBuscaRevendedorId_Click(object sender, EventArgs e)
@@ -40,13 +28,6 @@ public partial class FormAtualizarDeletarRevendedor : Form
                     textBoxNomeRevendaAtualizado.Text = revendedor.Nome;
                     maskedTextBoxTelefoneRevendaAtualizado.Text = revendedor.Telefone;
                     textBoxEmailRevendaAtualizado.Text = revendedor.Email;
-
-                    ServidorRepository servidorRepository = new ServidorRepository();
-                    //var servidor = servidorRepository.GetById(revendedor.IdServidor);
-                    //comboBoxServidorRevendaAtualizado.Text = servidor.Nome;
-                    dateTimePickerUltimaCompraRevAtual.Value = revendedor.DataUltimaCompra;
-                    numericUpDownQtdeRevAtual.Value = revendedor.Quantidade;
-                    textBoxValorAtualRev.Text = revendedor.Valor.ToString();
 
                 }
                 else
@@ -79,14 +60,6 @@ public partial class FormAtualizarDeletarRevendedor : Form
             revendedor.Nome = textBoxNomeRevendaAtualizado.Text;
             revendedor.Telefone = maskedTextBoxTelefoneRevendaAtualizado.Text;
             revendedor.Email = textBoxEmailRevendaAtualizado.Text;
-            revendedor.DataUltimaCompra = dateTimePickerUltimaCompraRevAtual.Value;
-            revendedor.Quantidade = (int)numericUpDownQtdeRevAtual.Value;
-            revendedor.Valor = decimal.Parse(textBoxValorAtualRev.Text);
-
-            ServidorRepository servidorRepository = new ServidorRepository();
-            var servidor = servidorRepository.GetByName(comboBoxServidorRevendaAtualizado.Text).SingleOrDefault();
-
-            //revendedor.IdServidor = servidor.Id;
 
             if (revendedor.Nome.Length < 3)
             {
@@ -98,6 +71,10 @@ public partial class FormAtualizarDeletarRevendedor : Form
             }
             else
             {
+                textBoxAtualizarRevendedorId.Text = "";
+                textBoxNomeRevendaAtualizado.Text = "";
+                maskedTextBoxTelefoneRevendaAtualizado.Text = "";
+                textBoxEmailRevendaAtualizado.Text = "";
                 revendedorRepository.Update(revendedor, revendedor.Id);
             }
         }
@@ -125,6 +102,10 @@ public partial class FormAtualizarDeletarRevendedor : Form
                 }
                 else
                 {
+                    textBoxAtualizarRevendedorId.Text = "";
+                    textBoxNomeRevendaAtualizado.Text = "";
+                    maskedTextBoxTelefoneRevendaAtualizado.Text = "";
+                    textBoxEmailRevendaAtualizado.Text = "";
                     revendedorRepository.Delete(idRev);
                 }
             }
@@ -141,9 +122,5 @@ public partial class FormAtualizarDeletarRevendedor : Form
         textBoxNomeRevendaAtualizado.Text = "";
         maskedTextBoxTelefoneRevendaAtualizado.Text = "";
         textBoxEmailRevendaAtualizado.Text = "";
-        comboBoxServidorRevendaAtualizado.Text = "";
-        dateTimePickerUltimaCompraRevAtual.Value = DateTime.Now;
-        numericUpDownQtdeRevAtual.Value = 5;
-        textBoxValorAtualRev.Text = "";
     }
 }

@@ -38,18 +38,9 @@
             maskedTextBoxTelefoneRevendaAtualizado = new MaskedTextBox();
             labelemailrev = new Label();
             textBoxEmailRevendaAtualizado = new TextBox();
-            labelServidorAtualRev = new Label();
-            comboBoxServidorRevendaAtualizado = new ComboBox();
-            labelQtderev = new Label();
-            numericUpDownQtdeRevAtual = new NumericUpDown();
-            label2 = new Label();
-            textBoxValorAtualRev = new TextBox();
-            label3 = new Label();
-            dateTimePickerUltimaCompraRevAtual = new DateTimePicker();
             buttonLimparCadastroAtualizaRev = new Button();
             buttonSalvarRevAtual = new Button();
             buttonDeletarRevendedor = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownQtdeRevAtual).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -148,94 +139,13 @@
             textBoxEmailRevendaAtualizado.Size = new Size(282, 29);
             textBoxEmailRevendaAtualizado.TabIndex = 81;
             // 
-            // labelServidorAtualRev
-            // 
-            labelServidorAtualRev.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelServidorAtualRev.Location = new Point(11, 319);
-            labelServidorAtualRev.Name = "labelServidorAtualRev";
-            labelServidorAtualRev.Size = new Size(90, 21);
-            labelServidorAtualRev.TabIndex = 82;
-            labelServidorAtualRev.Text = "Servidor:   ";
-            // 
-            // comboBoxServidorRevendaAtualizado
-            // 
-            comboBoxServidorRevendaAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxServidorRevendaAtualizado.FormattingEnabled = true;
-            comboBoxServidorRevendaAtualizado.Location = new Point(89, 316);
-            comboBoxServidorRevendaAtualizado.Name = "comboBoxServidorRevendaAtualizado";
-            comboBoxServidorRevendaAtualizado.Size = new Size(282, 29);
-            comboBoxServidorRevendaAtualizado.TabIndex = 83;
-            // 
-            // labelQtderev
-            // 
-            labelQtderev.AutoSize = true;
-            labelQtderev.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelQtderev.Location = new Point(11, 434);
-            labelQtderev.Name = "labelQtderev";
-            labelQtderev.Size = new Size(111, 21);
-            labelQtderev.TabIndex = 84;
-            labelQtderev.Text = "Quantidade:   ";
-            // 
-            // numericUpDownQtdeRevAtual
-            // 
-            numericUpDownQtdeRevAtual.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            numericUpDownQtdeRevAtual.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            numericUpDownQtdeRevAtual.Location = new Point(128, 432);
-            numericUpDownQtdeRevAtual.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericUpDownQtdeRevAtual.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
-            numericUpDownQtdeRevAtual.Name = "numericUpDownQtdeRevAtual";
-            numericUpDownQtdeRevAtual.Size = new Size(242, 29);
-            numericUpDownQtdeRevAtual.TabIndex = 85;
-            numericUpDownQtdeRevAtual.TextAlign = HorizontalAlignment.Center;
-            numericUpDownQtdeRevAtual.Value = new decimal(new int[] { 5, 0, 0, 0 });
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(11, 493);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 21);
-            label2.TabIndex = 86;
-            label2.Text = "Valor:   ";
-            // 
-            // textBoxValorAtualRev
-            // 
-            textBoxValorAtualRev.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxValorAtualRev.Location = new Point(128, 485);
-            textBoxValorAtualRev.Name = "textBoxValorAtualRev";
-            textBoxValorAtualRev.Size = new Size(242, 29);
-            textBoxValorAtualRev.TabIndex = 87;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(11, 378);
-            label3.Name = "label3";
-            label3.Size = new Size(133, 21);
-            label3.TabIndex = 88;
-            label3.Text = "Ultima compra:   ";
-            // 
-            // dateTimePickerUltimaCompraRevAtual
-            // 
-            dateTimePickerUltimaCompraRevAtual.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerUltimaCompraRevAtual.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePickerUltimaCompraRevAtual.Location = new Point(128, 378);
-            dateTimePickerUltimaCompraRevAtual.MaxDate = new DateTime(2100, 8, 27, 0, 0, 0, 0);
-            dateTimePickerUltimaCompraRevAtual.MinDate = new DateTime(1960, 8, 27, 0, 0, 0, 0);
-            dateTimePickerUltimaCompraRevAtual.Name = "dateTimePickerUltimaCompraRevAtual";
-            dateTimePickerUltimaCompraRevAtual.Size = new Size(243, 23);
-            dateTimePickerUltimaCompraRevAtual.TabIndex = 89;
-            dateTimePickerUltimaCompraRevAtual.Value = new DateTime(2024, 8, 27, 0, 0, 0, 0);
-            // 
             // buttonLimparCadastroAtualizaRev
             // 
             buttonLimparCadastroAtualizaRev.BackColor = Color.White;
             buttonLimparCadastroAtualizaRev.Cursor = Cursors.Hand;
             buttonLimparCadastroAtualizaRev.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparCadastroAtualizaRev.ForeColor = Color.Black;
-            buttonLimparCadastroAtualizaRev.Location = new Point(13, 550);
+            buttonLimparCadastroAtualizaRev.Location = new Point(11, 334);
             buttonLimparCadastroAtualizaRev.Name = "buttonLimparCadastroAtualizaRev";
             buttonLimparCadastroAtualizaRev.Size = new Size(150, 48);
             buttonLimparCadastroAtualizaRev.TabIndex = 90;
@@ -249,7 +159,7 @@
             buttonSalvarRevAtual.Cursor = Cursors.Hand;
             buttonSalvarRevAtual.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarRevAtual.ForeColor = Color.Transparent;
-            buttonSalvarRevAtual.Location = new Point(220, 550);
+            buttonSalvarRevAtual.Location = new Point(221, 407);
             buttonSalvarRevAtual.Name = "buttonSalvarRevAtual";
             buttonSalvarRevAtual.Size = new Size(151, 48);
             buttonSalvarRevAtual.TabIndex = 91;
@@ -263,7 +173,7 @@
             buttonDeletarRevendedor.Cursor = Cursors.Hand;
             buttonDeletarRevendedor.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDeletarRevendedor.ForeColor = Color.Transparent;
-            buttonDeletarRevendedor.Location = new Point(221, 550);
+            buttonDeletarRevendedor.Location = new Point(221, 334);
             buttonDeletarRevendedor.Name = "buttonDeletarRevendedor";
             buttonDeletarRevendedor.Size = new Size(150, 48);
             buttonDeletarRevendedor.TabIndex = 92;
@@ -276,18 +186,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(395, 628);
+            ClientSize = new Size(395, 483);
             Controls.Add(buttonDeletarRevendedor);
             Controls.Add(buttonSalvarRevAtual);
             Controls.Add(buttonLimparCadastroAtualizaRev);
-            Controls.Add(dateTimePickerUltimaCompraRevAtual);
-            Controls.Add(label3);
-            Controls.Add(textBoxValorAtualRev);
-            Controls.Add(label2);
-            Controls.Add(numericUpDownQtdeRevAtual);
-            Controls.Add(labelQtderev);
-            Controls.Add(comboBoxServidorRevendaAtualizado);
-            Controls.Add(labelServidorAtualRev);
             Controls.Add(textBoxEmailRevendaAtualizado);
             Controls.Add(labelemailrev);
             Controls.Add(maskedTextBoxTelefoneRevendaAtualizado);
@@ -299,14 +201,13 @@
             Controls.Add(textBoxAtualizarRevendedorId);
             Controls.Add(label1);
             MaximizeBox = false;
-            MaximumSize = new Size(445, 667);
+            MaximumSize = new Size(411, 522);
             MinimizeBox = false;
-            MinimumSize = new Size(411, 667);
+            MinimumSize = new Size(411, 522);
             Name = "FormAtualizarDeletarRevendedor";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Atualizar revendedor";
-            ((System.ComponentModel.ISupportInitialize)numericUpDownQtdeRevAtual).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -322,14 +223,6 @@
         private MaskedTextBox maskedTextBoxTelefoneRevendaAtualizado;
         private Label labelemailrev;
         public TextBox textBoxEmailRevendaAtualizado;
-        private Label labelServidorAtualRev;
-        public ComboBox comboBoxServidorRevendaAtualizado;
-        private Label labelQtderev;
-        private NumericUpDown numericUpDownQtdeRevAtual;
-        private Label label2;
-        public TextBox textBoxValorAtualRev;
-        private Label label3;
-        public DateTimePicker dateTimePickerUltimaCompraRevAtual;
         public Button buttonLimparCadastroAtualizaRev;
         public Button buttonSalvarRevAtual;
         public Button buttonDeletarRevendedor;

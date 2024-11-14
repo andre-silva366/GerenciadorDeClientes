@@ -231,7 +231,7 @@
             Name = "FormAtualizarDeletarCliente";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Atualizar/Deletar cliente";
+            Text = "Atualizar cliente";
             ResumeLayout(false);
             PerformLayout();
         }

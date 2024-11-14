@@ -18,7 +18,7 @@ public partial class FormCadastraServidor : Form
             ServidorRepository servidorRepository = new ServidorRepository();
             servidor.Nome = textBoxNomeServidor.Text;
             servidorRepository.Insert(servidor);
-
+            textBoxNomeServidor.Text = "";
         }
         else
         {

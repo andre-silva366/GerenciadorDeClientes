@@ -19,6 +19,9 @@ public partial class FormCadastraAplicativo : Form
             aplicativo.Nome = textBoxNomeAplicativo.Text;
             aplicativo.Site = textBoxCadastraSiteApp.Text;
             appRepository.Insert(aplicativo);
+            textBoxNomeAplicativo.Text = "";
+            textBoxCadastraSiteApp.Text = "";
+
         }
         else
         {

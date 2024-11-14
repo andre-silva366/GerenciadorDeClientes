@@ -9,27 +9,22 @@ public partial class FormCadastraCliente : Form
     {
         InitializeComponent();
 
-        ServidorRepository servidorRepository = new ServidorRepository();
-        var servidores = servidorRepository.GetAll().ToList();
-        List<string> nomeServidores = new List<string>();
-
-        foreach (var item in servidores)
-        {
-            nomeServidores.Add(item.Nome);
-        }
-
         PlanoRepository planoRepository = new PlanoRepository();
         var planos = planoRepository.GetAll().ToList();
-
         List<string> nomePlanos = new List<string>();
-
-        foreach (var item in planos)
+        if (planos.Count > 0)
         {
-            nomePlanos.Add(item.Descricao);
+            foreach (var item in planos)
+            {
+                nomePlanos.Add(item.Descricao);
+            }
+            comboBoxPlano.DataSource = nomePlanos;
         }
-
-        comboBoxPlano.DataSource = nomePlanos;
-              
+        else
+        {
+            nomePlanos.Add("");
+            comboBoxPlano.DataSource = nomePlanos;
+        }                    
         
     }
 
@@ -40,7 +35,20 @@ public partial class FormCadastraCliente : Form
             Cliente cliente = new Cliente();
             cliente.Nome = textBoxNome.Text;
             cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
-            cliente.Email = textBoxEmail.Text;
+            string email = textBoxEmail.Text ?? "";
+            cliente.Email = email;
+
+            PlanoRepository plano = new PlanoRepository();
+            Plano planoCliente;
+            if(comboBoxPlano.Text != "")
+            {
+                planoCliente = plano.GetByName(comboBoxPlano.Text).Single();
+                cliente.IdPlano = planoCliente.Id;
+            }
+            else
+            {
+                cliente.IdPlano = 0;
+            }
 
             if (cliente.Nome.Length < 3)
             {
@@ -54,6 +62,10 @@ public partial class FormCadastraCliente : Form
             {
                 ClienteRepository clienteRepository = new ClienteRepository();
                 clienteRepository.Insert(cliente);
+                textBoxNome.Text = "";
+                maskedTextBoxTelefoneCliente.Text = "";
+                textBoxEmail.Text = "";
+                comboBoxPlano.Text = "";
             }
         }
         catch (Exception ex)
@@ -68,6 +80,7 @@ public partial class FormCadastraCliente : Form
         textBoxNome.Text = "";
         maskedTextBoxTelefoneCliente.Text = "";
         textBoxEmail.Text = "";
+        comboBoxPlano.Text = "";
     }
 
 

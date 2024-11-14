@@ -55,7 +55,7 @@ public class AplicativoRepository : IRepository<Aplicativo>
     {
         try
         {
-            _connection.Execute("INSERT INTO Aplicativo (Nome,Site) VALUES (@Nome,@Site);", new {app.Nome});
+            _connection.Execute("INSERT INTO Aplicativo (Nome,Site) VALUES (@Nome,@Site);", new {app.Nome,app.Site});
             MessageBox.Show("Aplicativo cadastrado com sucesso!","SUCESSO",MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch(Exception)

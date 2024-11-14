@@ -20,7 +20,7 @@ public class RevendedorRepository : IRepository<Revendedor>
     {
         try
         {
-            return _connection.Query<Revendedor>("SELECT Id,Nome,Telefone,Email,DataUltimaCompra,Quantidade,Valor FROM Revendedor").ToList();
+            return _connection.Query<Revendedor>("SELECT Id,Nome,Telefone,Email FROM Revendedor").ToList();
         }
         finally
         {
@@ -58,28 +58,17 @@ public class RevendedorRepository : IRepository<Revendedor>
         {
             using(var _cadastraRevendedor = new FormCadastraRevendedor())
             {
-                var nomeServidor = _cadastraRevendedor.comboBoxServidorRev.Text;
-                var queryIdServidor = "SELECT Id FROM Servidor WHERE Nome = @NomeServidor;";
-                var idServidor = _connection.QuerySingleOrDefault<int>(queryIdServidor, new { NomeServidor = nomeServidor });
-
                 string nome = revendedor.Nome;
                 string telefone = revendedor.Telefone;
                 string email = revendedor.Email;
-                var dataUltimaCompra = revendedor.DataUltimaCompra;
-                int quantidade = revendedor.Quantidade;
-                var valor = revendedor.Valor;
 
-                var queryInsertRevendedor = "INSERT INTO Revendedor (Nome, Telefone, Email, IdServidor, DataUltimaCompra, Quantidade, Valor) VALUES (@Nome, @Telefone, @Email, @IdServidor, @DataUltimaCompra, @Quantidade, @Valor);";
+                var queryInsertRevendedor = "INSERT INTO Revendedor (Nome, Telefone, Email) VALUES (@Nome, @Telefone, @Email);";
 
                 var parameters = new
                 {
                     Nome = nome,
                     Telefone = telefone,
-                    Email = email,
-                    IdServidor = idServidor,
-                    DataUltimaCompra = dataUltimaCompra,
-                    Quantidade = quantidade,
-                    Valor = valor
+                    Email = email
                 };
 
                 _connection.Execute(queryInsertRevendedor, parameters);
@@ -102,17 +91,13 @@ public class RevendedorRepository : IRepository<Revendedor>
         {
             using (var _formAtualizarRevendedor = new FormAtualizarDeletarCliente())
             {
-                var query = $"UPDATE Revendedor SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdServidor = @IdServidor, DataUltimaCompra = @DataUltimaCompra, Quantidade = @Quantidade, Valor = @Valor WHERE Id = {id};";                               
+                var query = $"UPDATE Revendedor SET Nome = @Nome, Telefone = @Telefone, Email = @Email WHERE Id = {id};";                               
 
                 var parameters = new
                 {
                     revendedor.Nome,
                     revendedor.Telefone,
-                    revendedor.Email,
-                    //revendedor.IdServidor,
-                    revendedor.DataUltimaCompra,
-                    revendedor.Quantidade,
-                    revendedor.Valor
+                    revendedor.Email
                 };
 
                 _connection.Execute(query, parameters);

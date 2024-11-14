@@ -205,6 +205,8 @@ public partial class FormAtualizarDeletarServidor : Form
                 else
                 {
                     servidor.Nome = textBoxNomeServidorAtual.Text;
+                    textBoxIdServidorAtual.Text = "";
+                    textBoxNomeServidorAtual.Text = "";
                     servidorRepository.Update(servidor, idServidor);
                 }
             }
@@ -237,6 +239,8 @@ public partial class FormAtualizarDeletarServidor : Form
                 }
                 else
                 {
+                    textBoxIdServidorAtual.Text = "";
+                    textBoxNomeServidorAtual.Text = "";
                     servidorRepository.Delete(idServ);
                 }
             }

@@ -6,8 +6,4 @@ public class Revendedor
     public string Nome { get; set; }
     public string Telefone { get; set; }
     public string Email { get; set; }
-    public DateTime DataUltimaCompra { get; set; }
-    public int Quantidade { get; set; }
-    public decimal Valor { get; set; }
-
 }

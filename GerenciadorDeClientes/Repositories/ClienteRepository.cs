@@ -68,10 +68,6 @@ public class ClienteRepository : IRepository<Cliente>
                 string nome = cliente.Nome;
                 string telefone = cliente.Telefone;
                 string email = cliente.Email;
-                //string deviceKeySenha = cliente.DeviceKeyOuSenha;
-                //string macEmail = cliente.MacOuEmail;
-                //var dataUltimo = cliente.DataUltimoPagamento.ToString("yyyy-MM-dd HH:mm:ss");
-                //var dataProximo = cliente.DataProximoPagamento.ToString("yyyy-MM-dd HH:mm:ss");
 
                 var idPlano = _connection.QuerySingleOrDefault<int>(queryPlano, new { Descricao = descricaoPlano });
 
@@ -104,7 +100,7 @@ public class ClienteRepository : IRepository<Cliente>
         {
             using (var _formAtualizaCliente = new FormAtualizarDeletarCliente())
             {
-                var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email, IdPlano = @IdPlano, DeviceKeyOuSenha = @DeviceKeyOuSenha, MacOuEmail = @MacOuEmail, IdAplicativo = @IdAplicativo, IdServidor = @IdServidor, DataUltimoPagamento = @DataUltimoPagamento, DataProximoPagamento = @DataProximoPagamento WHERE Id = {id};";
+                var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email WHERE Id = {id};";
 
                 string descricaoPlano = _formAtualizaCliente.comboBoxPlanoClienteAtualizado.Text;
 
@@ -112,8 +108,7 @@ public class ClienteRepository : IRepository<Cliente>
                 var idPlano = _connection.QuerySingleOrDefault<int>(queryIdPlano, new { DescricaoPlano = descricaoPlano });
 
                 var parameters = new
-                {
-                    
+                {                    
                     cliente.Nome,
                     cliente.Telefone,
                     cliente.Email,
