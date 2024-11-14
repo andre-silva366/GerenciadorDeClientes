@@ -55,7 +55,7 @@ public partial class FormTelaPrincipal : Form
             RevendedorRepository revendedor = new RevendedorRepository();
             var revendedores = revendedor.GetAll().ToList();
             if (revendedores.Count == 0 || revendedores == null)
-            {   
+            {
                 dataGridView.Visible = false;
                 MessageBox.Show("Não existe nenhum revendedor cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -269,7 +269,7 @@ public partial class FormTelaPrincipal : Form
     {
         if (radioButtonCliente.Checked)
         {
-            FormAtualizarDeletarCliente formAtualizarDeletarCliente = new ();
+            FormAtualizarDeletarCliente formAtualizarDeletarCliente = new();
             formAtualizarDeletarCliente.Text = "Excluir cliente";
             formAtualizarDeletarCliente.buttonAtualizarCliente.Visible = false;
             formAtualizarDeletarCliente.buttonDeletarCliente.Visible = true;
@@ -286,7 +286,7 @@ public partial class FormTelaPrincipal : Form
         }
         if (radioButtonServidor.Checked)
         {
-            FormAtualizarDeletarServidor formAtualizarDeletarServidor = new ();
+            FormAtualizarDeletarServidor formAtualizarDeletarServidor = new();
             formAtualizarDeletarServidor.Text = "Excuir servidor";
             formAtualizarDeletarServidor.buttonSalvarServAtualizado.Visible = false;
             formAtualizarDeletarServidor.buttonExcluirServidor.Visible = true;
@@ -294,7 +294,7 @@ public partial class FormTelaPrincipal : Form
         }
         if (radioButtonAplicativo.Checked)
         {
-            FormAtualizarDeletarAplicativo formAtualizarDeletarAplicativo = new ();
+            FormAtualizarDeletarAplicativo formAtualizarDeletarAplicativo = new();
             formAtualizarDeletarAplicativo.Text = "Excluir aplicativo";
             formAtualizarDeletarAplicativo.buttonSalvarAppAtualizado.Visible = false;
             formAtualizarDeletarAplicativo.buttonExcluirApp.Visible = true;
@@ -302,11 +302,31 @@ public partial class FormTelaPrincipal : Form
         }
         if (radioButtonPlano.Checked)
         {
-            FormAtualizarDeletarPlano formAtualizarDeletarPlano = new ();
+            FormAtualizarDeletarPlano formAtualizarDeletarPlano = new();
             formAtualizarDeletarPlano.Text = "Excluir plano";
             formAtualizarDeletarPlano.buttonSalvarPlanoAtualizado.Visible = false;
             formAtualizarDeletarPlano.buttonExcluirPlano.Visible = true;
             formAtualizarDeletarPlano.ShowDialog();
+        }
+    }
+
+    private void buttonRegistroPagamentoCompra_Click(object sender, EventArgs e)
+    {
+        if(radioButtonAplicativo.Checked || radioButtonPlano.Checked || checkBoxBuscaPorNome.Checked)
+        {
+            buttonRegistroPagamentoCompra.Enabled = false;
+        }
+        else if(radioButtonCliente.Checked)//Cliente pagando
+        {
+
+        }
+        else if (radioButtonRevendedor.Checked)// Revendedor pagando
+        {
+
+        }
+        else if (radioButtonServidor.Checked) // Compra de crédito
+        {
+
         }
     }
 }

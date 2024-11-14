@@ -26,11 +26,11 @@ public class PlanoRepository : IRepository<Plano>
         }
     }
 
-    public ICollection<Plano> GetByName(string nome)
+    public ICollection<Plano> GetByName(string descricao)
     {
         try
         {
-            return _connection.Query<Plano>($"SELECT * FROM Plano WHERE Descricao LIKE '{nome}%'").ToList();
+            return _connection.Query<Plano>($"SELECT * FROM Plano WHERE Descricao LIKE '{descricao}%'").ToList();
         }
         finally
         {
@@ -54,7 +54,7 @@ public class PlanoRepository : IRepository<Plano>
     {
         try
         {
-            _connection.Execute("INSERT INTO Plano (Descricao, Valor, ValidadeEmMeses, DataUltimoPagamento, DataProximoPagamento, IdAplicativo, IdCliente, MacOuEmail, DeviceKeyOuSenha) VALUES (@Descricao, @Valor, @ValidadeEmMeses, @DataUltimoPagamento, @DataProximoPagamento, @IdAplicativo, @IdCliente, @MacOuEmail, @DeviceKeyOuSenha)", new { plano.Descricao, plano.Valor, plano.ValidadeEmMeses, plano.DataUltimoPagamento, plano.DataProximoPagamento, plano.IdAplicativo, plano.IdCliente, plano.MacOuEmail, plano.DeviceKeyOuSenha  });
+            _connection.Execute("INSERT INTO Plano (Descricao) VALUES (@Descricao)", new { plano.Descricao  });
 
             MessageBox.Show("Plano cadastrado com sucesso!","SUCESSO",MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -72,20 +72,12 @@ public class PlanoRepository : IRepository<Plano>
     {
         try
         {
-            var query = "UPDATE Plano SET Descricao = @Descricao, Valor = @Valor, ValidadeEmMeses = @ValidadeEmMeses, DataUltimoPagamento = @DataUltimoPagamento, DataProximoPagamento = @DataProximoPagamento, IdAplicativo = @IdAplicativo, IdCliente = @IdCliente, MacOuEmail = @MacOuEmail, DeviceKeyOuSenha = @DeviceKeyOuSenha WHERE Id = @Id;";
+            var query = "UPDATE Plano SET Descricao = @Descricao WHERE Id = @Id;";
 
             var parameters = new
             {
                 id,
-                plano.Descricao,
-                plano.Valor,
-                plano.ValidadeEmMeses,
-                plano.DataUltimoPagamento,
-                plano.DataProximoPagamento,
-                plano.IdAplicativo,
-                plano.IdCliente,
-                plano.MacOuEmail,
-                plano.DeviceKeyOuSenha
+                plano.Descricao
             };
 
             _connection.Execute(query,parameters);

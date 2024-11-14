@@ -42,6 +42,7 @@
             radioButtonCliente = new RadioButton();
             checkBoxBuscaPorNome = new CheckBox();
             buttonBuscarPorNome = new Button();
+            buttonRegistroPagamentoCompra = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -50,9 +51,9 @@
             buttonCadastrar.BackColor = Color.RoyalBlue;
             buttonCadastrar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCadastrar.ForeColor = SystemColors.ButtonFace;
-            buttonCadastrar.Location = new Point(169, 61);
+            buttonCadastrar.Location = new Point(145, 62);
             buttonCadastrar.Name = "buttonCadastrar";
-            buttonCadastrar.Size = new Size(142, 53);
+            buttonCadastrar.Size = new Size(109, 53);
             buttonCadastrar.TabIndex = 8;
             buttonCadastrar.Text = "Cadastrar";
             buttonCadastrar.UseVisualStyleBackColor = false;
@@ -63,9 +64,9 @@
             buttonAtualizar.BackColor = Color.Goldenrod;
             buttonAtualizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizar.ForeColor = SystemColors.ButtonFace;
-            buttonAtualizar.Location = new Point(328, 61);
+            buttonAtualizar.Location = new Point(284, 62);
             buttonAtualizar.Name = "buttonAtualizar";
-            buttonAtualizar.Size = new Size(142, 53);
+            buttonAtualizar.Size = new Size(109, 53);
             buttonAtualizar.TabIndex = 9;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
@@ -78,7 +79,7 @@
             buttonBuscar.ForeColor = SystemColors.ButtonFace;
             buttonBuscar.Location = new Point(11, 61);
             buttonBuscar.Name = "buttonBuscar";
-            buttonBuscar.Size = new Size(142, 53);
+            buttonBuscar.Size = new Size(109, 53);
             buttonBuscar.TabIndex = 7;
             buttonBuscar.Text = "Buscar";
             buttonBuscar.UseVisualStyleBackColor = false;
@@ -89,9 +90,9 @@
             buttonExcluir.BackColor = Color.Red;
             buttonExcluir.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluir.ForeColor = SystemColors.ButtonFace;
-            buttonExcluir.Location = new Point(490, 61);
+            buttonExcluir.Location = new Point(428, 62);
             buttonExcluir.Name = "buttonExcluir";
-            buttonExcluir.Size = new Size(142, 53);
+            buttonExcluir.Size = new Size(109, 53);
             buttonExcluir.TabIndex = 10;
             buttonExcluir.Text = "Excluir";
             buttonExcluir.UseVisualStyleBackColor = false;
@@ -121,9 +122,9 @@
             buttonLimpar.BackColor = Color.SeaShell;
             buttonLimpar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimpar.ForeColor = SystemColors.ActiveCaptionText;
-            buttonLimpar.Location = new Point(663, 61);
+            buttonLimpar.Location = new Point(556, 61);
             buttonLimpar.Name = "buttonLimpar";
-            buttonLimpar.Size = new Size(142, 53);
+            buttonLimpar.Size = new Size(109, 53);
             buttonLimpar.TabIndex = 11;
             buttonLimpar.Text = "Limpar";
             buttonLimpar.UseVisualStyleBackColor = false;
@@ -213,11 +214,25 @@
             buttonBuscarPorNome.UseVisualStyleBackColor = false;
             buttonBuscarPorNome.Click += buttonBuscarPorNome_Click;
             // 
+            // buttonRegistroPagamentoCompra
+            // 
+            buttonRegistroPagamentoCompra.BackColor = Color.Olive;
+            buttonRegistroPagamentoCompra.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRegistroPagamentoCompra.ForeColor = SystemColors.ButtonFace;
+            buttonRegistroPagamentoCompra.Location = new Point(711, 61);
+            buttonRegistroPagamentoCompra.Name = "buttonRegistroPagamentoCompra";
+            buttonRegistroPagamentoCompra.Size = new Size(142, 53);
+            buttonRegistroPagamentoCompra.TabIndex = 13;
+            buttonRegistroPagamentoCompra.Text = "Pagamento ou Compra";
+            buttonRegistroPagamentoCompra.UseVisualStyleBackColor = false;
+            buttonRegistroPagamentoCompra.Click += buttonRegistroPagamentoCompra_Click;
+            // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1054, 678);
+            Controls.Add(buttonRegistroPagamentoCompra);
             Controls.Add(buttonBuscarPorNome);
             Controls.Add(checkBoxBuscaPorNome);
             Controls.Add(radioButtonPlano);
@@ -257,5 +272,6 @@
         public Button buttonBuscarPorNome;
         public Button buttonExcluir;
         public Button buttonLimpar;
+        public Button buttonRegistroPagamentoCompra;
     }
 }

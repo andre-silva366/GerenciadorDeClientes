@@ -9,16 +9,7 @@ namespace GerenciadorDeClientes.Views
         public FormAtualizarDeletarCliente()
         {
             InitializeComponent();
-
-            ServidorRepository servidorRepository = new ServidorRepository();
-            var servidores = servidorRepository.GetAll().ToList();
-            List<string> nomeServidores = new List<string>();
-
-            foreach (var item in servidores)
-            {
-                nomeServidores.Add(item.Nome);
-            }
-
+            
             PlanoRepository planoRepository = new PlanoRepository();
             var planos = planoRepository.GetAll().ToList();
 
@@ -115,6 +106,11 @@ namespace GerenciadorDeClientes.Views
                     }
                     else
                     {
+                        textBoxAtualizarClienteId.Text = "";
+                        textBoxNomeClienteAtualizado.Text = "";
+                        maskedTextBoxTelefoneClienteAtualizado.Text = "";
+                        textBoxEmailClienteAtualizado.Text = "";
+                        comboBoxPlanoClienteAtualizado.Text = "";
                         clienteRepository.Delete(idCliente);
                     }
                 }
