@@ -1,6 +1,7 @@
 using GerenciadorDeClientes.Repositories;
 using GerenciadorDeClientes.Views.Update;
 using GerenciadorDeClientes.Views;
+using GerenciadorDeClientes.Views.Insert;
 
 namespace GerenciadorDeClientes;
 
@@ -9,7 +10,6 @@ public partial class FormTelaPrincipal : Form
     public FormTelaPrincipal()
     {
         InitializeComponent();
-
     }
 
     // Botão buscar (Get All)
@@ -312,19 +312,45 @@ public partial class FormTelaPrincipal : Form
 
     private void buttonRegistroPagamentoCompra_Click(object sender, EventArgs e)
     {
-        if(radioButtonAplicativo.Checked || radioButtonPlano.Checked || checkBoxBuscaPorNome.Checked)
+        if (radioButtonCliente.Checked)//Cliente pagando
         {
-            buttonRegistroPagamentoCompra.Enabled = false;
-        }
-        else if(radioButtonCliente.Checked)//Cliente pagando
-        {
-
+            dataGridView.Visible = false;
+            FormRegistraPagamentoCliente formRegistraPagamentoCliente = new();
+            formRegistraPagamentoCliente.ShowDialog();
+            
         }
         else if (radioButtonRevendedor.Checked)// Revendedor pagando
         {
-
+            dataGridView.Visible = false;
+            FormRegistroPagamentoRevendedor formRegistroPagamentoRevendedor = new();
+            formRegistroPagamentoRevendedor.ShowDialog();
+            
         }
         else if (radioButtonServidor.Checked) // Compra de crédito
+        {
+            
+        }
+    }
+
+    private void buttonExibirRegistro_Click(object sender, EventArgs e)
+    {
+        if (radioButtonAplicativo.Checked || radioButtonPlano.Checked )
+        {
+            buttonRegistroPagamentoCompra.Enabled = false;
+        }
+        else if (radioButtonCliente.Checked)//Busca todos registros Cliente
+        {
+
+        }
+        else if (radioButtonCliente.Checked && checkBoxBuscaPorNome.Checked)//Busca todos registros Cliente por nome
+        {
+
+        }
+        else if (radioButtonRevendedor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Revendedor por nome
+        {
+
+        }
+        else if (radioButtonServidor.Checked && checkBoxBuscaPorNome.Checked) // Busca todos registros Servidor por nome
         {
 
         }

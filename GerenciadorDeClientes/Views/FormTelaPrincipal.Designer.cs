@@ -43,6 +43,7 @@
             checkBoxBuscaPorNome = new CheckBox();
             buttonBuscarPorNome = new Button();
             buttonRegistroPagamentoCompra = new Button();
+            buttonExibirRegistro = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -51,9 +52,9 @@
             buttonCadastrar.BackColor = Color.RoyalBlue;
             buttonCadastrar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCadastrar.ForeColor = SystemColors.ButtonFace;
-            buttonCadastrar.Location = new Point(145, 62);
+            buttonCadastrar.Location = new Point(173, 62);
             buttonCadastrar.Name = "buttonCadastrar";
-            buttonCadastrar.Size = new Size(109, 53);
+            buttonCadastrar.Size = new Size(134, 53);
             buttonCadastrar.TabIndex = 8;
             buttonCadastrar.Text = "Cadastrar";
             buttonCadastrar.UseVisualStyleBackColor = false;
@@ -64,9 +65,9 @@
             buttonAtualizar.BackColor = Color.Goldenrod;
             buttonAtualizar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizar.ForeColor = SystemColors.ButtonFace;
-            buttonAtualizar.Location = new Point(284, 62);
+            buttonAtualizar.Location = new Point(335, 62);
             buttonAtualizar.Name = "buttonAtualizar";
-            buttonAtualizar.Size = new Size(109, 53);
+            buttonAtualizar.Size = new Size(134, 53);
             buttonAtualizar.TabIndex = 9;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
@@ -77,9 +78,9 @@
             buttonBuscar.BackColor = Color.Green;
             buttonBuscar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBuscar.ForeColor = SystemColors.ButtonFace;
-            buttonBuscar.Location = new Point(11, 61);
+            buttonBuscar.Location = new Point(12, 61);
             buttonBuscar.Name = "buttonBuscar";
-            buttonBuscar.Size = new Size(109, 53);
+            buttonBuscar.Size = new Size(134, 53);
             buttonBuscar.TabIndex = 7;
             buttonBuscar.Text = "Buscar";
             buttonBuscar.UseVisualStyleBackColor = false;
@@ -90,9 +91,9 @@
             buttonExcluir.BackColor = Color.Red;
             buttonExcluir.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluir.ForeColor = SystemColors.ButtonFace;
-            buttonExcluir.Location = new Point(428, 62);
+            buttonExcluir.Location = new Point(497, 61);
             buttonExcluir.Name = "buttonExcluir";
-            buttonExcluir.Size = new Size(109, 53);
+            buttonExcluir.Size = new Size(134, 53);
             buttonExcluir.TabIndex = 10;
             buttonExcluir.Text = "Excluir";
             buttonExcluir.UseVisualStyleBackColor = false;
@@ -101,7 +102,7 @@
             // textBoxSelectNome
             // 
             textBoxSelectNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBoxSelectNome.Location = new Point(805, 17);
+            textBoxSelectNome.Location = new Point(807, 16);
             textBoxSelectNome.Name = "textBoxSelectNome";
             textBoxSelectNome.PlaceholderText = "Digite aqui!";
             textBoxSelectNome.Size = new Size(235, 29);
@@ -111,9 +112,9 @@
             // 
             dataGridView.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(12, 135);
+            dataGridView.Location = new Point(12, 221);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(1028, 531);
+            dataGridView.Size = new Size(1028, 498);
             dataGridView.TabIndex = 11;
             dataGridView.Visible = false;
             // 
@@ -122,9 +123,9 @@
             buttonLimpar.BackColor = Color.SeaShell;
             buttonLimpar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimpar.ForeColor = SystemColors.ActiveCaptionText;
-            buttonLimpar.Location = new Point(556, 61);
+            buttonLimpar.Location = new Point(667, 61);
             buttonLimpar.Name = "buttonLimpar";
-            buttonLimpar.Size = new Size(109, 53);
+            buttonLimpar.Size = new Size(134, 53);
             buttonLimpar.TabIndex = 11;
             buttonLimpar.Text = "Limpar";
             buttonLimpar.UseVisualStyleBackColor = false;
@@ -194,7 +195,7 @@
             // 
             checkBoxBuscaPorNome.AutoSize = true;
             checkBoxBuscaPorNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBoxBuscaPorNome.Location = new Point(629, 19);
+            checkBoxBuscaPorNome.Location = new Point(654, 18);
             checkBoxBuscaPorNome.Name = "checkBoxBuscaPorNome";
             checkBoxBuscaPorNome.Size = new Size(147, 25);
             checkBoxBuscaPorNome.TabIndex = 5;
@@ -206,7 +207,7 @@
             buttonBuscarPorNome.BackColor = Color.DarkGreen;
             buttonBuscarPorNome.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBuscarPorNome.ForeColor = SystemColors.ButtonFace;
-            buttonBuscarPorNome.Location = new Point(898, 62);
+            buttonBuscarPorNome.Location = new Point(900, 63);
             buttonBuscarPorNome.Name = "buttonBuscarPorNome";
             buttonBuscarPorNome.Size = new Size(142, 53);
             buttonBuscarPorNome.TabIndex = 12;
@@ -217,21 +218,37 @@
             // buttonRegistroPagamentoCompra
             // 
             buttonRegistroPagamentoCompra.BackColor = Color.Olive;
-            buttonRegistroPagamentoCompra.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRegistroPagamentoCompra.Cursor = Cursors.Hand;
+            buttonRegistroPagamentoCompra.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             buttonRegistroPagamentoCompra.ForeColor = SystemColors.ButtonFace;
-            buttonRegistroPagamentoCompra.Location = new Point(711, 61);
+            buttonRegistroPagamentoCompra.Location = new Point(12, 139);
             buttonRegistroPagamentoCompra.Name = "buttonRegistroPagamentoCompra";
-            buttonRegistroPagamentoCompra.Size = new Size(142, 53);
+            buttonRegistroPagamentoCompra.Size = new Size(175, 53);
             buttonRegistroPagamentoCompra.TabIndex = 13;
-            buttonRegistroPagamentoCompra.Text = "Pagamento ou Compra";
+            buttonRegistroPagamentoCompra.Text = "Registrar pagamento ou compra";
             buttonRegistroPagamentoCompra.UseVisualStyleBackColor = false;
             buttonRegistroPagamentoCompra.Click += buttonRegistroPagamentoCompra_Click;
+            // 
+            // buttonExibirRegistro
+            // 
+            buttonExibirRegistro.BackColor = Color.YellowGreen;
+            buttonExibirRegistro.Cursor = Cursors.Hand;
+            buttonExibirRegistro.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonExibirRegistro.ForeColor = SystemColors.ButtonFace;
+            buttonExibirRegistro.Location = new Point(221, 139);
+            buttonExibirRegistro.Name = "buttonExibirRegistro";
+            buttonExibirRegistro.Size = new Size(175, 53);
+            buttonExibirRegistro.TabIndex = 14;
+            buttonExibirRegistro.Text = "Exibir registros";
+            buttonExibirRegistro.UseVisualStyleBackColor = false;
+            buttonExibirRegistro.Click += buttonExibirRegistro_Click;
             // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1054, 678);
+            ClientSize = new Size(1054, 731);
+            Controls.Add(buttonExibirRegistro);
             Controls.Add(buttonRegistroPagamentoCompra);
             Controls.Add(buttonBuscarPorNome);
             Controls.Add(checkBoxBuscaPorNome);
@@ -247,8 +264,8 @@
             Controls.Add(buttonBuscar);
             Controls.Add(buttonAtualizar);
             Controls.Add(buttonCadastrar);
-            MaximumSize = new Size(1070, 717);
-            MinimumSize = new Size(1070, 717);
+            MaximumSize = new Size(1070, 770);
+            MinimumSize = new Size(1070, 770);
             Name = "FormTelaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Principal";
@@ -273,5 +290,6 @@
         public Button buttonExcluir;
         public Button buttonLimpar;
         public Button buttonRegistroPagamentoCompra;
+        public Button buttonExibirRegistro;
     }
 }
