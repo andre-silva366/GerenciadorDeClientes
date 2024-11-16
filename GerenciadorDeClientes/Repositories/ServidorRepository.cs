@@ -97,9 +97,9 @@ public class ServidorRepository : IRepository<Servidor>
             _connection.Execute(query, new { Id = id });
             MessageBox.Show("Servidor deletado com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-        catch
+        catch(Exception ex)
         {
-            MessageBox.Show("Erro ao deletar servidor", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"Erro ao deletar servidor: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         finally
         {

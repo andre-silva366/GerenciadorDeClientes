@@ -37,7 +37,7 @@
             numericUpDownPagQtdeCreditos = new NumericUpDown();
             label6 = new Label();
             label4 = new Label();
-            comboBoxPagRev = new ComboBox();
+            comboBoxPagServ = new ComboBox();
             label2 = new Label();
             comboBoxPagRevend = new ComboBox();
             label1 = new Label();
@@ -67,6 +67,7 @@
             buttonRegistrarPagRev.TabIndex = 36;
             buttonRegistrarPagRev.Text = "Registrar";
             buttonRegistrarPagRev.UseVisualStyleBackColor = false;
+            buttonRegistrarPagRev.Click += buttonRegistrarPagRev_Click;
             // 
             // dateTimePickerDataPagRev
             // 
@@ -111,13 +112,13 @@
             // 
             numericUpDownPagQtdeCreditos.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             numericUpDownPagQtdeCreditos.Location = new Point(136, 237);
-            numericUpDownPagQtdeCreditos.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            numericUpDownPagQtdeCreditos.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownPagQtdeCreditos.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownPagQtdeCreditos.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
             numericUpDownPagQtdeCreditos.Name = "numericUpDownPagQtdeCreditos";
             numericUpDownPagQtdeCreditos.Size = new Size(93, 29);
             numericUpDownPagQtdeCreditos.TabIndex = 29;
             numericUpDownPagQtdeCreditos.TextAlign = HorizontalAlignment.Center;
-            numericUpDownPagQtdeCreditos.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownPagQtdeCreditos.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // label6
             // 
@@ -139,14 +140,14 @@
             label4.TabIndex = 25;
             label4.Text = "Servidor: ";
             // 
-            // comboBoxPagRev
+            // comboBoxPagServ
             // 
-            comboBoxPagRev.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            comboBoxPagRev.FormattingEnabled = true;
-            comboBoxPagRev.Location = new Point(136, 176);
-            comboBoxPagRev.Name = "comboBoxPagRev";
-            comboBoxPagRev.Size = new Size(273, 29);
-            comboBoxPagRev.TabIndex = 24;
+            comboBoxPagServ.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            comboBoxPagServ.FormattingEnabled = true;
+            comboBoxPagServ.Location = new Point(136, 176);
+            comboBoxPagServ.Name = "comboBoxPagServ";
+            comboBoxPagServ.Size = new Size(273, 29);
+            comboBoxPagServ.TabIndex = 24;
             // 
             // label2
             // 
@@ -191,11 +192,12 @@
             Controls.Add(numericUpDownPagQtdeCreditos);
             Controls.Add(label6);
             Controls.Add(label4);
-            Controls.Add(comboBoxPagRev);
+            Controls.Add(comboBoxPagServ);
             Controls.Add(label2);
             Controls.Add(comboBoxPagRevend);
             Controls.Add(label1);
             Name = "FormRegistroPagamentoRevendedor";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Pagamento de Revendedor";
             ((System.ComponentModel.ISupportInitialize)numericUpDownPagQtdeCreditos).EndInit();
             ResumeLayout(false);
@@ -213,7 +215,7 @@
         public NumericUpDown numericUpDownPagQtdeCreditos;
         private Label label6;
         private Label label4;
-        public ComboBox comboBoxPagRev;
+        public ComboBox comboBoxPagServ;
         private Label label2;
         public ComboBox comboBoxPagRevend;
         private Label label1;

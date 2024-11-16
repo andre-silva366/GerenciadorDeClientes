@@ -44,9 +44,9 @@
             buttonBuscarPlanoIdAtua.BackColor = Color.FromArgb(0, 192, 0);
             buttonBuscarPlanoIdAtua.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBuscarPlanoIdAtua.ForeColor = SystemColors.ButtonFace;
-            buttonBuscarPlanoIdAtua.Location = new Point(277, 7);
+            buttonBuscarPlanoIdAtua.Location = new Point(277, 15);
             buttonBuscarPlanoIdAtua.Name = "buttonBuscarPlanoIdAtua";
-            buttonBuscarPlanoIdAtua.Size = new Size(100, 41);
+            buttonBuscarPlanoIdAtua.Size = new Size(100, 32);
             buttonBuscarPlanoIdAtua.TabIndex = 15;
             buttonBuscarPlanoIdAtua.Text = "Buscar";
             buttonBuscarPlanoIdAtua.UseVisualStyleBackColor = false;
@@ -57,7 +57,7 @@
             buttonSalvarPlanoAtualizado.BackColor = Color.FromArgb(0, 192, 0);
             buttonSalvarPlanoAtualizado.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarPlanoAtualizado.ForeColor = SystemColors.ButtonFace;
-            buttonSalvarPlanoAtualizado.Location = new Point(269, 223);
+            buttonSalvarPlanoAtualizado.Location = new Point(247, 223);
             buttonSalvarPlanoAtualizado.MaximumSize = new Size(108, 49);
             buttonSalvarPlanoAtualizado.MinimumSize = new Size(108, 49);
             buttonSalvarPlanoAtualizado.Name = "buttonSalvarPlanoAtualizado";
@@ -71,6 +71,8 @@
             // 
             buttonLimparCadAtuaPlan.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparCadAtuaPlan.Location = new Point(12, 223);
+            buttonLimparCadAtuaPlan.MaximumSize = new Size(108, 49);
+            buttonLimparCadAtuaPlan.MinimumSize = new Size(108, 49);
             buttonLimparCadAtuaPlan.Name = "buttonLimparCadAtuaPlan";
             buttonLimparCadAtuaPlan.Size = new Size(108, 49);
             buttonLimparCadAtuaPlan.TabIndex = 13;
@@ -81,16 +83,16 @@
             // textBoxDescrPlanoAtual
             // 
             textBoxDescrPlanoAtual.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxDescrPlanoAtual.Location = new Point(102, 135);
+            textBoxDescrPlanoAtual.Location = new Point(102, 153);
             textBoxDescrPlanoAtual.Name = "textBoxDescrPlanoAtual";
-            textBoxDescrPlanoAtual.Size = new Size(275, 29);
+            textBoxDescrPlanoAtual.Size = new Size(253, 29);
             textBoxDescrPlanoAtual.TabIndex = 12;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 138);
+            label3.Location = new Point(12, 156);
             label3.Name = "label3";
             label3.Size = new Size(84, 21);
             label3.TabIndex = 11;
@@ -129,7 +131,7 @@
             buttonExcluirPlano.BackColor = Color.Red;
             buttonExcluirPlano.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluirPlano.ForeColor = SystemColors.ButtonFace;
-            buttonExcluirPlano.Location = new Point(137, 223);
+            buttonExcluirPlano.Location = new Point(247, 223);
             buttonExcluirPlano.Name = "buttonExcluirPlano";
             buttonExcluirPlano.Size = new Size(108, 49);
             buttonExcluirPlano.TabIndex = 18;
@@ -142,7 +144,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(397, 284);
+            ClientSize = new Size(392, 284);
             Controls.Add(buttonExcluirPlano);
             Controls.Add(buttonBuscarPlanoIdAtua);
             Controls.Add(buttonSalvarPlanoAtualizado);

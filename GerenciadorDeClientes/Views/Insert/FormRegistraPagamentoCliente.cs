@@ -7,6 +7,7 @@ namespace GerenciadorDeClientes.Views.Insert
         public FormRegistraPagamentoCliente()
         {            
             InitializeComponent();
+            LimparCampos();
 
             ClienteRepository cliRepository = new();
             List<string> listaClientes = new();
@@ -17,13 +18,9 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     listaClientes.Add(cli.Nome);
                 }
-
-                comboBoxPagCliente.DataSource = listaClientes;
+                
             }
-            else
-            {
-                MessageBox.Show("Não existem clientes cadastrados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            comboBoxPagCliente.DataSource = listaClientes;
 
             AplicativoRepository appRepository = new();
             List<string> apps = new();
@@ -34,12 +31,9 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     apps.Add(app.Nome);
                 }
-                comboBoxPagClienAplicatico.DataSource = apps;
+                
             }
-            else
-            {
-                MessageBox.Show("Não existem aplicativos cadastrados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            comboBoxPagClienAplicatico.DataSource = apps;
 
             ServidorRepository servRepository = new();
             List<string> servs = new();
@@ -50,13 +44,9 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     servs.Add(serv.Nome);
                 }
-                comboBoxPagServidor.DataSource = servs;
-
+                
             }
-            else
-            {
-                MessageBox.Show("Não existem servidores cadastrados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            comboBoxPagServidor.DataSource = servs;
 
             PlanoRepository planRepository = new();
             List<string> planos = new();
@@ -67,13 +57,10 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     planos.Add(plano.Descricao);
                 }
-                comboBoxPagPlano.DataSource = planos;
+                
+            }
+            comboBoxPagPlano.DataSource = planos;
 
-            }
-            else
-            {
-                MessageBox.Show("Não existem planos cadastrados", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void buttonRegistrarPagCliente_Click(object sender, EventArgs e)
@@ -94,11 +81,24 @@ namespace GerenciadorDeClientes.Views.Insert
 
                 RegistroPagamentoClienteRepository rpcRepo = new RegistroPagamentoClienteRepository();
                 rpcRepo.Insert(rpc);
+                LimparCampos();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void LimparCampos()
+        {
+            comboBoxPagCliente.Text = "";
+            comboBoxPagClienAplicatico.Text = "";
+            comboBoxPagServidor.Text = "";
+            comboBoxPagPlano.Text = "";
+            numericUpDownPagQtdeTelas.Value = 1;
+            textBoxValorPagCli.Text = "";
+            numericUpDownQtdeMeses.Text = "";
+            dateTimePickerPagClie.Value = DateTime.Now;
         }
     }
 }

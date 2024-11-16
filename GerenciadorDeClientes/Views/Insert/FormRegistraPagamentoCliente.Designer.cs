@@ -212,7 +212,7 @@
             // 
             numericUpDownQtdeMeses.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             numericUpDownQtdeMeses.Location = new Point(124, 481);
-            numericUpDownQtdeMeses.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDownQtdeMeses.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
             numericUpDownQtdeMeses.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownQtdeMeses.Name = "numericUpDownQtdeMeses";
             numericUpDownQtdeMeses.Size = new Size(93, 29);

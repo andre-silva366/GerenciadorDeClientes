@@ -1,8 +1,11 @@
-﻿namespace GerenciadorDeClientes.Models;
+﻿using System.ComponentModel;
+
+namespace GerenciadorDeClientes.Models;
 
 public class RegistroPagamentoCliente
 {
     public int Id { get; set; }
+    [DisplayName]
     public int IdCliente { get; set; }
     public string NomeCliente { get; set; }
     public int IdAplicativo { get; set; }

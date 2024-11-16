@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using GerenciadorDeClientes.Models;
-using GerenciadorDeClientes.Views.Insert;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -19,22 +18,33 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
     {
         try
         {
-            return _connection.Query<RegistroPagamentoCliente>("SELECT r.Id, c.Nome AS Cliente, a.Nome AS Aplicativo, p.Descricao AS Plano, r.QtdeTelas, r.Valor, r.DataPagamento, QtdeMeses, s.Nome AS Servidor FROM RegistroPagamentoCliente r JOIN Clientes c ON r.IdCliente = c.Id JOIN Aplicativo a ON r.IdAplicativo = a.Id JOIN Plano p ON r.IdPlano = p.Id JOIN Servidor s ON r.IdServidor = s.Id").ToList();
+            var queryRegistroPagCli = _connection.Query<RegistroPagamentoCliente>("SELECT Id, IdCliente , IdAplicativo, IdPlano, QtdeTelas, Valor, DataPagamento, QtdeMeses, DataProximoPagamento, IdServidor FROM RegistroPagamentoCliente").ToList();
+
+            foreach (var item in queryRegistroPagCli)
+            {
+                item.NomeCliente = _connection.QuerySingleOrDefault<string>($"SELECT Nome FROM Clientes WHERE {item.IdCliente} = Id;")?? "";
+                item.NomeAplicativo = _connection.QuerySingleOrDefault<string>($"SELECT Nome FROM Aplicativo WHERE {item.IdAplicativo} = Id;") ?? "";
+                item.DescricaoPlano = _connection.QuerySingleOrDefault<string>($"SELECT Descricao FROM Plano WHERE {item.IdPlano} = Id;") ?? "";
+                item.NomeServidor = _connection.QuerySingleOrDefault<string>($"SELECT Nome FROM Servidor WHERE {item.IdServidor} = Id;") ?? "";
+            }
+
+            return queryRegistroPagCli;
+        }
+        catch(Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            return null;
         }
         finally
         {
             _connection.Close();
         }
-
-
     }
 
     public void Delete(int id)
     {
         throw new NotImplementedException();
     }
-
-
 
     public RegistroPagamentoCliente GetById(int id)
     {
@@ -50,34 +60,25 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
     {
         try
         {
-            //var nomeCliente = rpc.NomeCliente;
             var queryCliente = "SELECT Id FROM Clientes WHERE Nome = @Nome;";
-
             var idCliente = _connection.QuerySingleOrDefault<int>(queryCliente, new { Nome = rpc.NomeCliente });
 
-            //var nomeApp = rpc.NomeAplicativo;
             var queryAplicativo = "SELECT Id FROM Aplicativo WHERE Nome = @Nome;";
-
             var idAplicativo = _connection.QuerySingleOrDefault<int>(queryAplicativo, new { Nome = rpc.NomeAplicativo });
 
-            //var descPlano = rpc.DescricaoPlano;
             var queryPlano = "SELECT Id FROM Plano WHERE Descricao = @Descricao";
-
             var idPlano = _connection.QuerySingleOrDefault<int>(queryPlano, new { Descricao = rpc.DescricaoPlano });
 
-            //var nomeServidor = rpc.NomeServidor;
             var queryServidor = "SELECT Id FROM Servidor WHERE Nome = @Nome";
-
             var idServidor = _connection.QuerySingleOrDefault<int>(queryServidor, new { Nome = rpc.NomeServidor });
 
             var qteTelas = rpc.QtdeTelas;
             var valor = rpc.Valor;
             var qteMeses = rpc.QtdeMeses;
-
             var dataPagamento = rpc.DataPagamento;
             var dataProxPag = rpc.DataProximoPagamento;
 
-            var queryInsertRegPagClie = "INSERT INTO RegistroPagamentoCliente (IdCliente, IdAplicativo, IdPlano, IdServidor, QtdeTelas, QtdeMeses, DataPagamento, DataProximoPagamento) VALUES (@IdCliente, @IdAplicativo, @IdPlano, @IdServidor, @QtdeTelas, @QtdeMeses, @DataPagamento, @DataProximoPagamento)";
+            var queryInsertRegPagClie = "INSERT INTO RegistroPagamentoCliente (IdCliente, IdAplicativo, IdPlano, IdServidor, QtdeTelas,Valor, QtdeMeses, DataPagamento, DataProximoPagamento) VALUES (@IdCliente, @IdAplicativo, @IdPlano, @IdServidor, @QtdeTelas,@Valor, @QtdeMeses, @DataPagamento, @DataProximoPagamento)";
 
             var parameters = new
             {
@@ -86,13 +87,13 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
                 IdPlano = idPlano,
                 IdServidor = idServidor,
                 QtdeTelas = qteTelas,
+                Valor = valor,
                 QtdeMeses = qteMeses,
                 DataPagamento = dataPagamento,
                 DataProximoPagamento = dataProxPag
             };
 
             _connection.Execute(queryInsertRegPagClie, parameters);
-
 
             MessageBox.Show("Registro salvo com sucesso!", "SUCESSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -65,8 +65,10 @@
             buttonBuscarAppIdAtua.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBuscarAppIdAtua.ForeColor = SystemColors.ButtonFace;
             buttonBuscarAppIdAtua.Location = new Point(189, 41);
+            buttonBuscarAppIdAtua.MaximumSize = new Size(100, 36);
+            buttonBuscarAppIdAtua.MinimumSize = new Size(100, 36);
             buttonBuscarAppIdAtua.Name = "buttonBuscarAppIdAtua";
-            buttonBuscarAppIdAtua.Size = new Size(100, 31);
+            buttonBuscarAppIdAtua.Size = new Size(100, 36);
             buttonBuscarAppIdAtua.TabIndex = 8;
             buttonBuscarAppIdAtua.Text = "Buscar";
             buttonBuscarAppIdAtua.UseVisualStyleBackColor = false;
@@ -77,7 +79,7 @@
             buttonSalvarAppAtualizado.BackColor = Color.FromArgb(0, 192, 0);
             buttonSalvarAppAtualizado.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarAppAtualizado.ForeColor = SystemColors.ButtonFace;
-            buttonSalvarAppAtualizado.Location = new Point(181, 234);
+            buttonSalvarAppAtualizado.Location = new Point(181, 246);
             buttonSalvarAppAtualizado.Name = "buttonSalvarAppAtualizado";
             buttonSalvarAppAtualizado.Size = new Size(108, 36);
             buttonSalvarAppAtualizado.TabIndex = 13;
@@ -88,7 +90,7 @@
             // buttonLimparCadAtuaApp
             // 
             buttonLimparCadAtuaApp.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimparCadAtuaApp.Location = new Point(12, 234);
+            buttonLimparCadAtuaApp.Location = new Point(12, 246);
             buttonLimparCadAtuaApp.Name = "buttonLimparCadAtuaApp";
             buttonLimparCadAtuaApp.Size = new Size(108, 36);
             buttonLimparCadAtuaApp.TabIndex = 12;
@@ -129,7 +131,7 @@
             buttonExcluirApp.BackColor = Color.Red;
             buttonExcluirApp.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonExcluirApp.ForeColor = SystemColors.ButtonFace;
-            buttonExcluirApp.Location = new Point(181, 291);
+            buttonExcluirApp.Location = new Point(181, 246);
             buttonExcluirApp.Name = "buttonExcluirApp";
             buttonExcluirApp.Size = new Size(108, 36);
             buttonExcluirApp.TabIndex = 14;
@@ -160,7 +162,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(307, 339);
+            ClientSize = new Size(307, 294);
             Controls.Add(textBoxAtuaDelSiteApp);
             Controls.Add(label2);
             Controls.Add(buttonExcluirApp);

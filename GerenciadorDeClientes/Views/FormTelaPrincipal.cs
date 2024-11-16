@@ -2,6 +2,7 @@ using GerenciadorDeClientes.Repositories;
 using GerenciadorDeClientes.Views.Update;
 using GerenciadorDeClientes.Views;
 using GerenciadorDeClientes.Views.Insert;
+using GerenciadorDeClientes.Models;
 
 namespace GerenciadorDeClientes;
 
@@ -328,19 +329,40 @@ public partial class FormTelaPrincipal : Form
         }
         else if (radioButtonServidor.Checked) // Compra de crédito
         {
-            
+            dataGridView.Visible = false;
+            FormRegistraCompraCredito formRegistraCompraCredito = new();
+            formRegistraCompraCredito.ShowDialog();
         }
     }
 
     private void buttonExibirRegistro_Click(object sender, EventArgs e)
     {
-        if (radioButtonAplicativo.Checked || radioButtonPlano.Checked )
+        if (radioButtonCliente.Checked)//Busca todos registros Cliente
         {
-            buttonRegistroPagamentoCompra.Enabled = false;
-        }
-        else if (radioButtonCliente.Checked)//Busca todos registros Cliente
-        {
+            RegistroPagamentoClienteRepository rpcc = new();
+            var registroPagClientes = rpcc.GetAll().ToList();
 
+            if (registroPagClientes.Count == 0 || registroPagClientes == null)
+            {
+                dataGridView.Visible = false;
+                MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView.Visible = true;
+                dataGridView.DataSource = registroPagClientes;
+                dataGridView.Columns["IdCliente"].Visible = false;
+                dataGridView.Columns["IdAplicativo"].Visible = false;
+                dataGridView.Columns["IdPlano"].Visible = false;
+                dataGridView.Columns["IdServidor"].Visible = false;
+                dataGridView.Columns["NomeCliente"].HeaderText = "Cliente";
+                dataGridView.Columns["NomeAplicativo"].HeaderText = "Aplicativo";
+                dataGridView.Columns["DescricaoPlano"].HeaderText = "Plano";
+                dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                dataGridView.Columns["QtdeTelas"].HeaderText = "Telas";
+                dataGridView.Columns["QtdeMeses"].HeaderText = "Meses";
+            }
         }
         else if (radioButtonCliente.Checked && checkBoxBuscaPorNome.Checked)//Busca todos registros Cliente por nome
         {

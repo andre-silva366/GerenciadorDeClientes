@@ -35,7 +35,7 @@
             numericUpDownPagQtdeCred = new NumericUpDown();
             label6 = new Label();
             label2 = new Label();
-            comboBoxCompCred = new ComboBox();
+            comboBoxCompCredServ = new ComboBox();
             label1 = new Label();
             buttonLimparCompCred = new Button();
             buttonRegCompcred = new Button();
@@ -85,13 +85,13 @@
             // 
             numericUpDownPagQtdeCred.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             numericUpDownPagQtdeCred.Location = new Point(124, 150);
-            numericUpDownPagQtdeCred.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            numericUpDownPagQtdeCred.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownPagQtdeCred.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownPagQtdeCred.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
             numericUpDownPagQtdeCred.Name = "numericUpDownPagQtdeCred";
             numericUpDownPagQtdeCred.Size = new Size(93, 29);
             numericUpDownPagQtdeCred.TabIndex = 19;
             numericUpDownPagQtdeCred.TextAlign = HorizontalAlignment.Center;
-            numericUpDownPagQtdeCred.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownPagQtdeCred.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // label6
             // 
@@ -113,14 +113,14 @@
             label2.TabIndex = 17;
             label2.Text = "Servidor: ";
             // 
-            // comboBoxCompCred
+            // comboBoxCompCredServ
             // 
-            comboBoxCompCred.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            comboBoxCompCred.FormattingEnabled = true;
-            comboBoxCompCred.Location = new Point(124, 99);
-            comboBoxCompCred.Name = "comboBoxCompCred";
-            comboBoxCompCred.Size = new Size(273, 29);
-            comboBoxCompCred.TabIndex = 16;
+            comboBoxCompCredServ.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            comboBoxCompCredServ.FormattingEnabled = true;
+            comboBoxCompCredServ.Location = new Point(124, 99);
+            comboBoxCompCredServ.Name = "comboBoxCompCredServ";
+            comboBoxCompCredServ.Size = new Size(273, 29);
+            comboBoxCompCredServ.TabIndex = 16;
             // 
             // label1
             // 
@@ -155,6 +155,7 @@
             buttonRegCompcred.TabIndex = 17;
             buttonRegCompcred.Text = "Registrar";
             buttonRegCompcred.UseVisualStyleBackColor = false;
+            buttonRegCompcred.Click += buttonRegCompcred_Click;
             // 
             // FormRegistraCompraCredito
             // 
@@ -170,7 +171,7 @@
             Controls.Add(numericUpDownPagQtdeCred);
             Controls.Add(label6);
             Controls.Add(label2);
-            Controls.Add(comboBoxCompCred);
+            Controls.Add(comboBoxCompCredServ);
             Controls.Add(label1);
             MaximizeBox = false;
             MaximumSize = new Size(437, 455);
@@ -179,7 +180,6 @@
             Name = "FormRegistraCompraCredito";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Compra de Crédito";
-            Load += FormRegistraCompraCredito_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownPagQtdeCred).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -194,7 +194,7 @@
         public NumericUpDown numericUpDownPagQtdeCred;
         private Label label6;
         private Label label2;
-        public ComboBox comboBoxCompCred;
+        public ComboBox comboBoxCompCredServ;
         private Label label1;
         private Button buttonLimparCompCred;
         private Button buttonRegCompcred;

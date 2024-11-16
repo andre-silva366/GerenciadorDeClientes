@@ -159,7 +159,7 @@
             buttonSalvarRevAtual.Cursor = Cursors.Hand;
             buttonSalvarRevAtual.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSalvarRevAtual.ForeColor = Color.Transparent;
-            buttonSalvarRevAtual.Location = new Point(221, 407);
+            buttonSalvarRevAtual.Location = new Point(221, 334);
             buttonSalvarRevAtual.Name = "buttonSalvarRevAtual";
             buttonSalvarRevAtual.Size = new Size(151, 48);
             buttonSalvarRevAtual.TabIndex = 91;
@@ -186,7 +186,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(395, 483);
+            ClientSize = new Size(395, 411);
             Controls.Add(buttonDeletarRevendedor);
             Controls.Add(buttonSalvarRevAtual);
             Controls.Add(buttonLimparCadastroAtualizaRev);
@@ -201,9 +201,9 @@
             Controls.Add(textBoxAtualizarRevendedorId);
             Controls.Add(label1);
             MaximizeBox = false;
-            MaximumSize = new Size(411, 522);
+            MaximumSize = new Size(411, 450);
             MinimizeBox = false;
-            MinimumSize = new Size(411, 522);
+            MinimumSize = new Size(411, 450);
             Name = "FormAtualizarDeletarRevendedor";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

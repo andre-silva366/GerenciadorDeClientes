@@ -133,8 +133,9 @@ public partial class FormAtualizarDeletarServidor : Form
         Controls.Add(textBoxIdServidorAtual);
         Controls.Add(label1);
         MaximizeBox = false;
-        MaximumSize = new Size(375, 312);
+        MaximumSize = new Size(320, 309);
         MinimizeBox = false;
+        MinimumSize = new Size(320, 309);
         Name = "FormAtualizarDeletarServidor";
         ShowIcon = false;
         StartPosition = FormStartPosition.CenterScreen;

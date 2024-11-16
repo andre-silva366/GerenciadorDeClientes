@@ -67,7 +67,7 @@
             buttonAtualizacaoBuscaClienteId.BackColor = Color.FromArgb(0, 192, 0);
             buttonAtualizacaoBuscaClienteId.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizacaoBuscaClienteId.ForeColor = SystemColors.ButtonFace;
-            buttonAtualizacaoBuscaClienteId.Location = new Point(357, 17);
+            buttonAtualizacaoBuscaClienteId.Location = new Point(228, 52);
             buttonAtualizacaoBuscaClienteId.Name = "buttonAtualizacaoBuscaClienteId";
             buttonAtualizacaoBuscaClienteId.Size = new Size(116, 32);
             buttonAtualizacaoBuscaClienteId.TabIndex = 2;
@@ -91,7 +91,7 @@
             buttonLimparCadastroAtualizaCliente.Cursor = Cursors.Hand;
             buttonLimparCadastroAtualizaCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparCadastroAtualizaCliente.ForeColor = Color.Black;
-            buttonLimparCadastroAtualizaCliente.Location = new Point(22, 324);
+            buttonLimparCadastroAtualizaCliente.Location = new Point(22, 345);
             buttonLimparCadastroAtualizaCliente.Name = "buttonLimparCadastroAtualizaCliente";
             buttonLimparCadastroAtualizaCliente.Size = new Size(163, 49);
             buttonLimparCadastroAtualizaCliente.TabIndex = 63;
@@ -105,7 +105,7 @@
             buttonAtualizarCliente.Cursor = Cursors.Hand;
             buttonAtualizarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizarCliente.ForeColor = SystemColors.ButtonHighlight;
-            buttonAtualizarCliente.Location = new Point(262, 324);
+            buttonAtualizarCliente.Location = new Point(262, 345);
             buttonAtualizarCliente.Name = "buttonAtualizarCliente";
             buttonAtualizarCliente.Size = new Size(163, 49);
             buttonAtualizarCliente.TabIndex = 62;
@@ -194,7 +194,7 @@
             buttonDeletarCliente.Cursor = Cursors.Hand;
             buttonDeletarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDeletarCliente.ForeColor = SystemColors.ButtonHighlight;
-            buttonDeletarCliente.Location = new Point(262, 388);
+            buttonDeletarCliente.Location = new Point(262, 345);
             buttonDeletarCliente.Name = "buttonDeletarCliente";
             buttonDeletarCliente.Size = new Size(163, 49);
             buttonDeletarCliente.TabIndex = 76;
@@ -207,7 +207,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(486, 464);
+            ClientSize = new Size(456, 406);
             Controls.Add(buttonDeletarCliente);
             Controls.Add(label4);
             Controls.Add(maskedTextBoxTelefoneClienteAtualizado);
@@ -225,9 +225,9 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MaximizeBox = false;
-            MaximumSize = new Size(502, 503);
+            MaximumSize = new Size(472, 445);
             MinimizeBox = false;
-            MinimumSize = new Size(502, 503);
+            MinimumSize = new Size(472, 445);
             Name = "FormAtualizarDeletarCliente";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
