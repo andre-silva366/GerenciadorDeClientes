@@ -62,25 +62,17 @@ public class ClienteRepository : IRepository<Cliente>
         {
             using (var _formCadastraCliente = new FormCadastraCliente())
             {
-                var descricaoPlano = _formCadastraCliente.comboBoxPlano.Text;
-                var queryPlano = "SELECT Id FROM Plano WHERE Descricao = @Descricao;";
-
                 string nome = cliente.Nome;
                 string telefone = cliente.Telefone;
                 string email = cliente.Email;
 
-                var idPlano = _connection.QuerySingleOrDefault<int>(queryPlano, new { Descricao = descricaoPlano });
-
-                var queryInsertCliente = "INSERT INTO Clientes (Nome, Telefone, Email, IdPlano) VALUES (@Nome, @Telefone, @Email, @IdPlano);";
+                var queryInsertCliente = "INSERT INTO Clientes (Nome, Telefone, Email, IdPlano) VALUES (@Nome, @Telefone, @Email);";
 
                 var parameters = new
-                {
-                    
+                {                    
                     Nome = nome,
                     Telefone = telefone,
-                    Email = email,
-                    IdPlano = idPlano
-
+                    Email = email
                 };
 
                 _connection.Execute(queryInsertCliente, parameters);
@@ -102,17 +94,11 @@ public class ClienteRepository : IRepository<Cliente>
             {
                 var query = $"UPDATE Clientes SET Nome = @Nome, Telefone = @Telefone, Email = @Email WHERE Id = {id};";
 
-                string descricaoPlano = _formAtualizaCliente.comboBoxPlanoClienteAtualizado.Text;
-
-                var queryIdPlano = "SELECT Id FROM Plano WHERE Descricao = @DescricaoPlano;";
-                var idPlano = _connection.QuerySingleOrDefault<int>(queryIdPlano, new { DescricaoPlano = descricaoPlano });
-
                 var parameters = new
                 {                    
                     cliente.Nome,
                     cliente.Telefone,
-                    cliente.Email,
-                    IdPlano = idPlano
+                    cliente.Email
                 };
 
                 _connection.Execute(query, parameters);

@@ -60,7 +60,7 @@ namespace GerenciadorDeClientes.Views.Insert
                 
             }
             comboBoxPagPlano.DataSource = planos;
-
+            
         }
 
         private void buttonRegistrarPagCliente_Click(object sender, EventArgs e)

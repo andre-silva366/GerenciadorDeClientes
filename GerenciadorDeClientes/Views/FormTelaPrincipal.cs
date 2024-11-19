@@ -2,7 +2,6 @@ using GerenciadorDeClientes.Repositories;
 using GerenciadorDeClientes.Views.Update;
 using GerenciadorDeClientes.Views;
 using GerenciadorDeClientes.Views.Insert;
-using GerenciadorDeClientes.Models;
 
 namespace GerenciadorDeClientes;
 
@@ -30,7 +29,6 @@ public partial class FormTelaPrincipal : Form
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
                 dataGridView.DataSource = clientes;
-                dataGridView.Columns["IdPlano"].Visible = false;
             }
 
         }

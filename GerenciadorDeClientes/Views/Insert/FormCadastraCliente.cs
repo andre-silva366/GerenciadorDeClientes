@@ -39,18 +39,6 @@ public partial class FormCadastraCliente : Form
             string email = textBoxEmail.Text ?? "";
             cliente.Email = email;
 
-            PlanoRepository plano = new PlanoRepository();
-            Plano planoCliente;
-            if(comboBoxPlano.Text != "")
-            {
-                planoCliente = plano.GetByName(comboBoxPlano.Text).Single();
-                cliente.IdPlano = planoCliente.Id;
-            }
-            else
-            {
-                cliente.IdPlano = 0;
-            }
-
             if (cliente.Nome.Length < 3)
             {
                 throw new Exception("Preencha o Nome com no mínimo 3 caracteres!");             
@@ -81,7 +69,6 @@ public partial class FormCadastraCliente : Form
         textBoxNome.Text = "";
         maskedTextBoxTelefoneCliente.Text = "";
         textBoxEmail.Text = "";
-        comboBoxPlano.Text = "";
     }
 
     private string FormataTelefone(string telefone)

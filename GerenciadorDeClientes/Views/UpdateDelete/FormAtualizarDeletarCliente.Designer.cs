@@ -34,8 +34,6 @@
             maskedTextBoxTelefoneClienteAtualizado = new MaskedTextBox();
             buttonLimparCadastroAtualizaCliente = new Button();
             buttonAtualizarCliente = new Button();
-            comboBoxPlanoClienteAtualizado = new ComboBox();
-            labelPlano = new Label();
             labelTelefone = new Label();
             textBoxEmailClienteAtualizado = new TextBox();
             labelEmail = new Label();
@@ -112,25 +110,6 @@
             buttonAtualizarCliente.Text = "Salvar ";
             buttonAtualizarCliente.UseVisualStyleBackColor = false;
             buttonAtualizarCliente.Click += buttonAtualizarCliente_Click;
-            // 
-            // comboBoxPlanoClienteAtualizado
-            // 
-            comboBoxPlanoClienteAtualizado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxPlanoClienteAtualizado.FormattingEnabled = true;
-            comboBoxPlanoClienteAtualizado.Location = new Point(117, 276);
-            comboBoxPlanoClienteAtualizado.Name = "comboBoxPlanoClienteAtualizado";
-            comboBoxPlanoClienteAtualizado.Size = new Size(308, 29);
-            comboBoxPlanoClienteAtualizado.TabIndex = 56;
-            // 
-            // labelPlano
-            // 
-            labelPlano.AutoSize = true;
-            labelPlano.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPlano.Location = new Point(22, 284);
-            labelPlano.Name = "labelPlano";
-            labelPlano.Size = new Size(62, 21);
-            labelPlano.TabIndex = 69;
-            labelPlano.Text = "Plano:  ";
             // 
             // labelTelefone
             // 
@@ -213,8 +192,6 @@
             Controls.Add(maskedTextBoxTelefoneClienteAtualizado);
             Controls.Add(buttonLimparCadastroAtualizaCliente);
             Controls.Add(buttonAtualizarCliente);
-            Controls.Add(comboBoxPlanoClienteAtualizado);
-            Controls.Add(labelPlano);
             Controls.Add(labelTelefone);
             Controls.Add(textBoxEmailClienteAtualizado);
             Controls.Add(labelEmail);
@@ -243,8 +220,6 @@
         private Button buttonAtualizacaoBuscaClienteId;
         private MaskedTextBox maskedTextBoxTelefoneClienteAtualizado;
         public Button buttonLimparCadastroAtualizaCliente;
-        public ComboBox comboBoxPlanoClienteAtualizado;
-        private Label labelPlano;
         private Label labelTelefone;
         public TextBox textBoxEmailClienteAtualizado;
         private Label labelEmail;

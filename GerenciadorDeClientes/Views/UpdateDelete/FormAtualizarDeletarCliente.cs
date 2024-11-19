@@ -9,20 +9,7 @@ namespace GerenciadorDeClientes.Views
 
         public FormAtualizarDeletarCliente()
         {
-            InitializeComponent();
-            
-            PlanoRepository planoRepository = new PlanoRepository();
-            var planos = planoRepository.GetAll().ToList();
-
-            List<string> nomePlanos = new List<string>();
-
-            foreach (var item in planos)
-            {
-                nomePlanos.Add(item.Descricao);
-            }
-
-            comboBoxPlanoClienteAtualizado.DataSource = nomePlanos;
-                        
+            InitializeComponent();                        
         }
 
         private void buttonAtualizacaoBuscaClienteId_Click(object sender, EventArgs e)
@@ -66,8 +53,8 @@ namespace GerenciadorDeClientes.Views
                 cliente = clienteRepository.GetById(idCliente);
                 cliente.Nome = textBoxNomeClienteAtualizado.Text;
                 cliente.Telefone = FormataTelefone(maskedTextBoxTelefoneClienteAtualizado.Text);
-                cliente.Email = textBoxEmailClienteAtualizado.Text;
-                
+                cliente.Email = textBoxEmailClienteAtualizado.Text;                
+
                 if (cliente.Nome.Length < 3)
                 {
                     MessageBox.Show("Preencha o Nome", "Campo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -111,7 +98,6 @@ namespace GerenciadorDeClientes.Views
                         textBoxNomeClienteAtualizado.Text = "";
                         maskedTextBoxTelefoneClienteAtualizado.Text = "";
                         textBoxEmailClienteAtualizado.Text = "";
-                        comboBoxPlanoClienteAtualizado.Text = "";
                         clienteRepository.Delete(idCliente);
                     }
                 }
@@ -128,7 +114,6 @@ namespace GerenciadorDeClientes.Views
             textBoxNomeClienteAtualizado.Text = "";
             maskedTextBoxTelefoneClienteAtualizado.Text = "";
             textBoxEmailClienteAtualizado.Text = "";
-            comboBoxPlanoClienteAtualizado.Text = "";
             
         }
 
