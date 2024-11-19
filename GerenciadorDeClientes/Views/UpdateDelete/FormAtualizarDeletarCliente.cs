@@ -65,9 +65,7 @@ namespace GerenciadorDeClientes.Views
                 }
                 else
                 {
-                    textBoxAtualizarClienteId.Text = "";
-                    textBoxNomeClienteAtualizado.Text = "";
-                    textBoxEmailClienteAtualizado.Text = "";
+                    LimparCampos();
                     clienteRepository.Update(cliente, idCliente);
                 }
             }
@@ -94,10 +92,7 @@ namespace GerenciadorDeClientes.Views
                     }
                     else
                     {
-                        textBoxAtualizarClienteId.Text = "";
-                        textBoxNomeClienteAtualizado.Text = "";
-                        maskedTextBoxTelefoneClienteAtualizado.Text = "";
-                        textBoxEmailClienteAtualizado.Text = "";
+                        LimparCampos();
                         clienteRepository.Delete(idCliente);
                     }
                 }
@@ -115,6 +110,14 @@ namespace GerenciadorDeClientes.Views
             maskedTextBoxTelefoneClienteAtualizado.Text = "";
             textBoxEmailClienteAtualizado.Text = "";
             
+        }
+
+        private void LimparCampos()
+        {
+            textBoxAtualizarClienteId.Text = "";
+            textBoxNomeClienteAtualizado.Text = "";
+            maskedTextBoxTelefoneClienteAtualizado.Text = "";
+            textBoxEmailClienteAtualizado.Text = "";
         }
 
         private string FormataTelefone(string telefone)

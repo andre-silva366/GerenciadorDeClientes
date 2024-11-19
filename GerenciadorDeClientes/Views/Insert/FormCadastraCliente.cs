@@ -8,25 +8,7 @@ public partial class FormCadastraCliente : Form
 {
     public FormCadastraCliente()
     {
-        InitializeComponent();
-
-        PlanoRepository planoRepository = new PlanoRepository();
-        var planos = planoRepository.GetAll().ToList();
-        List<string> nomePlanos = new List<string>();
-        if (planos.Count > 0)
-        {
-            foreach (var item in planos)
-            {
-                nomePlanos.Add(item.Descricao);
-            }
-            comboBoxPlano.DataSource = nomePlanos;
-        }
-        else
-        {
-            nomePlanos.Add("");
-            comboBoxPlano.DataSource = nomePlanos;
-        }                    
-        
+        InitializeComponent();       
     }
 
     public void buttonSalvarCliente_Click(object sender, EventArgs e)
@@ -54,7 +36,6 @@ public partial class FormCadastraCliente : Form
                 textBoxNome.Text = "";
                 maskedTextBoxTelefoneCliente.Text = "";
                 textBoxEmail.Text = "";
-                comboBoxPlano.Text = "";
             }
         }
         catch (Exception ex)

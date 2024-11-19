@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBoxPlano = new ComboBox();
-            labelPlano = new Label();
             labelTelefone = new Label();
             textBoxEmail = new TextBox();
             labelEmail = new Label();
@@ -40,25 +38,6 @@
             buttonLimparCadastroCliente = new Button();
             maskedTextBoxTelefoneCliente = new MaskedTextBox();
             SuspendLayout();
-            // 
-            // comboBoxPlano
-            // 
-            comboBoxPlano.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxPlano.FormattingEnabled = true;
-            comboBoxPlano.Location = new Point(107, 202);
-            comboBoxPlano.Name = "comboBoxPlano";
-            comboBoxPlano.Size = new Size(308, 29);
-            comboBoxPlano.TabIndex = 4;
-            // 
-            // labelPlano
-            // 
-            labelPlano.AutoSize = true;
-            labelPlano.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelPlano.Location = new Point(11, 205);
-            labelPlano.Name = "labelPlano";
-            labelPlano.Size = new Size(62, 21);
-            labelPlano.TabIndex = 41;
-            labelPlano.Text = "Plano:  ";
             // 
             // labelTelefone
             // 
@@ -162,8 +141,6 @@
             Controls.Add(maskedTextBoxTelefoneCliente);
             Controls.Add(buttonLimparCadastroCliente);
             Controls.Add(buttonSalvarCliente);
-            Controls.Add(comboBoxPlano);
-            Controls.Add(labelPlano);
             Controls.Add(labelTelefone);
             Controls.Add(textBoxEmail);
             Controls.Add(labelEmail);
@@ -185,13 +162,11 @@
         }
 
         #endregion
-        private Label labelPlano;
         private Label labelTelefone;
         private Label labelEmail;
         private Label labelNome;
         private Label labelDadosClientes;
         private Button buttonSalvarCliente;
-        public ComboBox comboBoxPlano;
         public TextBox textBoxNome;
         public TextBox textBoxEmail;
         private MaskedTextBox maskedTextBoxTelefoneCliente;

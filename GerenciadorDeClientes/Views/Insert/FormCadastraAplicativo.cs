@@ -9,7 +9,6 @@ public partial class FormCadastraAplicativo : Form
     {
         InitializeComponent();        
     }
-
     private void buttonSalvarAplicativo_Click(object sender, EventArgs e)
     {
         if (textBoxNomeAplicativo.Text.Length >= 3)
@@ -21,7 +20,6 @@ public partial class FormCadastraAplicativo : Form
             appRepository.Insert(aplicativo);
             textBoxNomeAplicativo.Text = "";
             textBoxCadastraSiteApp.Text = "";
-
         }
         else
         {

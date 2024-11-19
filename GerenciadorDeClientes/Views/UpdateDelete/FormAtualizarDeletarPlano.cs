@@ -1,5 +1,4 @@
-﻿using GerenciadorDeClientes.Models;
-using GerenciadorDeClientes.Repositories;
+﻿using GerenciadorDeClientes.Repositories;
 
 namespace GerenciadorDeClientes.Views.Update;
 
@@ -26,7 +25,7 @@ public partial class FormAtualizarDeletarPlano : Form
                 }
                 else
                 {
-                    textBoxDescrPlanoAtual.Text = "";
+                    LimparCampos();
                     MessageBox.Show($"Não encontrado plano de id: {idPlano}", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -54,11 +53,9 @@ public partial class FormAtualizarDeletarPlano : Form
 
                 if (plano != null)
                 {
-                    plano.Descricao = textBoxDescrPlanoAtual.Text;
-
+                    plano.Descricao = textBoxDescrPlanoAtual.Text;                    
                     planoRepository.Update(plano, idPlano);
-
-                    textBoxDescrPlanoAtual.Text = "";
+                    LimparCampos();
                 }
                 else
                 {
@@ -78,6 +75,12 @@ public partial class FormAtualizarDeletarPlano : Form
         }
     }
 
+    private void LimparCampos()
+    {
+        textBoxDescrPlanoAtual.Text = "";
+        textBoxIdPlanoAtual.Text = "";
+    }
+
     private void buttonExcluirPlano_Click(object sender, EventArgs e)
     {
         try
@@ -95,6 +98,7 @@ public partial class FormAtualizarDeletarPlano : Form
                 else
                 {
                     planoRepository.Delete(idPlano);
+                    LimparCampos();
                 }
             }
         }
