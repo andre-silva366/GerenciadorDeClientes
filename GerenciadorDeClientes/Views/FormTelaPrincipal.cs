@@ -2,6 +2,7 @@ using GerenciadorDeClientes.Repositories;
 using GerenciadorDeClientes.Views.Update;
 using GerenciadorDeClientes.Views;
 using GerenciadorDeClientes.Views.Insert;
+using GerenciadorDeClientes.Models;
 
 namespace GerenciadorDeClientes;
 
@@ -335,44 +336,110 @@ public partial class FormTelaPrincipal : Form
 
     private void buttonExibirRegistro_Click(object sender, EventArgs e)
     {
-        if (radioButtonCliente.Checked)//Busca todos registros Cliente
+        try
         {
-            RegistroPagamentoClienteRepository rpcc = new();
-            var registroPagClientes = rpcc.GetAll().ToList();
-
-            if (registroPagClientes.Count == 0 || registroPagClientes == null)
+            if (radioButtonCliente.Checked && checkBoxBuscaPorNome.Checked)//Busca todos registros Cliente por nome
             {
-                dataGridView.Visible = false;
-                MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                RegistroPagamentoClienteRepository rpcc = new();
+                var textboxNome = textBoxSelectNome.Text;
+                var registroPagClientes = new List<RegistroPagamentoCliente>();
+
+                if (textboxNome.Length > 0)
+                {
+                    registroPagClientes = rpcc.GetByName(textboxNome).ToList();
+                    if (registroPagClientes.Count == 0 || registroPagClientes == null)
+                    {
+                        dataGridView.Visible = false;
+                        MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dataGridView.Visible = true;
+                        dataGridView.DataSource = registroPagClientes;
+                        dataGridView.Columns["IdCliente"].Visible = false;
+                        dataGridView.Columns["IdAplicativo"].Visible = false;
+                        dataGridView.Columns["IdPlano"].Visible = false;
+                        dataGridView.Columns["IdServidor"].Visible = false;
+                        dataGridView.Columns["NomeCliente"].HeaderText = "Cliente";
+                        dataGridView.Columns["NomeAplicativo"].HeaderText = "Aplicativo";
+                        dataGridView.Columns["DescricaoPlano"].HeaderText = "Plano";
+                        dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                        dataGridView.Columns["QtdeTelas"].HeaderText = "Telas";
+                        dataGridView.Columns["QtdeMeses"].HeaderText = "Meses";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha o campo nome!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            else if (radioButtonCliente.Checked)//Busca todos registros Cliente
             {
-                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView.Visible = true;
-                dataGridView.DataSource = registroPagClientes;
-                dataGridView.Columns["IdCliente"].Visible = false;
-                dataGridView.Columns["IdAplicativo"].Visible = false;
-                dataGridView.Columns["IdPlano"].Visible = false;
-                dataGridView.Columns["IdServidor"].Visible = false;
-                dataGridView.Columns["NomeCliente"].HeaderText = "Cliente";
-                dataGridView.Columns["NomeAplicativo"].HeaderText = "Aplicativo";
-                dataGridView.Columns["DescricaoPlano"].HeaderText = "Plano";
-                dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
-                dataGridView.Columns["QtdeTelas"].HeaderText = "Telas";
-                dataGridView.Columns["QtdeMeses"].HeaderText = "Meses";
+                RegistroPagamentoClienteRepository rpcc = new();
+                var registroPagClientes = rpcc.GetAll().ToList();
+
+                if (registroPagClientes.Count == 0 || registroPagClientes == null)
+                {
+                    dataGridView.Visible = false;
+                    MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView.Visible = true;
+                    dataGridView.DataSource = registroPagClientes;
+                    dataGridView.Columns["IdCliente"].Visible = false;
+                    dataGridView.Columns["IdAplicativo"].Visible = false;
+                    dataGridView.Columns["IdPlano"].Visible = false;
+                    dataGridView.Columns["IdServidor"].Visible = false;
+                    dataGridView.Columns["NomeCliente"].HeaderText = "Cliente";
+                    dataGridView.Columns["NomeAplicativo"].HeaderText = "Aplicativo";
+                    dataGridView.Columns["DescricaoPlano"].HeaderText = "Plano";
+                    dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                    dataGridView.Columns["QtdeTelas"].HeaderText = "Telas";
+                    dataGridView.Columns["QtdeMeses"].HeaderText = "Meses";
+                }
+            }           
+            if (radioButtonRevendedor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Revendedor por nome
+            {
+                
+            }
+            else if (radioButtonRevendedor.Checked) // Busca todos registros Revendedor
+            {
+                RegistroPagamentoRevendedorRepository rprr = new();
+                var registroPagRevRep = rprr.GetAll().ToList();
+                if (registroPagRevRep.Count > 0)
+                {
+                    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView.Visible = true;
+                    dataGridView.DataSource = registroPagRevRep;
+                    dataGridView.Columns["IdRevendedor"].Visible = false;
+                    dataGridView.Columns["IdServidor"].Visible = false;
+                    dataGridView.Columns["NomeRevendedor"].HeaderText = "Revendedor";
+                    dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                    dataGridView.Columns["QtdeCreditos"].HeaderText = "Créditos";
+
+                }
+                else
+                {
+                    dataGridView.Visible = false;
+                    MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            if (radioButtonServidor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Servidor  por nome
+            {
+
+            }
+            else if (radioButtonServidor.Checked) // Busca todos registros Servidor
+            {
+
             }
         }
-        else if (radioButtonCliente.Checked && checkBoxBuscaPorNome.Checked)//Busca todos registros Cliente por nome
+        catch(Exception ex)
         {
-
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        else if (radioButtonRevendedor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Revendedor por nome
-        {
-
-        }
-        else if (radioButtonServidor.Checked && checkBoxBuscaPorNome.Checked) // Busca todos registros Servidor por nome
-        {
-
-        }
+        
     }
 }

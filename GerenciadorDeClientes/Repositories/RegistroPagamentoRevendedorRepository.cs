@@ -19,7 +19,30 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
 
     public ICollection<RegistroPagamentoRevendedor> GetAll()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var queryRegPagRev = "SELECT Id, IdRevendedor,IdServidor, QtdeCreditos, Valor, DataPagamento FROM RegistroPagamentoRevendedor;";
+            var regPagRev = _connection.Query<RegistroPagamentoRevendedor>(queryRegPagRev).ToList();
+            var queryRevendedor = "SELECT Nome FROM Revendedor WHERE Id = @Id;";
+            var queryServidor = "SELECT Nome FROM Servidor WHERE Id = @Id;";
+
+            foreach (var item in regPagRev)
+            {
+                item.NomeRevendedor = _connection.QuerySingle<string>(queryRevendedor, new {Id = item.IdRevendedor});
+                item.NomeServidor = _connection.QuerySingle<string>(queryServidor, new { Id = item.IdServidor });
+            }
+
+            return regPagRev;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public RegistroPagamentoRevendedor GetById(int id)

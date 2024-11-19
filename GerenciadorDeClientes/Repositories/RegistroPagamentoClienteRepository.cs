@@ -2,6 +2,7 @@
 using GerenciadorDeClientes.Models;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace GerenciadorDeClientes.Repositories;
 
@@ -51,9 +52,31 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
         throw new NotImplementedException();
     }
 
-    public ICollection<RegistroPagamentoCliente> GetByName(string name)
+    public ICollection<RegistroPagamentoCliente> GetByName(string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var queryRegistroPagCli = _connection.Query<RegistroPagamentoCliente>("SELECT Id, IdCliente , IdAplicativo, IdPlano, QtdeTelas, Valor, DataPagamento, QtdeMeses, DataProximoPagamento, IdServidor FROM RegistroPagamentoCliente;").ToList();
+
+            foreach (var item in queryRegistroPagCli)
+            {
+                item.NomeCliente = _connection.QuerySingleOrDefault<string>($"SELECT Nome FROM Clientes WHERE {item.IdCliente} = Id;") ?? "";
+                item.NomeAplicativo = _connection.QuerySingleOrDefault<string>($"SELECT Nome FROM Aplicativo WHERE {item.IdAplicativo} = Id;") ?? "";
+                item.DescricaoPlano = _connection.QuerySingleOrDefault<string>($"SELECT Descricao FROM Plano WHERE {item.IdPlano} = Id;") ?? "";
+                item.NomeServidor = _connection.QuerySingleOrDefault<string>($"SELECT Nome FROM Servidor WHERE {item.IdServidor} = Id;") ?? "";
+            }
+
+            return queryRegistroPagCli.FindAll(r => r.NomeCliente.ToUpper().StartsWith(nome.ToUpper()));
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Insert(RegistroPagamentoCliente rpc)
