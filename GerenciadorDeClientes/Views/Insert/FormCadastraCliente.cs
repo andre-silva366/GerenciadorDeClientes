@@ -1,5 +1,6 @@
 ﻿using GerenciadorDeClientes.Models;
 using GerenciadorDeClientes.Repositories;
+using System.Text.RegularExpressions;
 
 namespace GerenciadorDeClientes;
 
@@ -34,7 +35,7 @@ public partial class FormCadastraCliente : Form
         {
             Cliente cliente = new Cliente();
             cliente.Nome = textBoxNome.Text;
-            cliente.Telefone = maskedTextBoxTelefoneCliente.Text;
+            cliente.Telefone = FormataTelefone(maskedTextBoxTelefoneCliente.Text);
             string email = textBoxEmail.Text ?? "";
             cliente.Email = email;
 
@@ -83,6 +84,23 @@ public partial class FormCadastraCliente : Form
         comboBoxPlano.Text = "";
     }
 
+    private string FormataTelefone(string telefone)
+    {
+        telefone = Regex.Replace(telefone, @"\D", "");
+
+        if(telefone.Length == 11)
+        {
+            return $"({telefone.Substring(0,2)}) {telefone.Substring(2,5)} - {telefone.Substring(7)}";
+        }
+        else if(telefone.Length == 10)
+        {
+            return $"({telefone.Substring(0, 2)}) {telefone.Substring(2, 4)} - {telefone.Substring(6)}";
+        }
+        else
+        {
+            return telefone;
+        }
+    }
 
 }
 

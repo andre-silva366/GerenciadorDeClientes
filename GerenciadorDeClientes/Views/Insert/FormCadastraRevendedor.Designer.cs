@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             buttonLimparCadastroRevendedor = new Button();
-            buttonSalvarCliente = new Button();
+            buttonSalvarRevendedor = new Button();
             labelTelefone = new Label();
             textBoxEmailRev = new TextBox();
             labelEmail = new Label();
@@ -54,20 +54,20 @@
             buttonLimparCadastroRevendedor.UseVisualStyleBackColor = false;
             buttonLimparCadastroRevendedor.Click += buttonLimparCadastroRevendedor_Click;
             // 
-            // buttonSalvarCliente
+            // buttonSalvarRevendedor
             // 
-            buttonSalvarCliente.Anchor = AnchorStyles.None;
-            buttonSalvarCliente.BackColor = Color.FromArgb(0, 192, 0);
-            buttonSalvarCliente.Cursor = Cursors.Hand;
-            buttonSalvarCliente.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonSalvarCliente.ForeColor = SystemColors.ButtonHighlight;
-            buttonSalvarCliente.Location = new Point(263, 232);
-            buttonSalvarCliente.Name = "buttonSalvarCliente";
-            buttonSalvarCliente.Size = new Size(153, 68);
-            buttonSalvarCliente.TabIndex = 7;
-            buttonSalvarCliente.Text = "Salvar ";
-            buttonSalvarCliente.UseVisualStyleBackColor = false;
-            buttonSalvarCliente.Click += buttonSalvarCliente_Click;
+            buttonSalvarRevendedor.Anchor = AnchorStyles.None;
+            buttonSalvarRevendedor.BackColor = Color.FromArgb(0, 192, 0);
+            buttonSalvarRevendedor.Cursor = Cursors.Hand;
+            buttonSalvarRevendedor.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSalvarRevendedor.ForeColor = SystemColors.ButtonHighlight;
+            buttonSalvarRevendedor.Location = new Point(263, 232);
+            buttonSalvarRevendedor.Name = "buttonSalvarRevendedor";
+            buttonSalvarRevendedor.Size = new Size(153, 68);
+            buttonSalvarRevendedor.TabIndex = 7;
+            buttonSalvarRevendedor.Text = "Salvar ";
+            buttonSalvarRevendedor.UseVisualStyleBackColor = false;
+            buttonSalvarRevendedor.Click += buttonSalvarRevendedor_Click;
             // 
             // labelTelefone
             // 
@@ -142,7 +142,7 @@
             ClientSize = new Size(451, 330);
             Controls.Add(maskedTextBoxTelefoneRev);
             Controls.Add(buttonLimparCadastroRevendedor);
-            Controls.Add(buttonSalvarCliente);
+            Controls.Add(buttonSalvarRevendedor);
             Controls.Add(labelTelefone);
             Controls.Add(textBoxEmailRev);
             Controls.Add(labelEmail);
@@ -163,7 +163,7 @@
         #endregion
 
         private Button buttonLimparCadastroRevendedor;
-        private Button buttonSalvarCliente;
+        private Button buttonSalvarRevendedor;
         private Label labelTelefone;
         public TextBox textBoxEmailRev;
         private Label labelEmail;

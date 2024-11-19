@@ -1,5 +1,6 @@
 ﻿using GerenciadorDeClientes.Models;
 using GerenciadorDeClientes.Repositories;
+using System.Text.RegularExpressions;
 
 namespace GerenciadorDeClientes.Views
 {
@@ -64,7 +65,7 @@ namespace GerenciadorDeClientes.Views
                 int idCliente = int.Parse(textBoxAtualizarClienteId.Text);
                 cliente = clienteRepository.GetById(idCliente);
                 cliente.Nome = textBoxNomeClienteAtualizado.Text;
-                cliente.Telefone = maskedTextBoxTelefoneClienteAtualizado.Text;
+                cliente.Telefone = FormataTelefone(maskedTextBoxTelefoneClienteAtualizado.Text);
                 cliente.Email = textBoxEmailClienteAtualizado.Text;
                 
                 if (cliente.Nome.Length < 3)
@@ -129,6 +130,24 @@ namespace GerenciadorDeClientes.Views
             textBoxEmailClienteAtualizado.Text = "";
             comboBoxPlanoClienteAtualizado.Text = "";
             
+        }
+
+        private string FormataTelefone(string telefone)
+        {
+            telefone = Regex.Replace(telefone, @"\D", "");
+
+            if (telefone.Length == 11)
+            {
+                return $"({telefone.Substring(0, 2)}) {telefone.Substring(2, 5)} - {telefone.Substring(7)}";
+            }
+            else if (telefone.Length == 10)
+            {
+                return $"({telefone.Substring(0, 2)}) {telefone.Substring(2, 4)} - {telefone.Substring(6)}";
+            }
+            else
+            {
+                return telefone;
+            }
         }
     }
 }

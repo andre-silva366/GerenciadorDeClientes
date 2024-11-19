@@ -1,5 +1,6 @@
 ﻿using GerenciadorDeClientes.Models;
 using GerenciadorDeClientes.Repositories;
+using System.Text.RegularExpressions;
 
 namespace GerenciadorDeClientes.Views.Update;
 
@@ -58,7 +59,7 @@ public partial class FormAtualizarDeletarRevendedor : Form
             int idRevendedor = int.Parse(textBoxAtualizarRevendedorId.Text);
             revendedor = revendedorRepository.GetById(idRevendedor);
             revendedor.Nome = textBoxNomeRevendaAtualizado.Text;
-            revendedor.Telefone = maskedTextBoxTelefoneRevendaAtualizado.Text;
+            revendedor.Telefone = FormataTelefone(maskedTextBoxTelefoneRevendaAtualizado.Text);
             revendedor.Email = textBoxEmailRevendaAtualizado.Text;
 
             if (revendedor.Nome.Length < 3)
@@ -122,5 +123,23 @@ public partial class FormAtualizarDeletarRevendedor : Form
         textBoxNomeRevendaAtualizado.Text = "";
         maskedTextBoxTelefoneRevendaAtualizado.Text = "";
         textBoxEmailRevendaAtualizado.Text = "";
+    }
+
+    private string FormataTelefone(string telefone)
+    {
+        telefone = Regex.Replace(telefone, @"\D", "");
+
+        if (telefone.Length == 11)
+        {
+            return $"({telefone.Substring(0, 2)}) {telefone.Substring(2, 5)} - {telefone.Substring(7)}";
+        }
+        else if (telefone.Length == 10)
+        {
+            return $"({telefone.Substring(0, 2)}) {telefone.Substring(2, 4)} - {telefone.Substring(6)}";
+        }
+        else
+        {
+            return telefone;
+        }
     }
 }
