@@ -57,13 +57,11 @@ public partial class FormAtualizarDeletarAplicativo : Form
                     app.Nome = textBoxNomeAppAtual.Text;
                     app.Site = textBoxAtuaDelSiteApp.Text;
                     appRepository.Update(app, idApp);
-
-                    textBoxNomeAppAtual.Text = "";
-                    textBoxAtuaDelSiteApp.Text = "";
+                    buttonLimparCadAtuaApp.PerformClick();
                 }
                 else
                 {
-                    textBoxNomeAppAtual.Text = "";
+                    buttonLimparCadAtuaApp.PerformClick();
                     MessageBox.Show($"Não encontrado aplicativo de id: {idApp}", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -71,6 +69,7 @@ public partial class FormAtualizarDeletarAplicativo : Form
             else
             {
                 MessageBox.Show("Id inválido", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                buttonLimparCadAtuaApp.PerformClick();
             }
         }
         catch
@@ -92,10 +91,12 @@ public partial class FormAtualizarDeletarAplicativo : Form
                 if (aplicativo == null)
                 {
                     MessageBox.Show($"Não encontrado aplicativo com id: {idApp}");
+                    buttonLimparCadAtuaApp.PerformClick();
                 }
                 else
                 {
                     aplicativoRepository.Delete(idApp);
+                    buttonLimparCadAtuaApp.PerformClick();
                 }
             }
         }
@@ -107,6 +108,9 @@ public partial class FormAtualizarDeletarAplicativo : Form
 
     private void buttonLimparCadAtuaApp_Click(object sender, EventArgs e)
     {
+        textBoxNomeAppAtual.Text = "";
+        textBoxAtuaDelSiteApp.Text = "";
         textBoxIdAplicativoAtual.Text = "";
     }
+    
 }

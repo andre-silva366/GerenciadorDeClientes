@@ -28,7 +28,6 @@ namespace GerenciadorDeClientes.Views
                     {
                         AplicativoRepository aplicativoRepository = new AplicativoRepository();
                         ServidorRepository servidorRepository = new ServidorRepository();
-                        PlanoRepository planoRepository = new PlanoRepository();
 
                         textBoxNomeClienteAtualizado.Text = cliente.Nome;
                         maskedTextBoxTelefoneClienteAtualizado.Text = cliente.Telefone;
@@ -65,7 +64,7 @@ namespace GerenciadorDeClientes.Views
                 }
                 else
                 {
-                    LimparCampos();
+                    buttonLimparCadastroAtualizaCliente.PerformClick();
                     clienteRepository.Update(cliente, idCliente);
                 }
             }
@@ -92,7 +91,7 @@ namespace GerenciadorDeClientes.Views
                     }
                     else
                     {
-                        LimparCampos();
+                        buttonLimparCadastroAtualizaCliente.PerformClick();
                         clienteRepository.Delete(idCliente);
                     }
                 }
@@ -111,15 +110,6 @@ namespace GerenciadorDeClientes.Views
             textBoxEmailClienteAtualizado.Text = "";
             
         }
-
-        private void LimparCampos()
-        {
-            textBoxAtualizarClienteId.Text = "";
-            textBoxNomeClienteAtualizado.Text = "";
-            maskedTextBoxTelefoneClienteAtualizado.Text = "";
-            textBoxEmailClienteAtualizado.Text = "";
-        }
-
         private string FormataTelefone(string telefone)
         {
             telefone = Regex.Replace(telefone, @"\D", "");

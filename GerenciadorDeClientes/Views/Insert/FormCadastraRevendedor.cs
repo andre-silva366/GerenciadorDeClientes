@@ -33,10 +33,7 @@ public partial class FormCadastraRevendedor : Form
                 revendedor.Email = textBoxEmailRev.Text;
 
                 revendedorRepository.Insert(revendedor);
-
-                textBoxNomeRev.Text = "";
-                maskedTextBoxTelefoneRev.Text = "";
-                textBoxEmailRev.Text = "";
+                buttonLimparCadastroRevendedor.PerformClick();
             }
         }
         catch (Exception)

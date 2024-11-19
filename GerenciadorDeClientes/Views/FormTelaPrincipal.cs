@@ -13,7 +13,7 @@ public partial class FormTelaPrincipal : Form
     }
 
     // Botão buscar (Get All)
-    private void buttonBuscar_Click(object sender, EventArgs e)
+    public void buttonBuscar_Click(object sender, EventArgs e)
     {
         if (radioButtonCliente.Checked)
         {

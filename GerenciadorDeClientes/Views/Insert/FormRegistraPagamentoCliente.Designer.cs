@@ -244,6 +244,7 @@
             buttonLimparPagCli.TabIndex = 18;
             buttonLimparPagCli.Text = "Limpar";
             buttonLimparPagCli.UseVisualStyleBackColor = false;
+            buttonLimparPagCli.Click += buttonLimparPagCli_Click;
             // 
             // FormRegistraPagamentoCliente
             // 

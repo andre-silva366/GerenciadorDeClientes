@@ -25,7 +25,7 @@ public partial class FormAtualizarDeletarPlano : Form
                 }
                 else
                 {
-                    LimparCampos();
+                    buttonLimparCadAtuaPlan.PerformClick();
                     MessageBox.Show($"Não encontrado plano de id: {idPlano}", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -55,7 +55,7 @@ public partial class FormAtualizarDeletarPlano : Form
                 {
                     plano.Descricao = textBoxDescrPlanoAtual.Text;                    
                     planoRepository.Update(plano, idPlano);
-                    LimparCampos();
+                    buttonLimparCadAtuaPlan.PerformClick();
                 }
                 else
                 {
@@ -74,13 +74,6 @@ public partial class FormAtualizarDeletarPlano : Form
             MessageBox.Show("Ocorreu um erro, verifque os campos !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-
-    private void LimparCampos()
-    {
-        textBoxDescrPlanoAtual.Text = "";
-        textBoxIdPlanoAtual.Text = "";
-    }
-
     private void buttonExcluirPlano_Click(object sender, EventArgs e)
     {
         try
@@ -98,7 +91,7 @@ public partial class FormAtualizarDeletarPlano : Form
                 else
                 {
                     planoRepository.Delete(idPlano);
-                    LimparCampos();
+                    buttonLimparCadAtuaPlan.PerformClick();
                 }
             }
         }

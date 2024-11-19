@@ -33,9 +33,7 @@ public partial class FormCadastraCliente : Form
             {
                 ClienteRepository clienteRepository = new ClienteRepository();
                 clienteRepository.Insert(cliente);
-                textBoxNome.Text = "";
-                maskedTextBoxTelefoneCliente.Text = "";
-                textBoxEmail.Text = "";
+                buttonLimparCadastroCliente.PerformClick();
             }
         }
         catch (Exception ex)
@@ -44,7 +42,6 @@ public partial class FormCadastraCliente : Form
         }
 
     }
-
     private void buttonLimparCadastroCliente_Click(object sender, EventArgs e)
     {
         textBoxNome.Text = "";

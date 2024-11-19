@@ -72,11 +72,8 @@ public partial class FormAtualizarDeletarRevendedor : Form
             }
             else
             {
-                textBoxAtualizarRevendedorId.Text = "";
-                textBoxNomeRevendaAtualizado.Text = "";
-                maskedTextBoxTelefoneRevendaAtualizado.Text = "";
-                textBoxEmailRevendaAtualizado.Text = "";
-                revendedorRepository.Update(revendedor, revendedor.Id);
+                buttonLimparCadastroAtualizaRev.PerformClick();
+                revendedorRepository.Update(revendedor, revendedor.Id);                
             }
         }
         catch (Exception)
@@ -103,10 +100,7 @@ public partial class FormAtualizarDeletarRevendedor : Form
                 }
                 else
                 {
-                    textBoxAtualizarRevendedorId.Text = "";
-                    textBoxNomeRevendaAtualizado.Text = "";
-                    maskedTextBoxTelefoneRevendaAtualizado.Text = "";
-                    textBoxEmailRevendaAtualizado.Text = "";
+                    buttonLimparCadastroAtualizaRev.PerformClick();
                     revendedorRepository.Delete(idRev);
                 }
             }

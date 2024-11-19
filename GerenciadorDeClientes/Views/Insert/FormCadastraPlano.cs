@@ -9,7 +9,6 @@ public partial class FormCadastraPlano : Form
     public FormCadastraPlano()
     {
         InitializeComponent();
-        
     }
 
     private void buttonSalvarPlano_Click(object sender, EventArgs e)
@@ -28,8 +27,7 @@ public partial class FormCadastraPlano : Form
             {
                 plano.Descricao = descricao;
                 planoRepository.Insert(plano);
-
-                textBoxDescricaoPlano.Text = "";                
+                buttonLimparPlano.PerformClick();
             }
 
         }

@@ -5,9 +5,9 @@ namespace GerenciadorDeClientes.Views.Insert
     public partial class FormRegistraPagamentoCliente : Form
     {
         public FormRegistraPagamentoCliente()
-        {            
+        {
             InitializeComponent();
-            LimparCampos();
+            buttonLimparPagCli.PerformClick();
 
             ClienteRepository cliRepository = new();
             List<string> listaClientes = new();
@@ -18,7 +18,7 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     listaClientes.Add(cli.Nome);
                 }
-                
+
             }
             comboBoxPagCliente.DataSource = listaClientes;
 
@@ -31,7 +31,7 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     apps.Add(app.Nome);
                 }
-                
+
             }
             comboBoxPagClienAplicatico.DataSource = apps;
 
@@ -44,7 +44,7 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     servs.Add(serv.Nome);
                 }
-                
+
             }
             comboBoxPagServidor.DataSource = servs;
 
@@ -57,17 +57,17 @@ namespace GerenciadorDeClientes.Views.Insert
                 {
                     planos.Add(plano.Descricao);
                 }
-                
+
             }
             comboBoxPagPlano.DataSource = planos;
-            
+
         }
 
         private void buttonRegistrarPagCliente_Click(object sender, EventArgs e)
         {
             try
             {
-                RegistroPagamentoCliente rpc = new RegistroPagamentoCliente();              
+                RegistroPagamentoCliente rpc = new RegistroPagamentoCliente();
 
                 rpc.NomeCliente = comboBoxPagCliente.Text;
                 rpc.NomeAplicativo = comboBoxPagClienAplicatico.Text;
@@ -81,15 +81,15 @@ namespace GerenciadorDeClientes.Views.Insert
 
                 RegistroPagamentoClienteRepository rpcRepo = new RegistroPagamentoClienteRepository();
                 rpcRepo.Insert(rpc);
-                LimparCampos();
+                buttonLimparPagCli.PerformClick();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void LimparCampos()
+        private void buttonLimparPagCli_Click(object sender, EventArgs e)
         {
             comboBoxPagCliente.Text = "";
             comboBoxPagClienAplicatico.Text = "";
@@ -97,8 +97,8 @@ namespace GerenciadorDeClientes.Views.Insert
             comboBoxPagPlano.Text = "";
             numericUpDownPagQtdeTelas.Value = 1;
             textBoxValorPagCli.Text = "";
-            numericUpDownQtdeMeses.Text = "";
             dateTimePickerPagClie.Value = DateTime.Now;
+            numericUpDownQtdeMeses.Value = 1;
         }
     }
 }

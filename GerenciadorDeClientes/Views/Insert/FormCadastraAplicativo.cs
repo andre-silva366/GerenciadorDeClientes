@@ -18,14 +18,12 @@ public partial class FormCadastraAplicativo : Form
             aplicativo.Nome = textBoxNomeAplicativo.Text;
             aplicativo.Site = textBoxCadastraSiteApp.Text;
             appRepository.Insert(aplicativo);
-            textBoxNomeAplicativo.Text = "";
-            textBoxCadastraSiteApp.Text = "";
+            buttonLimparCadastroAplicativo.PerformClick();
         }
         else
         {
             MessageBox.Show("Preencha o nome!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
     }
 
     private void buttonLimparCadastroAplicativo_Click(object sender, EventArgs e)
