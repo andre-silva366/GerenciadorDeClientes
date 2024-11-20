@@ -19,7 +19,7 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
     {
         try
         {
-            var queryRegistroPagCli = _connection.Query<RegistroPagamentoCliente>("SELECT Id, IdCliente , IdAplicativo, IdPlano, QtdeTelas, Valor, DataPagamento, QtdeMeses, DataProximoPagamento, IdServidor FROM RegistroPagamentoCliente").ToList();
+            var queryRegistroPagCli = _connection.Query<RegistroPagamentoCliente>("SELECT Id, IdCliente , IdAplicativo, IdPlano, QtdeTelas, Valor, DataPagamento, QtdeMeses, DataProximoPagamento, IdServidor FROM RegistroPagamentoCliente ORDER BY DataProximoPagamento ").ToList();
 
             foreach (var item in queryRegistroPagCli)
             {
@@ -42,21 +42,11 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
         }
     }
 
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public RegistroPagamentoCliente GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
-
     public ICollection<RegistroPagamentoCliente> GetByName(string nome)
     {
         try
         {
-            var queryRegistroPagCli = _connection.Query<RegistroPagamentoCliente>("SELECT Id, IdCliente , IdAplicativo, IdPlano, QtdeTelas, Valor, DataPagamento, QtdeMeses, DataProximoPagamento, IdServidor FROM RegistroPagamentoCliente;").ToList();
+            var queryRegistroPagCli = _connection.Query<RegistroPagamentoCliente>("SELECT Id, IdCliente , IdAplicativo, IdPlano, QtdeTelas, Valor, DataPagamento, QtdeMeses, DataProximoPagamento, IdServidor FROM RegistroPagamentoCliente ORDER BY DataProximoPagamento ;").ToList();
 
             foreach (var item in queryRegistroPagCli)
             {
@@ -131,6 +121,17 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
     }
 
     public void Update(RegistroPagamentoCliente t, int id)
+    {
+        throw new NotImplementedException();
+    }
+
+
+    public void Delete(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public RegistroPagamentoCliente GetById(int id)
     {
         throw new NotImplementedException();
     }

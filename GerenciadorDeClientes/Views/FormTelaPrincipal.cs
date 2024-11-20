@@ -103,14 +103,6 @@ public partial class FormTelaPrincipal : Form
         }
 
     }
-
-    private void buttonLimpar_Click(object sender, EventArgs e)
-    {
-        dataGridView.Visible = false;
-        textBoxSelectNome.Text = null;
-        checkBoxBuscaPorNome.Checked = false;
-    }
-
     private void buttonBuscarPorNome_Click(object sender, EventArgs e)
     {
         var nome = textBoxSelectNome.Text.Trim();
@@ -462,4 +454,14 @@ public partial class FormTelaPrincipal : Form
         }
         
     }
+
+
+    private void buttonLimpar_Click(object sender, EventArgs e)
+    {
+        dataGridView.Visible = false;
+        textBoxSelectNome.Text = null;
+        checkBoxBuscaPorNome.Checked = false;
+    }
+
+
 }

@@ -21,7 +21,7 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
     {
         try
         {
-            var queryRegPagRev = "SELECT Id, IdRevendedor,IdServidor, QtdeCreditos, Valor, DataPagamento FROM RegistroPagamentoRevendedor;";
+            var queryRegPagRev = "SELECT Id, IdRevendedor,IdServidor, QtdeCreditos, Valor, DataPagamento FROM RegistroPagamentoRevendedor ORDER BY DataPagamento DESC;";
             var regPagRev = _connection.Query<RegistroPagamentoRevendedor>(queryRegPagRev).ToList();
             var queryRevendedor = "SELECT Nome FROM Revendedor WHERE Id = @Id;";
             var queryServidor = "SELECT Nome FROM Servidor WHERE Id = @Id;";
@@ -54,7 +54,7 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
     {
         try
         {
-            var queryRegPagRev = "SELECT Id, IdRevendedor, IdServidor, QtdeCreditos, Valor, DataPagamento FROM RegistroPagamentoRevendedor ;";
+            var queryRegPagRev = "SELECT Id, IdRevendedor, IdServidor, QtdeCreditos, Valor, DataPagamento FROM RegistroPagamentoRevendedor ORDER BY DataPagamento DESC;";
             var regPagRev = _connection.Query<RegistroPagamentoRevendedor>(queryRegPagRev).ToList();
             foreach (var reg in regPagRev)
             {

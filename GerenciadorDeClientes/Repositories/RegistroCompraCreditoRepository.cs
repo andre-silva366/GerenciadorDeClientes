@@ -12,26 +12,19 @@ public class RegistroCompraCreditoRepository : IRepository<RegistroCompraCredito
     {
         _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
     }
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
-
     public ICollection<RegistroCompraCredito> GetAll()
     {
         throw new NotImplementedException();
-    }
-
-    public RegistroCompraCredito GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
+    }   
 
     public ICollection<RegistroCompraCredito> GetByName(string name)
     {
         throw new NotImplementedException();
     }
-
+    public RegistroCompraCredito GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
     public void Insert(RegistroCompraCredito rcc)
     {
         try
@@ -63,9 +56,14 @@ public class RegistroCompraCreditoRepository : IRepository<RegistroCompraCredito
             _connection.Close();
         }
     }
-
     public void Update(RegistroCompraCredito t, int id)
     {
         throw new NotImplementedException();
     }
+    public void Delete(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+
 }
