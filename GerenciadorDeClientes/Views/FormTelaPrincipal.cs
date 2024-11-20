@@ -108,6 +108,7 @@ public partial class FormTelaPrincipal : Form
     {
         dataGridView.Visible = false;
         textBoxSelectNome.Text = null;
+        checkBoxBuscaPorNome.Checked = false;
     }
 
     private void buttonBuscarPorNome_Click(object sender, EventArgs e)
@@ -350,7 +351,7 @@ public partial class FormTelaPrincipal : Form
                     if (registroPagClientes.Count == 0 || registroPagClientes == null)
                     {
                         dataGridView.Visible = false;
-                        MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show($"Não existe nenhum registro de Nome que comece com {textboxNome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -399,11 +400,30 @@ public partial class FormTelaPrincipal : Form
                     dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
                     dataGridView.Columns["QtdeTelas"].HeaderText = "Telas";
                     dataGridView.Columns["QtdeMeses"].HeaderText = "Meses";
+                    dataGridView.Columns["DataPagamento"].HeaderText = "Pagamento";
+                    dataGridView.Columns["DataProximoPagamento"].HeaderText = "Vencimento";
                 }
             }           
             if (radioButtonRevendedor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Revendedor por nome
             {
-                
+                RegistroPagamentoRevendedorRepository rprr = new();
+                var regPagPorNome = rprr.GetByName(textBoxSelectNome.Text).ToList();
+                if(regPagPorNome.Count > 0 && regPagPorNome != null)
+                {
+                    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView.Visible = true;
+                    dataGridView.DataSource = regPagPorNome;
+                    dataGridView.Columns["IdRevendedor"].Visible = false;
+                    dataGridView.Columns["IdServidor"].Visible = false;
+                    dataGridView.Columns["NomeRevendedor"].HeaderText = "Revendedor";
+                    dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                    dataGridView.Columns["QtdeCreditos"].HeaderText = "Créditos";
+                    dataGridView.Columns["DataPagamento"].HeaderText = "Pagamento";
+                }
+                else
+                {
+                    MessageBox.Show($"Não encontrado nenhum registro cujo Nome comece com {textBoxSelectNome.Text}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (radioButtonRevendedor.Checked) // Busca todos registros Revendedor
             {
@@ -419,7 +439,7 @@ public partial class FormTelaPrincipal : Form
                     dataGridView.Columns["NomeRevendedor"].HeaderText = "Revendedor";
                     dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
                     dataGridView.Columns["QtdeCreditos"].HeaderText = "Créditos";
-
+                    dataGridView.Columns["DataPagamento"].HeaderText = "Pagamento";
                 }
                 else
                 {

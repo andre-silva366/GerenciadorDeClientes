@@ -50,9 +50,30 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
         throw new NotImplementedException();
     }
 
-    public ICollection<RegistroPagamentoRevendedor> GetByName(string name)
+    public ICollection<RegistroPagamentoRevendedor> GetByName(string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var queryRegPagRev = "SELECT Id, IdRevendedor, IdServidor, QtdeCreditos, Valor, DataPagamento FROM RegistroPagamentoRevendedor ;";
+            var regPagRev = _connection.Query<RegistroPagamentoRevendedor>(queryRegPagRev).ToList();
+            foreach (var reg in regPagRev)
+            {
+                reg.NomeRevendedor = _connection.QuerySingle<string>("SELECT Nome FROM Revendedor WHERE Id = @Id;", new {Id = reg.IdRevendedor});
+                reg.NomeServidor = _connection.QuerySingle<string>("SELECT Nome FROM Servidor WHERE Id = @Id;", new { Id = reg.IdServidor });
+            }
+
+            var rprPorNome = regPagRev.FindAll(r => r.NomeRevendedor.ToUpper().StartsWith(nome.ToUpper()));
+            return rprPorNome;
+        }
+        catch(Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public void Insert(RegistroPagamentoRevendedor rpr)
