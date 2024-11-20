@@ -14,12 +14,48 @@ public class RegistroCompraCreditoRepository : IRepository<RegistroCompraCredito
     }
     public ICollection<RegistroCompraCredito> GetAll()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var queryRCC = "SELECT Id, IdServidor, QtdeCredito, Valor, DataCompra FROM RegistroCompraCredito ORDER BY DataCompra DESC;";
+            var rcc = _connection.Query<RegistroCompraCredito>(queryRCC).ToList();
+            foreach (var item in rcc)
+            {
+                item.NomeServidor = _connection.QuerySingle<string>("SELECT Nome FROM Servidor WHERE Id = @Id", new { Id = item.IdServidor });
+            }
+            return rcc;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }   
 
-    public ICollection<RegistroCompraCredito> GetByName(string name)
+    public ICollection<RegistroCompraCredito> GetByName(string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var queryRCC = "SELECT Id, IdServidor, QtdeCredito, Valor, DataCompra FROM RegistroCompraCredito ORDER BY DataCompra DESC;";
+            var rcc = _connection.Query<RegistroCompraCredito>(queryRCC).ToList();
+            foreach (var item in rcc)
+            {
+                item.NomeServidor = _connection.QuerySingle<string>("SELECT Nome FROM Servidor WHERE Id = @Id", new { Id = item.IdServidor });
+            }
+            return rcc.FindAll(c => c.NomeServidor.ToUpper().StartsWith(nome.ToUpper()));
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
     public RegistroCompraCredito GetById(int id)
     {

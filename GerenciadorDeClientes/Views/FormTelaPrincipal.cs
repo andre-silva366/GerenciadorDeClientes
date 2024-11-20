@@ -343,7 +343,7 @@ public partial class FormTelaPrincipal : Form
                     if (registroPagClientes.Count == 0 || registroPagClientes == null)
                     {
                         dataGridView.Visible = false;
-                        MessageBox.Show($"Não existe nenhum registro de Nome que comece com {textboxNome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show($"Não existe nenhum registro de cliente que comece com {textboxNome} !", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
@@ -414,7 +414,7 @@ public partial class FormTelaPrincipal : Form
                 }
                 else
                 {
-                    MessageBox.Show($"Não encontrado nenhum registro cujo Nome comece com {textBoxSelectNome.Text}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Não encontrado nenhum registro cujo revendedor comece com {textBoxSelectNome.Text}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (radioButtonRevendedor.Checked) // Busca todos registros Revendedor
@@ -441,11 +441,43 @@ public partial class FormTelaPrincipal : Form
             }
             if (radioButtonServidor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Servidor  por nome
             {
-
+                RegistroCompraCreditoRepository rccr = new();
+                var rcc = rccr.GetByName(textBoxSelectNome.Text).ToList();
+                if (rcc.Count > 0 && rcc != null)
+                {
+                    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView.Visible = true;
+                    dataGridView.DataSource = rcc;
+                    dataGridView.Columns["IdServidor"].Visible = false;
+                    dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                    dataGridView.Columns["QtdeCredito"].HeaderText = "Créditos";
+                    dataGridView.Columns["DataCompra"].HeaderText = "Compra";
+                }
+                else
+                {
+                    dataGridView.Visible = false;
+                    MessageBox.Show($"Não encontrado nenhum registro cujo servidor comece com {textBoxSelectNome.Text}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (radioButtonServidor.Checked) // Busca todos registros Servidor
             {
-
+                RegistroCompraCreditoRepository rccr = new();
+                var rcc = rccr.GetAll().ToList();
+                if(rcc.Count > 0 && rcc != null)
+                {
+                    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView.Visible = true;
+                    dataGridView.DataSource = rcc;
+                    dataGridView.Columns["IdServidor"].Visible = false;
+                    dataGridView.Columns["NomeServidor"].HeaderText = "Servidor";
+                    dataGridView.Columns["QtdeCredito"].HeaderText = "Créditos";
+                    dataGridView.Columns["DataCompra"].HeaderText = "Compra";
+                }
+                else
+                {
+                    dataGridView.Visible = false;
+                    MessageBox.Show("Não existe nenhum registro cadastrado!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
         catch(Exception ex)
@@ -455,13 +487,11 @@ public partial class FormTelaPrincipal : Form
         
     }
 
-
     private void buttonLimpar_Click(object sender, EventArgs e)
     {
         dataGridView.Visible = false;
         textBoxSelectNome.Text = null;
         checkBoxBuscaPorNome.Checked = false;
     }
-
 
 }

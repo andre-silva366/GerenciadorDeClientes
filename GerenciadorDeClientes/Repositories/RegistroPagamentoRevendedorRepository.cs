@@ -12,11 +12,6 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
     {
         _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
     }
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
-
     public ICollection<RegistroPagamentoRevendedor> GetAll()
     {
         try
@@ -43,12 +38,7 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
         {
             _connection.Close();
         }
-    }
-
-    public RegistroPagamentoRevendedor GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
+    }    
 
     public ICollection<RegistroPagamentoRevendedor> GetByName(string nome)
     {
@@ -117,6 +107,16 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
    }
 
     public void Update(RegistroPagamentoRevendedor t, int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Delete(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public RegistroPagamentoRevendedor GetById(int id)
     {
         throw new NotImplementedException();
     }
