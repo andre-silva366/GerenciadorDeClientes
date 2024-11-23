@@ -492,7 +492,27 @@ public partial class FormTelaPrincipal : Form
 
     private void buttonExibirTabelaSoma_Click(object sender, EventArgs e)
     {
-        TabelaSomaRepository tbsr = new();
-        tbsr.AtualizarTabelaSoma();
+        try
+        {
+            TabelaSomaRepository tbsr = new();
+            tbsr.AtualizarTabelaSoma();
+
+            var tabela = tbsr.GetAll().ToList();
+            if(tabela.Count > 0)
+            {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView.Visible = true;
+                dataGridView.DataSource = tabela;
+            }
+            else
+            {
+                dataGridView.Visible = false;
+                MessageBox.Show($"Não existe nenhum registro na tabela!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

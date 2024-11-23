@@ -23,7 +23,7 @@ public class TabelaSomaRepository
     {
         try
         {
-            return _connection.Query<TabelaSoma>("SELECT Id, Ano, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma;").ToList();
+            return _connection.Query<TabelaSoma>("SELECT Id, Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma;").ToList();
         }
         catch (Exception ex)
         {
