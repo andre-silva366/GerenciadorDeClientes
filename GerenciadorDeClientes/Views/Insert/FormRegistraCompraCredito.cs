@@ -34,6 +34,10 @@ public partial class FormRegistraCompraCredito : Form
 
             RegistroCompraCreditoRepository registroCompraCreditoRepository = new();
             registroCompraCreditoRepository.Insert(registroCompraCredito);
+
+            TabelaSomaRepository tbsr = new();
+            tbsr.AtualizarTabelaSoma();
+
             LimpaCampos();
         }
         catch (Exception ex)

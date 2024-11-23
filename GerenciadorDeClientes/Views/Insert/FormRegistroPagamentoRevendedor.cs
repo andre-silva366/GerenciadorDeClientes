@@ -50,6 +50,8 @@ public partial class FormRegistroPagamentoRevendedor : Form
 
             RegistroPagamentoRevendedorRepository regPagRevRepo = new();
             regPagRevRepo.Insert(regPagRev);
+            TabelaSomaRepository tbsr = new();
+            tbsr.AtualizarTabelaSoma();
             LimparCampos();
         }
         catch (Exception ex)

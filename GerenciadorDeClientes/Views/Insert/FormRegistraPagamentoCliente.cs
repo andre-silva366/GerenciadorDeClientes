@@ -81,6 +81,8 @@ namespace GerenciadorDeClientes.Views.Insert
 
                 RegistroPagamentoClienteRepository rpcRepo = new RegistroPagamentoClienteRepository();
                 rpcRepo.Insert(rpc);
+                TabelaSomaRepository tbsr = new();
+                tbsr.AtualizarTabelaSoma();
                 buttonLimparPagCli.PerformClick();
             }
             catch (Exception ex)

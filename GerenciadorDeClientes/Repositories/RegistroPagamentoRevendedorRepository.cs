@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace GerenciadorDeClientes.Repositories;
 
-public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamentoRevendedor>
+public class RegistroPagamentoRevendedorRepository : IRegistroRepository<RegistroPagamentoRevendedor>
 {
     private readonly IDbConnection _connection;
     public RegistroPagamentoRevendedorRepository()
@@ -106,18 +106,21 @@ public class RegistroPagamentoRevendedorRepository : IRepository<RegistroPagamen
     
    }
 
-    public void Update(RegistroPagamentoRevendedor t, int id)
+    public decimal SomaValorPorMes(int ano, int mes)
     {
-        throw new NotImplementedException();
+        try
+        {
+            return _connection.QuerySingle<decimal>("SELECT SUM(valor) AS TotalPagamentoRevendedor FROM RegistroPagamentoRevendedor WHERE DATEPART(MONTH, DataPagamento) = @Mes AND DATEPART(YEAR, DataPagamento) = @Ano;", new { Mes = mes, Ano = ano });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return default;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public RegistroPagamentoRevendedor GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -11,6 +11,8 @@ public partial class FormTelaPrincipal : Form
     public FormTelaPrincipal()
     {
         InitializeComponent();
+        TabelaSomaRepository tbsr = new();
+        tbsr.AtualizarTabelaSoma();
     }
 
     // Botão buscar (Get All)
@@ -198,7 +200,6 @@ public partial class FormTelaPrincipal : Form
         }
 
     }
-
     private void buttonCadastrar_Click(object sender, EventArgs e)
     {
         if (radioButtonCliente.Checked)
@@ -227,7 +228,6 @@ public partial class FormTelaPrincipal : Form
             formCadastraPlano.ShowDialog();
         }
     }
-
     private void buttonAtualizar_Click(object sender, EventArgs e)
     {
         if (radioButtonCliente.Checked)
@@ -257,7 +257,6 @@ public partial class FormTelaPrincipal : Form
             formAtualizarPlano.ShowDialog();
         }
     }
-
     private void buttonExcluir_Click(object sender, EventArgs e)
     {
         if (radioButtonCliente.Checked)
@@ -302,7 +301,6 @@ public partial class FormTelaPrincipal : Form
             formAtualizarDeletarPlano.ShowDialog();
         }
     }
-
     private void buttonRegistroPagamentoCompra_Click(object sender, EventArgs e)
     {
         if (radioButtonCliente.Checked)//Cliente pagando
@@ -310,14 +308,14 @@ public partial class FormTelaPrincipal : Form
             dataGridView.Visible = false;
             FormRegistraPagamentoCliente formRegistraPagamentoCliente = new();
             formRegistraPagamentoCliente.ShowDialog();
-            
+
         }
         else if (radioButtonRevendedor.Checked)// Revendedor pagando
         {
             dataGridView.Visible = false;
             FormRegistroPagamentoRevendedor formRegistroPagamentoRevendedor = new();
             formRegistroPagamentoRevendedor.ShowDialog();
-            
+
         }
         else if (radioButtonServidor.Checked) // Compra de crédito
         {
@@ -326,7 +324,6 @@ public partial class FormTelaPrincipal : Form
             formRegistraCompraCredito.ShowDialog();
         }
     }
-
     private void buttonExibirRegistro_Click(object sender, EventArgs e)
     {
         try
@@ -395,12 +392,12 @@ public partial class FormTelaPrincipal : Form
                     dataGridView.Columns["DataPagamento"].HeaderText = "Pagamento";
                     dataGridView.Columns["DataProximoPagamento"].HeaderText = "Vencimento";
                 }
-            }           
+            }
             if (radioButtonRevendedor.Checked && checkBoxBuscaPorNome.Checked)// Busca todos registros Revendedor por nome
             {
                 RegistroPagamentoRevendedorRepository rprr = new();
                 var regPagPorNome = rprr.GetByName(textBoxSelectNome.Text).ToList();
-                if(regPagPorNome.Count > 0 && regPagPorNome != null)
+                if (regPagPorNome.Count > 0 && regPagPorNome != null)
                 {
                     dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView.Visible = true;
@@ -463,7 +460,7 @@ public partial class FormTelaPrincipal : Form
             {
                 RegistroCompraCreditoRepository rccr = new();
                 var rcc = rccr.GetAll().ToList();
-                if(rcc.Count > 0 && rcc != null)
+                if (rcc.Count > 0 && rcc != null)
                 {
                     dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                     dataGridView.Visible = true;
@@ -480,13 +477,12 @@ public partial class FormTelaPrincipal : Form
                 }
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
-    }
 
+    }
     private void buttonLimpar_Click(object sender, EventArgs e)
     {
         dataGridView.Visible = false;
@@ -494,4 +490,9 @@ public partial class FormTelaPrincipal : Form
         checkBoxBuscaPorNome.Checked = false;
     }
 
+    private void buttonExibirTabelaSoma_Click(object sender, EventArgs e)
+    {
+        TabelaSomaRepository tbsr = new();
+        tbsr.AtualizarTabelaSoma();
+    }
 }

@@ -44,6 +44,7 @@
             buttonBuscarPorNome = new Button();
             buttonRegistroPagamentoCompra = new Button();
             buttonExibirRegistro = new Button();
+            buttonExibirTabelaSoma = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -243,11 +244,26 @@
             buttonExibirRegistro.UseVisualStyleBackColor = false;
             buttonExibirRegistro.Click += buttonExibirRegistro_Click;
             // 
+            // buttonExibirTabelaSoma
+            // 
+            buttonExibirTabelaSoma.BackColor = Color.DarkKhaki;
+            buttonExibirTabelaSoma.Cursor = Cursors.Hand;
+            buttonExibirTabelaSoma.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonExibirTabelaSoma.ForeColor = SystemColors.ButtonFace;
+            buttonExibirTabelaSoma.Location = new Point(431, 139);
+            buttonExibirTabelaSoma.Name = "buttonExibirTabelaSoma";
+            buttonExibirTabelaSoma.Size = new Size(175, 53);
+            buttonExibirTabelaSoma.TabIndex = 15;
+            buttonExibirTabelaSoma.Text = "Fluxo de Caixa";
+            buttonExibirTabelaSoma.UseVisualStyleBackColor = false;
+            buttonExibirTabelaSoma.Click += buttonExibirTabelaSoma_Click;
+            // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1054, 731);
+            Controls.Add(buttonExibirTabelaSoma);
             Controls.Add(buttonExibirRegistro);
             Controls.Add(buttonRegistroPagamentoCompra);
             Controls.Add(buttonBuscarPorNome);
@@ -291,5 +307,6 @@
         public Button buttonLimpar;
         public Button buttonRegistroPagamentoCompra;
         public Button buttonExibirRegistro;
+        public Button buttonExibirTabelaSoma;
     }
 }

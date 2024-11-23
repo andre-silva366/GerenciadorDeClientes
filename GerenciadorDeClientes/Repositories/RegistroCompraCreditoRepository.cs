@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace GerenciadorDeClientes.Repositories;
 
-public class RegistroCompraCreditoRepository : IRepository<RegistroCompraCredito>
+public class RegistroCompraCreditoRepository : IRegistroRepository<RegistroCompraCredito>
 {
     private readonly IDbConnection _connection;
     public RegistroCompraCreditoRepository()
@@ -57,10 +57,7 @@ public class RegistroCompraCreditoRepository : IRepository<RegistroCompraCredito
             _connection.Close();
         }
     }
-    public RegistroCompraCredito GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
+   
     public void Insert(RegistroCompraCredito rcc)
     {
         try
@@ -92,13 +89,22 @@ public class RegistroCompraCreditoRepository : IRepository<RegistroCompraCredito
             _connection.Close();
         }
     }
-    public void Update(RegistroCompraCredito t, int id)
+    
+    public decimal SomaValorPorMes(int ano, int mes)
     {
-        throw new NotImplementedException();
-    }
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
+        try
+        {
+            return  _connection.QuerySingle<decimal>("SELECT SUM(valor) AS TotalCompraCredito FROM RegistroCompraCredito WHERE DATEPART(MONTH, DataCompra) = @Mes AND DATEPART(YEAR, DataCompra) = @Ano;", new { Mes = mes ,Ano = ano});
+        }
+        catch(Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            return default;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
 

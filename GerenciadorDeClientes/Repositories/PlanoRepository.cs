@@ -42,7 +42,7 @@ public class PlanoRepository : IRepository<Plano>
     {
         try
         {
-            return _connection.QuerySingleOrDefault<Plano>("SELECT * FROM Plano WHERE Id = @Id", new { Id = id });
+            return _connection.QuerySingle<Plano>("SELECT * FROM Plano WHERE Id = @Id", new { Id = id });
         }
         finally
         {

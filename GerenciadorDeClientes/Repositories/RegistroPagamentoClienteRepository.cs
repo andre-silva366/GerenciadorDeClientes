@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace GerenciadorDeClientes.Repositories;
 
-public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoCliente>
+public class RegistroPagamentoClienteRepository : IRegistroRepository<RegistroPagamentoCliente>
 {
     private readonly IDbConnection _connection;
 
@@ -120,19 +120,21 @@ public class RegistroPagamentoClienteRepository : IRepository<RegistroPagamentoC
         }
     }
 
-    public void Update(RegistroPagamentoCliente t, int id)
+    public decimal SomaValorPorMes(int ano, int mes)
     {
-        throw new NotImplementedException();
+        try
+        {
+            return _connection.QuerySingle<decimal>("SELECT SUM(valor) AS TotalPagamentoCliente FROM RegistroPagamentoCliente WHERE DATEPART(MONTH, DataPagamento) = @Mes AND DATEPART(YEAR, DataPagamento) = @Ano;", new { Mes = mes, Ano = ano });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return default;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public RegistroPagamentoCliente GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
 }
