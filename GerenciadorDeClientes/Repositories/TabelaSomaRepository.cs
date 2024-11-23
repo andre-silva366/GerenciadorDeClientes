@@ -2,7 +2,6 @@
 using GerenciadorDeClientes.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 
 namespace GerenciadorDeClientes.Repositories;
 
@@ -75,6 +74,23 @@ public class TabelaSomaRepository
         catch(Exception ex)
         {
             MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
+    }
+
+    public decimal SomaValorPorAno(int ano)
+    {
+        try
+        {
+            return _connection.QuerySingle<decimal>("SELECT SUM(Lucro) AS 'Lucro total' FROM TabelaSoma WHERE Ano = @Ano;", new {Ano = ano });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return default;
         }
         finally
         {

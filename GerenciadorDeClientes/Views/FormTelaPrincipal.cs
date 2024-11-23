@@ -13,6 +13,8 @@ public partial class FormTelaPrincipal : Form
         InitializeComponent();
         TabelaSomaRepository tbsr = new();
         tbsr.AtualizarTabelaSoma();
+        LucroAnualRepository lucroAnualRepository = new();
+        lucroAnualRepository.AtualizarLucroAnual();
     }
 
     // Botão buscar (Get All)
@@ -498,7 +500,7 @@ public partial class FormTelaPrincipal : Form
             tbsr.AtualizarTabelaSoma();
 
             var tabela = tbsr.GetAll().ToList();
-            if(tabela.Count > 0)
+            if (tabela.Count > 0)
             {
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView.Visible = true;
@@ -512,7 +514,34 @@ public partial class FormTelaPrincipal : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    private void buttonLucroAnual_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            LucroAnualRepository lucroAnualRepository = new ();
+            lucroAnualRepository.AtualizarLucroAnual();
+            var tbLucroAnual = lucroAnualRepository.GetAll().ToList();
+
+            if (tbLucroAnual.Count > 0)
+            {
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView.Visible = true;
+                dataGridView.DataSource = tbLucroAnual;
+            }
+            else
+            {
+                dataGridView.Visible = false;
+                MessageBox.Show($"Não existe nenhum registro na tabela!", "NÃO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        catch(Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        
     }
 }

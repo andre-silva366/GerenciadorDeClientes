@@ -45,6 +45,7 @@
             buttonRegistroPagamentoCompra = new Button();
             buttonExibirRegistro = new Button();
             buttonExibirTabelaSoma = new Button();
+            buttonLucroAnual = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -258,11 +259,26 @@
             buttonExibirTabelaSoma.UseVisualStyleBackColor = false;
             buttonExibirTabelaSoma.Click += buttonExibirTabelaSoma_Click;
             // 
+            // buttonLucroAnual
+            // 
+            buttonLucroAnual.BackColor = Color.LightYellow;
+            buttonLucroAnual.Cursor = Cursors.Hand;
+            buttonLucroAnual.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLucroAnual.ForeColor = SystemColors.ActiveCaptionText;
+            buttonLucroAnual.Location = new Point(626, 139);
+            buttonLucroAnual.Name = "buttonLucroAnual";
+            buttonLucroAnual.Size = new Size(175, 53);
+            buttonLucroAnual.TabIndex = 17;
+            buttonLucroAnual.Text = "Lucro Anual";
+            buttonLucroAnual.UseVisualStyleBackColor = false;
+            buttonLucroAnual.Click += buttonLucroAnual_Click;
+            // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1054, 731);
+            Controls.Add(buttonLucroAnual);
             Controls.Add(buttonExibirTabelaSoma);
             Controls.Add(buttonExibirRegistro);
             Controls.Add(buttonRegistroPagamentoCompra);
@@ -308,5 +324,6 @@
         public Button buttonRegistroPagamentoCompra;
         public Button buttonExibirRegistro;
         public Button buttonExibirTabelaSoma;
+        public Button buttonLucroAnual;
     }
 }
