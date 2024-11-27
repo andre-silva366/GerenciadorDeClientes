@@ -22,7 +22,7 @@ namespace GerenciadorDeClientes.Views
                 {
                     if (cliente == null)
                     {
-                        MessageBox.Show($"Não encontrado cliente com id = {idCliente}");
+                        throw new Exception($"Não encontrado cliente com id = {idCliente}");
                     }
                     else
                     {
@@ -35,9 +35,9 @@ namespace GerenciadorDeClientes.Views
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Preencha o campo Id com um número !", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -98,7 +98,7 @@ namespace GerenciadorDeClientes.Views
             }
             catch
             {
-                MessageBox.Show("Ocorreu um erro ao atualizar o cliente\nVerifique os campos!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um erro\nVerifique os campos!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

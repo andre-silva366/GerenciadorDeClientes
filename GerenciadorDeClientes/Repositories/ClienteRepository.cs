@@ -47,7 +47,7 @@ public class ClienteRepository : IRepository<Cliente>
     {
         try
         {
-            return _connection.QuerySingle<Cliente>("SELECT * FROM Clientes WHERE Id = @Id;", new { Id = id });
+            return _connection.QuerySingleOrDefault<Cliente>("SELECT * FROM Clientes WHERE Id = @Id;", new { Id = id });
         }
         finally
         {
