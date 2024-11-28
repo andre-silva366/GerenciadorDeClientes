@@ -110,7 +110,7 @@ public class RegistroPagamentoRevendedorRepository : IRegistroRepository<Registr
     {
         try
         {
-            return _connection.QuerySingle<decimal>("SELECT SUM(valor) AS TotalPagamentoRevendedor FROM RegistroPagamentoRevendedor WHERE DATEPART(MONTH, DataPagamento) = @Mes AND DATEPART(YEAR, DataPagamento) = @Ano;", new { Mes = mes, Ano = ano });
+            return _connection.QuerySingle<decimal>("SELECT COALESCE(SUM(Valor), 0) AS TotalPagamentoRevendedor FROM RegistroPagamentoRevendedor WHERE DATEPART(MONTH, DataPagamento) = @Mes AND DATEPART(YEAR, DataPagamento) = @Ano;", new { Mes = mes, Ano = ano });
         }
         catch (Exception ex)
         {

@@ -94,7 +94,8 @@ public class RegistroCompraCreditoRepository : IRegistroRepository<RegistroCompr
     {
         try
         {
-            return  _connection.QuerySingle<decimal>("SELECT SUM(valor) AS TotalCompraCredito FROM RegistroCompraCredito WHERE DATEPART(MONTH, DataCompra) = @Mes AND DATEPART(YEAR, DataCompra) = @Ano;", new { Mes = mes ,Ano = ano});
+            return _connection.QuerySingleOrDefault<decimal>("SELECT COALESCE(SUM(Valor), 0) AS TotalCompraCredito FROM RegistroCompraCredito WHERE DATEPART(MONTH, DataCompra) = @Mes AND DATEPART(YEAR, DataCompra) = @Ano;", new { Mes = mes ,Ano = ano});
+             
         }
         catch(Exception ex)
         {

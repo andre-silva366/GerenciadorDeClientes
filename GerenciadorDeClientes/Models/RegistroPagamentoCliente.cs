@@ -14,8 +14,8 @@ public class RegistroPagamentoCliente
     public string DescricaoPlano { get; set; }
     public int IdServidor { get; set; }
     public string NomeServidor { get; set; }
-    public int QtdeTelas { get; set; } 
-    public decimal Valor { get; set; }
+    public int QtdeTelas { get; set; }
+    public decimal? Valor { get; set; } 
     public int QtdeMeses { get; set; } 
     public DateTime DataPagamento { get; set; } 
     public DateTime DataProximoPagamento { get; set; }

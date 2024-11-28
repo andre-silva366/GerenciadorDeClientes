@@ -66,7 +66,7 @@ public class ClienteRepository : IRepository<Cliente>
                 string telefone = cliente.Telefone;
                 string email = cliente.Email;
 
-                var queryInsertCliente = "INSERT INTO Clientes (Nome, Telefone, Email, IdPlano) VALUES (@Nome, @Telefone, @Email);";
+                var queryInsertCliente = "INSERT INTO Clientes (Nome, Telefone, Email) VALUES (@Nome, @Telefone, @Email);";
 
                 var parameters = new
                 {                    

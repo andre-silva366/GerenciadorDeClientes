@@ -8,6 +8,6 @@ public class RegistroPagamentoRevendedor
     public int IdServidor { get; set; }
     public string NomeServidor { get; set; } = string.Empty ;
     public int QtdeCreditos { get; set; } = 5;
-    public decimal Valor { get; set; }
+    public decimal Valor { get; set; } = 0;
     public DateTime DataPagamento { get; set; } = DateTime.Now;
 }

@@ -2,7 +2,6 @@
 using GerenciadorDeClientes.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 
 namespace GerenciadorDeClientes.Repositories;
 
@@ -124,7 +123,7 @@ public class RegistroPagamentoClienteRepository : IRegistroRepository<RegistroPa
     {
         try
         {
-            return _connection.QuerySingle<decimal>("SELECT SUM(valor) AS TotalPagamentoCliente FROM RegistroPagamentoCliente WHERE DATEPART(MONTH, DataPagamento) = @Mes AND DATEPART(YEAR, DataPagamento) = @Ano;", new { Mes = mes, Ano = ano });
+            return _connection.QuerySingle<decimal>("SELECT COALESCE(SUM(Valor),0) AS TotalPagamentoCliente FROM RegistroPagamentoCliente WHERE DATEPART(MONTH, DataPagamento) = @Mes AND DATEPART(YEAR, DataPagamento) = @Ano;", new { Mes = mes, Ano = ano });
         }
         catch (Exception ex)
         {

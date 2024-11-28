@@ -12,9 +12,18 @@ public partial class FormTelaPrincipal : Form
     {
         InitializeComponent();
         TabelaSomaRepository tbsr = new();
-        tbsr.AtualizarTabelaSoma();
+        var tabelaSoma = tbsr.GetAll().ToList();
+        if(tabelaSoma.Count > 0)
+        {
+            tbsr.AtualizarTabelaSoma();
+        }        
         LucroAnualRepository lucroAnualRepository = new();
-        lucroAnualRepository.AtualizarLucroAnual();
+        var tabelaLucroAnual = lucroAnualRepository.GetAll().ToList();
+        if(tabelaLucroAnual.Count > 0)
+        {
+            lucroAnualRepository.AtualizarLucroAnual();
+        }
+        
     }
 
     // Botão buscar (Get All)

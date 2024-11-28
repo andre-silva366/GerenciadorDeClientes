@@ -8,7 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>GerenciadorDeClientes.Program</StartupObject>
     <PlatformTarget>x64</PlatformTarget>
+    <ApplicationIcon>Jamespeng-Movie-Database.ico</ApplicationIcon>
+    <AssemblyName>Gerenciador de Clientes</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Jamespeng-Movie-Database.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />

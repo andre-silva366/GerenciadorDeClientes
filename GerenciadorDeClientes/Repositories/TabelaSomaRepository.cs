@@ -85,7 +85,7 @@ public class TabelaSomaRepository
     {
         try
         {
-            return _connection.QuerySingle<decimal>("SELECT SUM(Lucro) AS 'Lucro total' FROM TabelaSoma WHERE Ano = @Ano;", new {Ano = ano });
+            return _connection.QuerySingle<decimal>("SELECT COALESCE(SUM(Lucro),0) AS 'Lucro total' FROM TabelaSoma WHERE Ano = @Ano;", new {Ano = ano });
         }
         catch (Exception ex)
         {
