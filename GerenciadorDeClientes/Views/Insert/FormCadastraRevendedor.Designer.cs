@@ -154,6 +154,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(467, 369);
             Name = "FormCadastraRevendedor";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Revendedor";
             ResumeLayout(false);

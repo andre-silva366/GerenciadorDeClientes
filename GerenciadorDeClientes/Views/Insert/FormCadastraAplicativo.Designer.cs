@@ -126,6 +126,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(362, 294);
             Name = "FormCadastraAplicativo";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Aplicativo";
             ResumeLayout(false);

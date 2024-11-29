@@ -178,6 +178,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(437, 455);
             Name = "FormRegistraCompraCredito";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Compra de Crédito";
             ((System.ComponentModel.ISupportInitialize)numericUpDownPagQtdeCred).EndInit();

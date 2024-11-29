@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTelaPrincipal));
             buttonCadastrar = new Button();
             buttonAtualizar = new Button();
             buttonBuscar = new Button();
@@ -296,6 +297,7 @@
             Controls.Add(buttonBuscar);
             Controls.Add(buttonAtualizar);
             Controls.Add(buttonCadastrar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1070, 770);
             MinimumSize = new Size(1070, 770);
             Name = "FormTelaPrincipal";

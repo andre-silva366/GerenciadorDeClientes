@@ -104,6 +104,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(329, 252);
             Name = "FormCadastraServidor";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Servidor";
             ResumeLayout(false);

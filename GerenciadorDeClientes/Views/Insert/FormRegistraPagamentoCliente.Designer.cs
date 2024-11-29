@@ -275,6 +275,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(438, 647);
             Name = "FormRegistraPagamentoCliente";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Pagamento de Cliente";
             ((System.ComponentModel.ISupportInitialize)numericUpDownPagQtdeTelas).EndInit();

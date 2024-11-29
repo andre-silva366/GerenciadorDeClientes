@@ -197,6 +197,7 @@
             Controls.Add(comboBoxPagRevend);
             Controls.Add(label1);
             Name = "FormRegistroPagamentoRevendedor";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Pagamento de Revendedor";
             ((System.ComponentModel.ISupportInitialize)numericUpDownPagQtdeCreditos).EndInit();

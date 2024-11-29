@@ -104,6 +104,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(420, 235);
             Name = "FormCadastraPlano";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastra Plano";
             ResumeLayout(false);
