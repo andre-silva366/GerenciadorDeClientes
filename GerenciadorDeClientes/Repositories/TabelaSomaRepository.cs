@@ -22,7 +22,7 @@ public class TabelaSomaRepository
     {
         try
         {
-            return _connection.Query<TabelaSoma>("SELECT Id, Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma;").ToList();
+            return _connection.Query<TabelaSoma>("SELECT Id, Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma ORDER BY Ano, Mes;").ToList();
         }
         catch (Exception ex)
         {
@@ -40,7 +40,7 @@ public class TabelaSomaRepository
         {
             var ano = DateTime.Now.Year;
             var mes = DateTime.Now.Month;
-            var totalCompraCredito = _compraCreditoRepository.SomaValorPorMes(ano,mes);
+            var totalCompraCredito = _compraCreditoRepository.SomaValorPorMes(ano, mes);
             var totalPagamentoCliente = _pagamentoClienteRepository.SomaValorPorMes(ano, mes);
             var totalPagamentoRevendedor = _pagamentoRevendedorRepository.SomaValorPorMes(ano, mes);
             var lucro = (totalPagamentoCliente + totalPagamentoRevendedor) - totalCompraCredito;
@@ -49,14 +49,14 @@ public class TabelaSomaRepository
 
             var valorExiste = _connection.ExecuteScalar<bool>("SELECT COUNT(1) FROM TabelaSoma WHERE Ano = @Ano AND Mes = @Mes", new { Ano = ano, Mes = mes });
 
-            if(valorExiste)
+            if (valorExiste)
             {
-                query = "UPDATE TabelaSoma SET Ano = @Ano, Mes = @Mes, TotalCompraCredito = @TotalCompraCredito, TotalPagamentoCliente = @TotalPagamentoCliente, TotalPagamentoRevendedor = @TotalPagamentoRevendedor, Lucro = @Lucro;";
+                query = "UPDATE TabelaSoma SET Ano = @Ano, Mes = @Mes, TotalCompraCredito = @TotalCompraCredito, TotalPagamentoCliente = @TotalPagamentoCliente, TotalPagamentoRevendedor = @TotalPagamentoRevendedor, Lucro = @Lucro WHERE Mes = @Mes;";
             }
             else
             {
                 query = "INSERT INTO TabelaSoma (Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro) VALUES (@Ano, @Mes, @TotalCompraCredito, @TotalPagamentoCliente, @TotalPagamentoRevendedor, @Lucro);";
-            }           
+            }
 
             var parameters = new
             {
