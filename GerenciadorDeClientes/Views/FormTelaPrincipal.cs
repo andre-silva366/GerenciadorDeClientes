@@ -3,6 +3,7 @@ using GerenciadorDeClientes.Views.Update;
 using GerenciadorDeClientes.Views;
 using GerenciadorDeClientes.Views.Insert;
 using GerenciadorDeClientes.Models;
+using System.Data;
 
 namespace GerenciadorDeClientes;
 
