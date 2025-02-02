@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace GerenciadorDeClientes.Repositories;
 
-public class TabelaSomaRepository 
+public class TabelaSomaRepository
 {
     private readonly IDbConnection _connection;
     private RegistroCompraCreditoRepository _compraCreditoRepository;
@@ -22,11 +22,11 @@ public class TabelaSomaRepository
     {
         try
         {
-            return _connection.Query<TabelaSoma>("SELECT Id, Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma ORDER BY Ano, Mes;").ToList();
+            return _connection.Query<TabelaSoma>("SELECT Id, Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma ORDER BY Mes, Ano;").ToList();
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Ocorreu um erro: {ex.Message}","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return [];
         }
         finally
@@ -38,45 +38,52 @@ public class TabelaSomaRepository
     {
         try
         {
-            var dadosTabelaSoma = _connection.Query<TabelaSoma>("SELECT Id, Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro FROM TabelaSoma ORDER BY Ano, Mes;").ToList();
+            int anoAtual = DateTime.Now.Year;
+            int anoMinimo = 2025;
+            int mesAtual = DateTime.Now.Month;
+            int mesMinimo = 1;
 
-            foreach (var item in dadosTabelaSoma)
+            for (int i = 2025; i <= anoAtual; i++)
             {
-                var ano = item.Ano;
-                var mes = item.Mes;
-                var totalCompraCredito = _compraCreditoRepository.SomaValorPorMes(ano, mes);
-                var totalPagamentoCliente = _pagamentoClienteRepository.SomaValorPorMes(ano, mes);
-                var totalPagamentoRevendedor = _pagamentoRevendedorRepository.SomaValorPorMes(ano, mes);
-                var lucro = (totalPagamentoCliente + totalPagamentoRevendedor) - totalCompraCredito;
+                var ano = i;
 
-                string query = "";
-
-                var valorExiste = _connection.ExecuteScalar<bool>("SELECT COUNT(1) FROM TabelaSoma WHERE Ano = @Ano AND Mes = @Mes", new { Ano = ano, Mes = mes });
-
-                if (valorExiste)
+                for (int j = 1; j <= mesAtual; j++)
                 {
-                    query = "UPDATE TabelaSoma SET Ano = @Ano, Mes = @Mes, TotalCompraCredito = @TotalCompraCredito, TotalPagamentoCliente = @TotalPagamentoCliente, TotalPagamentoRevendedor = @TotalPagamentoRevendedor, Lucro = @Lucro WHERE Mes = @Mes;";
+                    var mes = j;
+                    var totalCompraCredito = _compraCreditoRepository.SomaValorPorMes(ano, mes);
+                    var totalPagamentoCliente = _pagamentoClienteRepository.SomaValorPorMes(ano, mes);
+                    var totalPagamentoRevendedor = _pagamentoRevendedorRepository.SomaValorPorMes(ano, mes);
+                    var lucro = (totalPagamentoCliente + totalPagamentoRevendedor) - totalCompraCredito;
+                    string query = "";
+
+                    var valorExiste = _connection.ExecuteScalar<bool>("SELECT COUNT(1) FROM TabelaSoma WHERE Ano = @Ano AND Mes = @Mes", new { Ano = ano, Mes = mes });
+
+                    if (valorExiste)
+                    {
+                        query = "UPDATE TabelaSoma SET Ano = @Ano, Mes = @Mes, TotalCompraCredito = @TotalCompraCredito, TotalPagamentoCliente = @TotalPagamentoCliente, TotalPagamentoRevendedor = @TotalPagamentoRevendedor, Lucro = @Lucro WHERE Mes = @Mes;";
+                    }
+                    else
+                    {
+                        query = "INSERT INTO TabelaSoma (Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro) VALUES (@Ano, @Mes, @TotalCompraCredito, @TotalPagamentoCliente, @TotalPagamentoRevendedor, @Lucro);";
+                    }
+
+                    var parameters = new
+                    {
+                        Ano = ano,
+                        Mes = mes,
+                        TotalCompraCredito = totalCompraCredito,
+                        TotalPagamentoCliente = totalPagamentoCliente,
+                        TotalPagamentoRevendedor = totalPagamentoRevendedor,
+                        Lucro = lucro
+                    };
+
+                    _connection.Execute(query, parameters);
                 }
-                else
-                {
-                    query = "INSERT INTO TabelaSoma (Ano, Mes, TotalCompraCredito, TotalPagamentoCliente, TotalPagamentoRevendedor, Lucro) VALUES (@Ano, @Mes, @TotalCompraCredito, @TotalPagamentoCliente, @TotalPagamentoRevendedor, @Lucro);";
-                }
 
-                var parameters = new
-                {
-                    Ano = ano,
-                    Mes = mes,
-                    TotalCompraCredito = totalCompraCredito,
-                    TotalPagamentoCliente = totalPagamentoCliente,
-                    TotalPagamentoRevendedor = totalPagamentoRevendedor,
-                    Lucro = lucro
-                };
-
-                _connection.Execute(query, parameters);
             }            
 
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -90,7 +97,7 @@ public class TabelaSomaRepository
     {
         try
         {
-            return _connection.QuerySingle<decimal>("SELECT COALESCE(SUM(Lucro),0) AS 'Lucro total' FROM TabelaSoma WHERE Ano = @Ano;", new {Ano = ano });
+            return _connection.QuerySingle<decimal>("SELECT COALESCE(SUM(Lucro),0) AS 'Lucro total' FROM TabelaSoma WHERE Ano = @Ano;", new { Ano = ano });
         }
         catch (Exception ex)
         {
