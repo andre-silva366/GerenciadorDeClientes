@@ -13,7 +13,8 @@ public class TabelaSomaRepository
     private RegistroPagamentoRevendedorRepository _pagamentoRevendedorRepository;
     public TabelaSomaRepository()
     {
-        _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        //_connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        _connection = new MySql.Data.MySqlClient.MySqlConnection("Server=192.168.15.14;Database=GerenciamentoClientes;Uid=andre;Pwd=3210;SslMode=None;AllowPublicKeyRetrieval=True;");
         _compraCreditoRepository = new RegistroCompraCreditoRepository();
         _pagamentoClienteRepository = new RegistroPagamentoClienteRepository();
         _pagamentoRevendedorRepository = new RegistroPagamentoRevendedorRepository();

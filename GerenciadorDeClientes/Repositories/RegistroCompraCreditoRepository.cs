@@ -10,7 +10,11 @@ public class RegistroCompraCreditoRepository : IRegistroRepository<RegistroCompr
     private readonly IDbConnection _connection;
     public RegistroCompraCreditoRepository()
     {
-        _connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+        //Sql
+        //_connection = new SqlConnection("Data Source=ANDRE-SILVA366\\SQLExpress;Initial Catalog=GerenciamentoClientes;Integrated Security=True;Connect Timeout=30;");
+
+        //MySQL
+        _connection = new MySql.Data.MySqlClient.MySqlConnection("Server=192.168.15.14;Database=GerenciamentoClientes;Uid=andre;Pwd=3210;SslMode=None;AllowPublicKeyRetrieval=True;AllowPublicKeyRetrieval=True;");
     }
     public ICollection<RegistroCompraCredito> GetAll()
     {
@@ -94,7 +98,8 @@ public class RegistroCompraCreditoRepository : IRegistroRepository<RegistroCompr
     {
         try
         {
-            return _connection.QuerySingleOrDefault<decimal>("SELECT COALESCE(SUM(Valor), 0) AS TotalCompraCredito FROM RegistroCompraCredito WHERE DATEPART(MONTH, DataCompra) = @Mes AND DATEPART(YEAR, DataCompra) = @Ano;", new { Mes = mes ,Ano = ano});
+            var lista = _connection.Query<decimal>("SELECT COALESCE(SUM(Valor), 0) AS TotalCompraCredito FROM RegistroCompraCredito WHERE MONTH(DataCompra) = @Mes AND YEAR(DataCompra) = @Ano;", new { Mes = mes, Ano = ano }).ToList();
+            return  lista.First();
              
         }
         catch(Exception ex)
